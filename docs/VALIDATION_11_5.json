@@ -1,0 +1,71 @@
+{
+  "version": "11-5-dev",
+  "recorded_at": "2026-11-05T08:49:45.666246+00:00",
+  "episode_id": "cs_0001_session_20261030_183844",
+  "automated_tests": {
+    "command": "python3 -m unittest discover -s tests115 -q",
+    "count": 21,
+    "status": "passed"
+  },
+  "legacy_release_regression": "passed",
+  "strict_saved_response_replay": "passed",
+  "fresh_inference_single_episode_final_validation": {
+    "status": "passed",
+    "validated": 1,
+    "expected": 1,
+    "errors": [],
+    "semantic_human_reviewed": false,
+    "scope": "Direct package, schema, temporal tree, evidence, hashes and both exports"
+  },
+  "full_batch_validated": false,
+  "cold_full_pipeline_benchmark": false,
+  "real_multi_episode_throughput_validated": false,
+  "owned_local_server_stopped": true,
+  "fresh_stage_seconds": {
+    "cpu": 47.49532522101072,
+    "depth": 136.60818246597773,
+    "astra_with_service_retries": 873.9328409059963,
+    "lan_events": 165.75783729553223,
+    "local_scene": 158.0414881260076,
+    "local_temporal": 128.85350456897868
+  },
+  "timing_scope": "Separate real stages; events overlapped Astra, scheduler reused finished stages, and a socket-only code repair required a documented resume. Not a continuous cold-run or batch timing.",
+  "code_sha256": {
+    "/home/baai/zl/todo/11.4/processing/pipeline_11_5.py": "985422d5bb3662fa56d23577537bebed3fc1a4a9d7c0cd72c133713c8c8bf197",
+    "/home/baai/zl/todo/11.4/processing/annotate_batch.py": "1238dc0b8efa8c9c82221e3648bc05e9eacf0cd83ac839149f179966b2f85b7e",
+    "/home/baai/zl/todo/11.4/processing/annotation_contract.py": "254368fc4fd8da0bf3205d2a23d4f9dea84fc4ceb7c01753d1fd9d2ea93ec17e",
+    "/home/baai/zl/todo/11.4/processing/audit_inputs.py": "2c07db0c35a49a60591ce64c3a964e65bbfe6820256c07e4a4bd97c12c806552",
+    "/home/baai/zl/todo/11.4/processing/export_confirmed.py": "14b19a14f3f2ef6190a00bce652c783c4667daf72e91c6f5e838b702933403dd",
+    "/home/baai/zl/todo/11.4/processing/dependencies.lock.json": "25bbcf96a7929765a9f26a88eb199071723f73b85538635622b52be20e587cf6",
+    "/home/baai/zl/todo/11.4/processing/pipeline115/__init__.py": "bbe8bd5c1627fa3f808d678fb10b86d355391326a6be3ba0beabd746489a35c0",
+    "/home/baai/zl/todo/11.4/processing/pipeline115/client.py": "99479c8afdfcdc041dd08a5ffbb87daa839223f0dc9ec4d236121d0e2ef3c125",
+    "/home/baai/zl/todo/11.4/processing/pipeline115/common.py": "82a70233bafe3ec36a1f3e90bc90221634f0a90a2dcd4f448ab7146fb18c4e83",
+    "/home/baai/zl/todo/11.4/processing/pipeline115/direct.py": "8e1d63697e99b968970f0af7a7742ad933f898b90b8589cc30f71303e015f6e3",
+    "/home/baai/zl/todo/11.4/processing/pipeline115/engine.py": "13f2b4c8b599196046086f4bd9e8386e51dbde2bef6bb9d92217b94564440dc8",
+    "/home/baai/zl/todo/11.4/processing/pipeline115/preprocess.py": "4010639a487e9377347fda2d2d2bbbbc31c25bd9779a376e1d3cacaebd104551",
+    "/home/baai/zl/todo/11.4/processing/pipeline115/resources.py": "de0508055ed01f49a17adf84d9f1176b8cf1e15ee727a5889da5e21fa1f679b3",
+    "/home/baai/zl/todo/11.4/processing/pipeline115/validate.py": "229455f336baf8a6019fd89bfaf1c4d46abe0238a9e1be5773098f08623f0314",
+    "/home/baai/zl/todo/11.4/processing/pipeline115/worker.py": "df6ce88451144b1a12987aac843097d53a3eff8feb881a094fa859df69f86a2f",
+    "/home/baai/zl/Qwen3.8-27B/src/local_vlm/__init__.py": "24260bd3826e13c74f1247520d2c41eb9b459e6b4f7df5c6f95ba081ab81ce8f",
+    "/home/baai/zl/Qwen3.8-27B/src/local_vlm/cli.py": "8f02d2268342debed3e7c8e48dc24b68a7a790869a6d7d9fdca12b151deea24f",
+    "/home/baai/zl/Qwen3.8-27B/src/local_vlm/client.py": "c110160cd7544239382292df6842d73a154545ff4ef5a2dde19754c123078039",
+    "/home/baai/zl/Qwen3.8-27B/src/local_vlm/config.py": "d3bb4a5ec9aae83790e6c987947e843d23a97a633c045c6ef53ab68dafa1d902",
+    "/home/baai/zl/Qwen3.8-27B/src/local_vlm/media.py": "b350b82f23f1025e4189965da04ac3112ff2a694fea0d71ccef2955f4524742f",
+    "/home/baai/zl/Qwen3.8-27B/src/local_vlm/server.py": "ffefab080e8bc0bed5212124df78849110c2a326543115f19dacb06609ae3ee2",
+    "/home/baai/zl/Qwen3.8-27B/src/local_vlm/validation.py": "22fb3ecf0d059e0d011a00b8595c4a78187c524fe6cb0af4a80e8caff935b896"
+  },
+  "external_evidence": {
+    "/home/baai/zl/todo/11.5/validation/direct_equivalence/equivalence_report.json": "e5550046d969a3cb28af2356886d121c0b1f0b9fed21deadd811f346e615d92c",
+    "/home/baai/zl/todo/11.5/validation/local_residency/report.json": "29be19b7937a0f89b729c524f606c2d770631607ad9983c43297f3a2f7491611",
+    "/home/baai/zl/todo/11.5/validation/fresh_preprocessing/report.json": "38f3ed99c22d25c8952828a889eabe89ab1488e29a792a6b5560e313c569ebeb",
+    "/home/baai/zl/todo/11.5/validation/replay_report.json": "6f5215d98217273a1892779ccadcc28a4b31c3bcb3ec0716eac3690233de6369",
+    "/home/baai/zl/todo/11.5/validation/lan_identity.json": "840c8ffecacf44cde7318ff7ad400ce92fc98e5a698f1b2f6a618f9080219860",
+    "/home/baai/zl/todo/11.5/validation/live_astra/live_astra_report.json": "82fcd33ea4dc9f55a1390a8527bbf9ef271af04d537fb84a06f636ca6527a533",
+    "/home/baai/zl/todo/11.5/validation/live_astra/live_events_report.json": "f4ebb94dc2b310105abc2480c0d225b0456bb8b0e82f79e2757a1dda0d312766",
+    "/home/baai/zl/todo/11.5/validation/live_astra/scheduler_integration_report.json": "1b6672b4c8f779cb7088996231e34ff734bf2350aba705f9b27b698f896d770f",
+    "/home/baai/zl/todo/11.5/validation/live_astra/scheduler_resume_report.json": "844d7250aced65b8ab0579b7369bd4338ec5b7634b90b7de77bb95382b72afea",
+    "/home/baai/zl/todo/11.5/validation/live_astra/final_validation.json": "1f1bba29346f14b99e31935984e6f6f7a7412defe9597eefe89a23f8fcf86287",
+    "/home/baai/zl/todo/11.5/validation/live_astra/migrations/001_socket_time_wait/audit.json": "1ced07250e1fc6fb1eec450efddbfaffcf55fa44f98e92946ef45cfa19a7d37e",
+    "/home/baai/zl/todo/11.5/validation/live_astra/migrations/002_trailing_whitespace/audit.json": "cb8ace2e6986c6613e8106b15a1dc43ec474d33791fa69a6afacbbdb4f889dc3"
+  }
+}

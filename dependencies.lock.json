@@ -1,0 +1,788 @@
+{
+  "version": "11-4",
+  "code": [
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/config/ego_preprocessing/demo.json",
+      "sha256": "f9d1b60051f2c3041270c390d2c4eee92481a6287022ddb7850b243745aaada6",
+      "snapshot": "dependency_snapshots/preprocessing/f9d1b60051f2_demo.json"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/scripts/batch_ego_preprocessing.py",
+      "sha256": "929578cff4aeda89f931b3e21f1ed3fe2922d66a98208ee2c3934629378a2878",
+      "snapshot": "dependency_snapshots/preprocessing/929578cff4ae_batch_ego_preprocessing.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/scripts/fast_foundation_stereo_worker.py",
+      "sha256": "49803070997f811a727381e032c5b98cf2614f39f6ddf1bad65fd585ee27307a",
+      "snapshot": "dependency_snapshots/preprocessing/49803070997f_fast_foundation_stereo_worker.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/scripts/prepare_ego_stereo_dataset.py",
+      "sha256": "29b9f764072448cd4cc8f07cfa1b175f5bfbecc076d804975e6476cf239fe4b6",
+      "snapshot": "dependency_snapshots/preprocessing/29b9f7640724_prepare_ego_stereo_dataset.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/scripts/run_ego_openvins.py",
+      "sha256": "02bf3d7fdfe91700a182cf1ddf287dc26e004bbbf3ef912be0fb59203e5c23d6",
+      "snapshot": "dependency_snapshots/preprocessing/02bf3d7fdfe9_run_ego_openvins.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/scripts/run_fast_foundation_stereo_depth.py",
+      "sha256": "7d441e164961a05a3fd41d7b5626b9e1530b838400299f81711e2fa844a1c34f",
+      "snapshot": "dependency_snapshots/preprocessing/7d441e164961_run_fast_foundation_stereo_depth.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/scripts/select_ego_keyframes.py",
+      "sha256": "51803a44b1c45dfd5c3ecc8aed7fb714729e2ebcf731e8a9c640a4e0ce1c6d02",
+      "snapshot": "dependency_snapshots/preprocessing/51803a44b1c4_select_ego_keyframes.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/__init__.py",
+      "sha256": "167d80bda47283a2fd7140876b317a70d99b2c7e72be9e9f2365084127d4531b",
+      "snapshot": "dependency_snapshots/preprocessing/167d80bda472___init__.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/datasets/__init__.py",
+      "sha256": "6482b67095ebf660760919ae7673f818ab0f39528d5de59a09d087461de44af7",
+      "snapshot": "dependency_snapshots/preprocessing/6482b67095eb___init__.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/datasets/ego_stereo_imu.py",
+      "sha256": "569d6f75612b78c11f1f98bdfd88624355ccf22385c5e841afaca758e36a5f32",
+      "snapshot": "dependency_snapshots/preprocessing/569d6f75612b_ego_stereo_imu.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/depth/__init__.py",
+      "sha256": "b9894690a5649f7bc0e7173e38139ed2e4c4e53edcd194d88f472c19330cb892",
+      "snapshot": "dependency_snapshots/preprocessing/b9894690a564___init__.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/depth/confidence.py",
+      "sha256": "9c985fe4ccc2ab10a7b05319222a3ab84ae9ee191123de5bf9d9ab976daa4ce0",
+      "snapshot": "dependency_snapshots/preprocessing/9c985fe4ccc2_confidence.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/memory/__init__.py",
+      "sha256": "1c2d4415ed63963f0332bf70a6e934a6a5e6204c5a3e71301657721127d04ff8",
+      "snapshot": "dependency_snapshots/preprocessing/1c2d4415ed63___init__.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/memory/legacy_gate.py",
+      "sha256": "5fe23049e829afa849bf63f6d31bf92e55c601f5bb858c19afb04c591f758be9",
+      "snapshot": "dependency_snapshots/preprocessing/5fe23049e829_legacy_gate.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/preprocessing/__init__.py",
+      "sha256": "ae095a28843a308370dfc5e7ccac9ea49af96e30197fa4d6c727c354737ea12e",
+      "snapshot": "dependency_snapshots/preprocessing/ae095a28843a___init__.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/preprocessing/audit.py",
+      "sha256": "383b89db7093da2cd71592e493f767ec6acba50b1e1012a4b83472dd68f9e523",
+      "snapshot": "dependency_snapshots/preprocessing/383b89db7093_audit.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/preprocessing/common.py",
+      "sha256": "24b264859871f5fb7fa00117adb74dc7abd12cd4f07d9c448a3d8875a7505520",
+      "snapshot": "dependency_snapshots/preprocessing/24b264859871_common.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/preprocessing/depth.py",
+      "sha256": "1d911d845f58d660138abf675a39bfb0c89c521ff3deb0097f48668f36311347",
+      "snapshot": "dependency_snapshots/preprocessing/1d911d845f58_depth.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/preprocessing/geometry.py",
+      "sha256": "e9c561b63ece3fb4f159dbcb61557f66f61f9dd45438d8cba1684c1f049c2def",
+      "snapshot": "dependency_snapshots/preprocessing/e9c561b63ece_geometry.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/preprocessing/rectify.py",
+      "sha256": "dbcedf98bcffedcca9afe1349ce6604fc094f5f4de55d761f413862fae9d7e4f",
+      "snapshot": "dependency_snapshots/preprocessing/dbcedf98bcff_rectify.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/preprocessing/ros_output.py",
+      "sha256": "564bda06c1e7f3bb2991cfc8a778a8ad1411edd73afe197d6e7c9d675b6fb736",
+      "snapshot": "dependency_snapshots/preprocessing/564bda06c1e7_ros_output.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/preprocessing/runner.py",
+      "sha256": "6a8e993a60f483fa3d4d423fa048f1a2df049dd4e105ac606b0ef729f82549c5",
+      "snapshot": "dependency_snapshots/preprocessing/6a8e993a60f4_runner.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/preprocessing/select.py",
+      "sha256": "62018437bd8883ebd64fbc0bc9421a2c66901cf6d5cf95a709f88d9f6eb9767d",
+      "snapshot": "dependency_snapshots/preprocessing/62018437bd88_select.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/preprocessing/vio.py",
+      "sha256": "f4de8358eba02f5d7dd832261ac5624c0a7bc31d834189ef4b44b33bd2934ad4",
+      "snapshot": "dependency_snapshots/preprocessing/f4de8358eba0_vio.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/realtime/__init__.py",
+      "sha256": "51f9fc9bb28c768e63786cfdacc8373b7830bfc8932ab5f8460aea88d28ac4db",
+      "snapshot": "dependency_snapshots/preprocessing/51f9fc9bb28c___init__.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/egomemory-core/src/daaam/realtime/gpu.py",
+      "sha256": "9caece450f9f3292c2f5c5d9a8d6256478b121cfd77f2904cacd7e7f27c52869",
+      "snapshot": "dependency_snapshots/preprocessing/9caece450f9f_gpu.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/recovery_policy.json",
+      "sha256": "3d6d8b95389191760a84fbb2dd3aa0fad176d246428d4aa88bead81b44b6ae7f",
+      "snapshot": "dependency_snapshots/covariance_recovery/3d6d8b953891_recovery_policy.json"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/scripts/batch_ego_preprocessing.py",
+      "sha256": "929578cff4aeda89f931b3e21f1ed3fe2922d66a98208ee2c3934629378a2878",
+      "snapshot": "dependency_snapshots/covariance_recovery/929578cff4ae_batch_ego_preprocessing.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/scripts/fast_foundation_stereo_worker.py",
+      "sha256": "49803070997f811a727381e032c5b98cf2614f39f6ddf1bad65fd585ee27307a",
+      "snapshot": "dependency_snapshots/covariance_recovery/49803070997f_fast_foundation_stereo_worker.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/scripts/prepare_ego_stereo_dataset.py",
+      "sha256": "29b9f764072448cd4cc8f07cfa1b175f5bfbecc076d804975e6476cf239fe4b6",
+      "snapshot": "dependency_snapshots/covariance_recovery/29b9f7640724_prepare_ego_stereo_dataset.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/scripts/run_ego_openvins.py",
+      "sha256": "f708bfabacf7934f08aa53d70e6d7945f1ce65ee2cf245c148c819ddf116f53d",
+      "snapshot": "dependency_snapshots/covariance_recovery/f708bfabacf7_run_ego_openvins.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/scripts/run_fast_foundation_stereo_depth.py",
+      "sha256": "7d441e164961a05a3fd41d7b5626b9e1530b838400299f81711e2fa844a1c34f",
+      "snapshot": "dependency_snapshots/covariance_recovery/7d441e164961_run_fast_foundation_stereo_depth.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/scripts/select_ego_keyframes.py",
+      "sha256": "51803a44b1c45dfd5c3ecc8aed7fb714729e2ebcf731e8a9c640a4e0ce1c6d02",
+      "snapshot": "dependency_snapshots/covariance_recovery/51803a44b1c4_select_ego_keyframes.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/__init__.py",
+      "sha256": "167d80bda47283a2fd7140876b317a70d99b2c7e72be9e9f2365084127d4531b",
+      "snapshot": "dependency_snapshots/covariance_recovery/167d80bda472___init__.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/datasets/__init__.py",
+      "sha256": "6482b67095ebf660760919ae7673f818ab0f39528d5de59a09d087461de44af7",
+      "snapshot": "dependency_snapshots/covariance_recovery/6482b67095eb___init__.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/datasets/ego_stereo_imu.py",
+      "sha256": "569d6f75612b78c11f1f98bdfd88624355ccf22385c5e841afaca758e36a5f32",
+      "snapshot": "dependency_snapshots/covariance_recovery/569d6f75612b_ego_stereo_imu.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/depth/__init__.py",
+      "sha256": "b9894690a5649f7bc0e7173e38139ed2e4c4e53edcd194d88f472c19330cb892",
+      "snapshot": "dependency_snapshots/covariance_recovery/b9894690a564___init__.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/depth/confidence.py",
+      "sha256": "9c985fe4ccc2ab10a7b05319222a3ab84ae9ee191123de5bf9d9ab976daa4ce0",
+      "snapshot": "dependency_snapshots/covariance_recovery/9c985fe4ccc2_confidence.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/memory/__init__.py",
+      "sha256": "1c2d4415ed63963f0332bf70a6e934a6a5e6204c5a3e71301657721127d04ff8",
+      "snapshot": "dependency_snapshots/covariance_recovery/1c2d4415ed63___init__.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/memory/legacy_gate.py",
+      "sha256": "5fe23049e829afa849bf63f6d31bf92e55c601f5bb858c19afb04c591f758be9",
+      "snapshot": "dependency_snapshots/covariance_recovery/5fe23049e829_legacy_gate.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/preprocessing/__init__.py",
+      "sha256": "ae095a28843a308370dfc5e7ccac9ea49af96e30197fa4d6c727c354737ea12e",
+      "snapshot": "dependency_snapshots/covariance_recovery/ae095a28843a___init__.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/preprocessing/audit.py",
+      "sha256": "383b89db7093da2cd71592e493f767ec6acba50b1e1012a4b83472dd68f9e523",
+      "snapshot": "dependency_snapshots/covariance_recovery/383b89db7093_audit.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/preprocessing/common.py",
+      "sha256": "24b264859871f5fb7fa00117adb74dc7abd12cd4f07d9c448a3d8875a7505520",
+      "snapshot": "dependency_snapshots/covariance_recovery/24b264859871_common.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/preprocessing/depth.py",
+      "sha256": "1d911d845f58d660138abf675a39bfb0c89c521ff3deb0097f48668f36311347",
+      "snapshot": "dependency_snapshots/covariance_recovery/1d911d845f58_depth.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/preprocessing/geometry.py",
+      "sha256": "e9c561b63ece3fb4f159dbcb61557f66f61f9dd45438d8cba1684c1f049c2def",
+      "snapshot": "dependency_snapshots/covariance_recovery/e9c561b63ece_geometry.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/preprocessing/rectify.py",
+      "sha256": "dbcedf98bcffedcca9afe1349ce6604fc094f5f4de55d761f413862fae9d7e4f",
+      "snapshot": "dependency_snapshots/covariance_recovery/dbcedf98bcff_rectify.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/preprocessing/ros_output.py",
+      "sha256": "564bda06c1e7f3bb2991cfc8a778a8ad1411edd73afe197d6e7c9d675b6fb736",
+      "snapshot": "dependency_snapshots/covariance_recovery/564bda06c1e7_ros_output.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/preprocessing/runner.py",
+      "sha256": "6a8e993a60f483fa3d4d423fa048f1a2df049dd4e105ac606b0ef729f82549c5",
+      "snapshot": "dependency_snapshots/covariance_recovery/6a8e993a60f4_runner.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/preprocessing/select.py",
+      "sha256": "62018437bd8883ebd64fbc0bc9421a2c66901cf6d5cf95a709f88d9f6eb9767d",
+      "snapshot": "dependency_snapshots/covariance_recovery/62018437bd88_select.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/preprocessing/vio.py",
+      "sha256": "f4de8358eba02f5d7dd832261ac5624c0a7bc31d834189ef4b44b33bd2934ad4",
+      "snapshot": "dependency_snapshots/covariance_recovery/f4de8358eba0_vio.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/realtime/__init__.py",
+      "sha256": "51f9fc9bb28c768e63786cfdacc8373b7830bfc8932ab5f8460aea88d28ac4db",
+      "snapshot": "dependency_snapshots/covariance_recovery/51f9fc9bb28c___init__.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/outputs/todo_search_episodes_20261103/frozen_runners/covariance_filter/src/daaam/realtime/gpu.py",
+      "sha256": "9caece450f9f3292c2f5c5d9a8d6256478b121cfd77f2904cacd7e7f27c52869",
+      "snapshot": "dependency_snapshots/covariance_recovery/9caece450f9f_gpu.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/astra_request_retry.py",
+      "sha256": "13ade11d4483446f29af578343650a5e2912292195d35c20cc69de9a0a735e6e",
+      "snapshot": "dependency_snapshots/qwen_scripts/13ade11d4483_astra_request_retry.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/astra_status.py",
+      "sha256": "c7917356addae0375311ff8dd1dbbd23067ac54d750a3002a90d486c582eaeb5",
+      "snapshot": "dependency_snapshots/qwen_scripts/c7917356adda_astra_status.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/audit_temporal_tree_batch.py",
+      "sha256": "631724f003da0b30ddb0dac4d4685b74c5835c149c754998d97e84a6c5653346",
+      "snapshot": "dependency_snapshots/qwen_scripts/631724f003da_audit_temporal_tree_batch.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/batch_temporal_trees.py",
+      "sha256": "aa26758b515759797dc307ccbd792af45f83aecb2b2b82a64f9f931322f3ca03",
+      "snapshot": "dependency_snapshots/qwen_scripts/aa26758b5157_batch_temporal_trees.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/benchmark_astra_local.py",
+      "sha256": "d693c7a7c752ff4d3d0154f707c281c4eaaa71778e455e8e59e84129f0a64ba3",
+      "snapshot": "dependency_snapshots/qwen_scripts/d693c7a7c752_benchmark_astra_local.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/benchmark_event_montage.py",
+      "sha256": "66fae2d69d69c5c75178aa65b120e3362fa1b0b37c36d1c22415709d543e7e4a",
+      "snapshot": "dependency_snapshots/qwen_scripts/66fae2d69d69_benchmark_event_montage.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/build_backend.sh",
+      "sha256": "2a92f305fcc6f45e95d0fce909d2b7ce068e032967774b7b30804b4bb7061095",
+      "snapshot": "dependency_snapshots/qwen_scripts/2a92f305fcc6_build_backend.sh"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/check_env.sh",
+      "sha256": "199182916fcc71749214fb6e292a7ce1a5919f2ca8845e67387434c84e29b5b1",
+      "snapshot": "dependency_snapshots/qwen_scripts/199182916fcc_check_env.sh"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/create_test_media.py",
+      "sha256": "9319bed9974b2244278e67d44c7d22ba5b61e07a9d4b63d3e66ea61662bc3504",
+      "snapshot": "dependency_snapshots/qwen_scripts/9319bed9974b_create_test_media.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/download_model.py",
+      "sha256": "ca635d67ba316d4877d5b5825613e5f3ea6fd05eea483b535ebe8f34847f70f0",
+      "snapshot": "dependency_snapshots/qwen_scripts/ca635d67ba31_download_model.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/export_research_fields.py",
+      "sha256": "2efcbee61238b9a7fdd5c6f03feb2a9373e860b239106f2791dad54b837e53e9",
+      "snapshot": "dependency_snapshots/qwen_scripts/2efcbee61238_export_research_fields.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/export_temporal_tree.py",
+      "sha256": "202f6c93084e4c31e39ba096228b67fa2e329c9b36f38c97bf007b26d48fb465",
+      "snapshot": "dependency_snapshots/qwen_scripts/202f6c93084e_export_temporal_tree.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/generate_selected_scene.py",
+      "sha256": "0282dee9bbb130e8034b97ac7e564781c140af261acb0b794f042b3913af796a",
+      "snapshot": "dependency_snapshots/qwen_scripts/0282dee9bbb1_generate_selected_scene.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/install_cuda_local.py",
+      "sha256": "1d58d04fbaab9e94965a0ed7b47f3934efdc253318d7889a8d48833e92712c19",
+      "snapshot": "dependency_snapshots/qwen_scripts/1d58d04fbaab_install_cuda_local.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/recover_failed_selections.py",
+      "sha256": "10710a4088f46cbed0dc45045d7396e7f42e6eb2df29308bc212baaccd51d856",
+      "snapshot": "dependency_snapshots/qwen_scripts/10710a4088f4_recover_failed_selections.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/run_astra_demo.sh",
+      "sha256": "36bf44e782faddc4bc368f9820964eaab27430bcb84e553b71cd4a062bcb2e09",
+      "snapshot": "dependency_snapshots/qwen_scripts/36bf44e782fa_run_astra_demo.sh"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/run_frames.py",
+      "sha256": "e42fda97e14c7c589d36fc61f2507406b951a0690b205d88a470433bd76eeca2",
+      "snapshot": "dependency_snapshots/qwen_scripts/e42fda97e14c_run_frames.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/run_image.py",
+      "sha256": "312c39591df8b68432c01e2081c8437a1f58623d5d8f64712d20ebc52a5786aa",
+      "snapshot": "dependency_snapshots/qwen_scripts/312c39591df8_run_image.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/run_scene_event_batch.py",
+      "sha256": "50848ea047ae03f7104c2503f679c12dbed784549dd86876d263370d6df27edc",
+      "snapshot": "dependency_snapshots/qwen_scripts/50848ea047ae_run_scene_event_batch.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/run_scene_temporal_batch.py",
+      "sha256": "961ad20658bf59170af5fb7f354f2f5010440ad5139cf3867f290d61a06054f3",
+      "snapshot": "dependency_snapshots/qwen_scripts/961ad20658bf_run_scene_temporal_batch.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/run_temporal_episode.py",
+      "sha256": "17cf490b7d85a01e74bdef7710a29f8d147f22dfdb0afb1c96c57ccc9f596947",
+      "snapshot": "dependency_snapshots/qwen_scripts/17cf490b7d85_run_temporal_episode.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/run_video.py",
+      "sha256": "df6b56edfdc3a08cb1d3425667c2b117c8b0ad0038f6255afe2ccc258f1c40d9",
+      "snapshot": "dependency_snapshots/qwen_scripts/df6b56edfdc3_run_video.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/select_scene_keyframes.py",
+      "sha256": "af498817c8861019c898b2d8f87fc08f31cf3b430667dea32379d586457a6e5a",
+      "snapshot": "dependency_snapshots/qwen_scripts/af498817c886_select_scene_keyframes.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/smoke_test.py",
+      "sha256": "3f3901f595b3ebee33f423dea8fdd1827e18a9d99a3e1580e0bb5e720154e21d",
+      "snapshot": "dependency_snapshots/qwen_scripts/3f3901f595b3_smoke_test.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/start_server.sh",
+      "sha256": "a310bf944745080956c146b74c3788f8d01e08d9316f358adf24d6933fa6b2e5",
+      "snapshot": "dependency_snapshots/qwen_scripts/a310bf944745_start_server.sh"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/stop_server.sh",
+      "sha256": "4caa1a38b32aa21618989896660fc1f8f5c0af597c105725e6480597f3a220c2",
+      "snapshot": "dependency_snapshots/qwen_scripts/4caa1a38b32a_stop_server.sh"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/supervise_todo_completion.py",
+      "sha256": "9417cc54a03263e99a50f0c13a641fa472e949c2b6ba03422a1a551bdc7b29dd",
+      "snapshot": "dependency_snapshots/qwen_scripts/9417cc54a032_supervise_todo_completion.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/temporal_spatial_v2.py",
+      "sha256": "3c296c915d6ca76fb43a9c2b235cd283ae9ed7af9ff464a48845bf75aa263a69",
+      "snapshot": "dependency_snapshots/qwen_scripts/3c296c915d6c_temporal_spatial_v2.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/scripts/validate_scene_event_demo.py",
+      "sha256": "3ca4e8278c470687bf1a769c29cf0ae364ac50ae636640f9d0f10f9bb7692bde",
+      "snapshot": "dependency_snapshots/qwen_scripts/3ca4e8278c47_validate_scene_event_demo.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/prompts/describe_zh.txt",
+      "sha256": "8fbe0173be61875582069c95f1ba1e8b09a97f7f929529568d26b3e550630aa1",
+      "snapshot": "dependency_snapshots/qwen_prompts/8fbe0173be61_describe_zh.txt"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/prompts/event_annotation_zh.txt",
+      "sha256": "924be55fa0635e681d0986f36ec4c77ad6aba13005220673104affbcbb8cc461",
+      "snapshot": "dependency_snapshots/qwen_prompts/924be55fa063_event_annotation_zh.txt"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/prompts/search_event_detailed.zh.txt",
+      "sha256": "a6775c634f3fca0340e29428bc40a5e7b5a1fd277fc97b9de75a44b68c8e6960",
+      "snapshot": "dependency_snapshots/qwen_prompts/a6775c634f3f_search_event_detailed.zh.txt"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/prompts/search_event_target_context.zh.txt",
+      "sha256": "15655eb2f7f24ecaa9b55586a428a816e94eeb1c5a93aceac6c383c9c0283159",
+      "snapshot": "dependency_snapshots/qwen_prompts/15655eb2f7f2_search_event_target_context.zh.txt"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/prompts/search_event_temporal.en.txt",
+      "sha256": "243674d3124650901899a0f7dc3b9f1c6c0422e9fae5b7c9241cc0614fdfc17c",
+      "snapshot": "dependency_snapshots/qwen_prompts/243674d31246_search_event_temporal.en.txt"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/prompts/spatial_relation_changes.en.txt",
+      "sha256": "cfb9ad0fe26cda0ad842d85abd75c4c2070929a8e70f8275bdc3b65c3debe319",
+      "snapshot": "dependency_snapshots/qwen_prompts/cfb9ad0fe26c_spatial_relation_changes.en.txt"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/src/local_vlm/__init__.py",
+      "sha256": "24260bd3826e13c74f1247520d2c41eb9b459e6b4f7df5c6f95ba081ab81ce8f",
+      "snapshot": "dependency_snapshots/qwen_runtime/24260bd3826e___init__.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/src/local_vlm/cli.py",
+      "sha256": "8f02d2268342debed3e7c8e48dc24b68a7a790869a6d7d9fdca12b151deea24f",
+      "snapshot": "dependency_snapshots/qwen_runtime/8f02d2268342_cli.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/src/local_vlm/client.py",
+      "sha256": "c110160cd7544239382292df6842d73a154545ff4ef5a2dde19754c123078039",
+      "snapshot": "dependency_snapshots/qwen_runtime/c110160cd754_client.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/src/local_vlm/config.py",
+      "sha256": "d3bb4a5ec9aae83790e6c987947e843d23a97a633c045c6ef53ab68dafa1d902",
+      "snapshot": "dependency_snapshots/qwen_runtime/d3bb4a5ec9aa_config.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/src/local_vlm/media.py",
+      "sha256": "b350b82f23f1025e4189965da04ac3112ff2a694fea0d71ccef2955f4524742f",
+      "snapshot": "dependency_snapshots/qwen_runtime/b350b82f23f1_media.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/src/local_vlm/server.py",
+      "sha256": "ffefab080e8bc0bed5212124df78849110c2a326543115f19dacb06609ae3ee2",
+      "snapshot": "dependency_snapshots/qwen_runtime/ffefab080e8b_server.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/src/local_vlm/validation.py",
+      "sha256": "22fb3ecf0d059e0d011a00b8595c4a78187c524fe6cb0af4a80e8caff935b896",
+      "snapshot": "dependency_snapshots/qwen_runtime/22fb3ecf0d05_validation.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/__init__.py",
+      "sha256": "2a262817bfdfa9d0302e2dfc8bded72d5db57e6778331a4bb5ba59efb119af4b",
+      "snapshot": "dependency_snapshots/astra_pipeline/2a262817bfdf___init__.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/__main__.py",
+      "sha256": "307299fda7b77d22c64cb51430ec75e5f59d78e9c948786afb3b2544fe45e4b7",
+      "snapshot": "dependency_snapshots/astra_pipeline/307299fda7b7___main__.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/cli.py",
+      "sha256": "946b8927eb06162f49dd5f8a08cf0b3ae40d26ac04e1470a582f7cb79e5e4a27",
+      "snapshot": "dependency_snapshots/astra_pipeline/946b8927eb06_cli.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/config.py",
+      "sha256": "1ba4947433cd85ae25c00751a14239df8ab27b9da97c613d6bfa6680fb563c53",
+      "snapshot": "dependency_snapshots/astra_pipeline/1ba4947433cd_config.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/confirmations.py",
+      "sha256": "dac0af88802ca4d875e6f8188484725dceb77804670d2dc33d276364ad958623",
+      "snapshot": "dependency_snapshots/astra_pipeline/dac0af88802c_confirmations.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/contracts.py",
+      "sha256": "d3a0ba0d94e6912664c2d8f3772336b4987325a63b83f0a921210a157482409f",
+      "snapshot": "dependency_snapshots/astra_pipeline/d3a0ba0d94e6_contracts.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/extract.py",
+      "sha256": "864bd6522f44a63fe7d230b82225f4e9b2edfdc32835c7be86e73981842a1cc1",
+      "snapshot": "dependency_snapshots/astra_pipeline/864bd6522f44_extract.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/final_export.py",
+      "sha256": "f80fa3ba27a82b4695b68be9ddd55f453eec0e5515e4c36a2a826538259abc1f",
+      "snapshot": "dependency_snapshots/astra_pipeline/f80fa3ba27a8_final_export.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/final_validation.py",
+      "sha256": "9a09d69f8f3eb6b8d18b54b11dd04b3d814e108e47f93f565ea8cc319aaa3261",
+      "snapshot": "dependency_snapshots/astra_pipeline/9a09d69f8f3e_final_validation.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/inputs.py",
+      "sha256": "85d5521f9b05230e818409cf577ed925ed8621044e68427ed51605535ff524d3",
+      "snapshot": "dependency_snapshots/astra_pipeline/85d5521f9b05_inputs.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/io.py",
+      "sha256": "af2820dfa652dfedb723e98cd399c2d49dc02949a2bf889ba92d70d034056ebb",
+      "snapshot": "dependency_snapshots/astra_pipeline/af2820dfa652_io.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/local_llama.py",
+      "sha256": "1130433b0ec26bb32600271a4b451678fdea1c9f62dba63225c8d649f58f9bda",
+      "snapshot": "dependency_snapshots/astra_pipeline/1130433b0ec2_local_llama.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/pipeline.py",
+      "sha256": "17bc93d38a1814b1aca5393781db4b1b5c74d6e2bc36318802f83f4e5c1aaaad",
+      "snapshot": "dependency_snapshots/astra_pipeline/17bc93d38a18_pipeline.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/prompts.py",
+      "sha256": "02ef4deacea2d109a4ce1ee7582060302014a14945b998542cf83b32ba578343",
+      "snapshot": "dependency_snapshots/astra_pipeline/02ef4deacea2_prompts.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/provider.py",
+      "sha256": "5860920f148f367ba772091e169e4685ed9f2e392ab94efd0a19113f4adb173c",
+      "snapshot": "dependency_snapshots/astra_pipeline/5860920f148f_provider.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/registry.py",
+      "sha256": "9ee6e32c21e70daa8eee675276ff1e5ec3d26a36172518045ca31ede265ed217",
+      "snapshot": "dependency_snapshots/astra_pipeline/9ee6e32c21e7_registry.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/resources/contract.lock.json",
+      "sha256": "1815d14abf2f1d5d20606e8a36a7f196263dffa4ac21b406fdb9af148cd8a98d",
+      "snapshot": "dependency_snapshots/astra_pipeline/1815d14abf2f_contract.lock.json"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/resources/search_episode.schema.json",
+      "sha256": "20569d416b09522aa383296aeea094dfe0b90d5f1d2f3c9d52e4448b7dc3d198",
+      "snapshot": "dependency_snapshots/astra_pipeline/20569d416b09_search_episode.schema.json"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/s2.py",
+      "sha256": "e9285192b1d3be00d0a81b9da323f72e03d23891d529bfd407bc28157542b3cf",
+      "snapshot": "dependency_snapshots/astra_pipeline/e9285192b1d3_s2.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/s2_export.py",
+      "sha256": "fa5e65487bf3e4f12466c32eb473cd7bc473751beca4227a9f6a11bdedcb9c49",
+      "snapshot": "dependency_snapshots/astra_pipeline/fa5e65487bf3_s2_export.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/s2_prefetch.py",
+      "sha256": "aef19258922526a46380b363bf4350bb99c9cee8ee0aba4ef28a849d5f7b7ff1",
+      "snapshot": "dependency_snapshots/astra_pipeline/aef192589225_s2_prefetch.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/s2_state.py",
+      "sha256": "bd3d643e9f92adc778f3c8eb9e05aec7cf810430e7ad49e52394eae579730446",
+      "snapshot": "dependency_snapshots/astra_pipeline/bd3d643e9f92_s2_state.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/s2_units.py",
+      "sha256": "5a6dbd1eb6c46dfb6eba26db29add666d06c9b895d8c717af18d7b6a69351f9f",
+      "snapshot": "dependency_snapshots/astra_pipeline/5a6dbd1eb6c4_s2_units.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/s3.py",
+      "sha256": "64af35750bbd9a61008f1a66a633243066562868c9a1c4b60bf5790f776dd62a",
+      "snapshot": "dependency_snapshots/astra_pipeline/64af35750bbd_s3.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/selection.py",
+      "sha256": "227bb09967956a375e5f0db315d6aed6becb8ed307594dd59f372cf868b81a94",
+      "snapshot": "dependency_snapshots/astra_pipeline/227bb0996795_selection.py"
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/integrations/astra_pipeline/src/astra_memory/workflow.py",
+      "sha256": "6421f81e8f1d4fc83afd5f84306099914e639236bb8008a1d3e4b389db2fadff",
+      "snapshot": "dependency_snapshots/astra_pipeline/6421f81e8f1d_workflow.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/config/5.demo.json",
+      "sha256": "40f1f7d6593ddb7173589bdefdb9555d7d8def873159f1be2c31e2a05f552f4f",
+      "snapshot": "dependency_snapshots/astra_provider/40f1f7d6593d_5.demo.json"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/__init__.py",
+      "sha256": "2a262817bfdfa9d0302e2dfc8bded72d5db57e6778331a4bb5ba59efb119af4b",
+      "snapshot": "dependency_snapshots/astra_provider/2a262817bfdf___init__.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/__main__.py",
+      "sha256": "307299fda7b77d22c64cb51430ec75e5f59d78e9c948786afb3b2544fe45e4b7",
+      "snapshot": "dependency_snapshots/astra_provider/307299fda7b7___main__.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/cli.py",
+      "sha256": "b3e7639d8838cd8ed2288381e5a0ef21b79d89c9de68d431a57966303d75e341",
+      "snapshot": "dependency_snapshots/astra_provider/b3e7639d8838_cli.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/config.py",
+      "sha256": "e8b30d059256c58ec1c3af3ca3466e10567b82455ba3542f5be22b8fb7d8c58a",
+      "snapshot": "dependency_snapshots/astra_provider/e8b30d059256_config.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/confirmations.py",
+      "sha256": "dac0af88802ca4d875e6f8188484725dceb77804670d2dc33d276364ad958623",
+      "snapshot": "dependency_snapshots/astra_provider/dac0af88802c_confirmations.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/contracts.py",
+      "sha256": "d3a0ba0d94e6912664c2d8f3772336b4987325a63b83f0a921210a157482409f",
+      "snapshot": "dependency_snapshots/astra_provider/d3a0ba0d94e6_contracts.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/extract.py",
+      "sha256": "5f0e951e18ae5116ffaa92a97286f37eb10bac90776e326a3515fd279edd8cae",
+      "snapshot": "dependency_snapshots/astra_provider/5f0e951e18ae_extract.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/final_export.py",
+      "sha256": "9a14cb00aaeb3746610a93aa9b181e6c43a688800658c8caf84214c94f3e24a3",
+      "snapshot": "dependency_snapshots/astra_provider/9a14cb00aaeb_final_export.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/final_validation.py",
+      "sha256": "9a09d69f8f3eb6b8d18b54b11dd04b3d814e108e47f93f565ea8cc319aaa3261",
+      "snapshot": "dependency_snapshots/astra_provider/9a09d69f8f3e_final_validation.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/inputs.py",
+      "sha256": "85d5521f9b05230e818409cf577ed925ed8621044e68427ed51605535ff524d3",
+      "snapshot": "dependency_snapshots/astra_provider/85d5521f9b05_inputs.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/io.py",
+      "sha256": "af2820dfa652dfedb723e98cd399c2d49dc02949a2bf889ba92d70d034056ebb",
+      "snapshot": "dependency_snapshots/astra_provider/af2820dfa652_io.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/pipeline.py",
+      "sha256": "c14c40c7a080d9c2ff987d5da2bcc7690699ec9126888dcca53a574fcbb88113",
+      "snapshot": "dependency_snapshots/astra_provider/c14c40c7a080_pipeline.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/prompts.py",
+      "sha256": "02ef4deacea2d109a4ce1ee7582060302014a14945b998542cf83b32ba578343",
+      "snapshot": "dependency_snapshots/astra_provider/02ef4deacea2_prompts.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/provider.py",
+      "sha256": "84f264a74961ad38987b9d4ffd2592af1f300b2145952fbc99d5a70fb2fb87b4",
+      "snapshot": "dependency_snapshots/astra_provider/84f264a74961_provider.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/registry.py",
+      "sha256": "9ee6e32c21e70daa8eee675276ff1e5ec3d26a36172518045ca31ede265ed217",
+      "snapshot": "dependency_snapshots/astra_provider/9ee6e32c21e7_registry.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/s2.py",
+      "sha256": "04d1d0bb8bf818ab7757f073fc402cd25eaebd2fab04b4ef1eea42d3363627a9",
+      "snapshot": "dependency_snapshots/astra_provider/04d1d0bb8bf8_s2.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/s2_export.py",
+      "sha256": "fa5e65487bf3e4f12466c32eb473cd7bc473751beca4227a9f6a11bdedcb9c49",
+      "snapshot": "dependency_snapshots/astra_provider/fa5e65487bf3_s2_export.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/s2_state.py",
+      "sha256": "bd3d643e9f92adc778f3c8eb9e05aec7cf810430e7ad49e52394eae579730446",
+      "snapshot": "dependency_snapshots/astra_provider/bd3d643e9f92_s2_state.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/s2_units.py",
+      "sha256": "5a6dbd1eb6c46dfb6eba26db29add666d06c9b895d8c717af18d7b6a69351f9f",
+      "snapshot": "dependency_snapshots/astra_provider/5a6dbd1eb6c4_s2_units.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/s3.py",
+      "sha256": "64af35750bbd9a61008f1a66a633243066562868c9a1c4b60bf5790f776dd62a",
+      "snapshot": "dependency_snapshots/astra_provider/64af35750bbd_s3.py"
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/src/astra-scene-memory/src/astra_memory/workflow.py",
+      "sha256": "e682bac5860600029f6e68673429f1027bc91007f1b82aae39f684c948a6e46d",
+      "snapshot": "dependency_snapshots/astra_provider/e682bac58606_workflow.py"
+    },
+    {
+      "path": "/home/baai/zl/end_version/build_final_annotation_sample.py",
+      "sha256": "4192c643969c84941e3da208e5e64d8dad13d4fe7459796d4aae6d81f629d4cc",
+      "snapshot": "dependency_snapshots/additive_helpers/4192c643969c_build_final_annotation_sample.py"
+    },
+    {
+      "path": "/home/baai/zl/end_version/cp_0011_session_20261029_115034.json",
+      "sha256": "a139e4a4680b3865e377824ae40e8f9bceec905a276eefa46b5d97ba72fc03ab",
+      "snapshot": "dependency_snapshots/additive_helpers/a139e4a4680b_cp_0011_session_20261029_115034.json"
+    },
+    {
+      "path": "/home/baai/zl/end_version/experiment_records.json",
+      "sha256": "70fc023744207baec09f8f4c1101972433537047eba47dedd61d0f22eb975270",
+      "snapshot": "dependency_snapshots/additive_helpers/70fc02374420_experiment_records.json"
+    },
+    {
+      "path": "/home/baai/zl/end_version/export_final_annotation_sample.py",
+      "sha256": "16a009a26ba3367274ca6920c95b784330ae5bed0e0c3d6f84c5ef2a420bdb04",
+      "snapshot": "dependency_snapshots/additive_helpers/16a009a26ba3_export_final_annotation_sample.py"
+    },
+    {
+      "path": "/home/baai/zl/end_version/final_annotation_sample.json",
+      "sha256": "120b637560c71486f6116100dee634cf144c75d2368350d7444ef46d579bc9b9",
+      "snapshot": "dependency_snapshots/additive_helpers/120b637560c7_final_annotation_sample.json"
+    },
+    {
+      "path": "/home/baai/zl/end_version/final_sample_schema.py",
+      "sha256": "cb36614f95d934737f27237d54a29004345932199cca7478a5b11151b5aaed04",
+      "snapshot": "dependency_snapshots/additive_helpers/cb36614f95d9_final_sample_schema.py"
+    },
+    {
+      "path": "/home/baai/zl/end_version/query_sample_spatial_tree.py",
+      "sha256": "d161480b4f13e85f91988717d1ef8fcf466132af4f0bad2e55a17ce794c3a7e0",
+      "snapshot": "dependency_snapshots/additive_helpers/d161480b4f13_query_sample_spatial_tree.py"
+    },
+    {
+      "path": "/home/baai/zl/end_version/validate_final_annotation_sample.py",
+      "sha256": "9d640654fb5a154c7d25b6daa40f12135b2c10af9fdbccd1b52964095fe7d727",
+      "snapshot": "dependency_snapshots/additive_helpers/9d640654fb5a_validate_final_annotation_sample.py"
+    }
+  ],
+  "external_assets": [
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/models/qwen3.8-27b/Qwen3.8-27B-Q4_K_M.gguf",
+      "size": 18973870528,
+      "mtime_ns": 1793661586184660677,
+      "hash_verified": false
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/models/qwen3.8-27b/mmproj-Qwen3.8-27B-Q8_0.gguf",
+      "size": 629247008,
+      "mtime_ns": 1793661613555559069,
+      "hash_verified": false
+    },
+    {
+      "path": "/home/baai/zl/Qwen3.8-27B/third_party/llama.cpp/build/bin/llama-server",
+      "size": 17888,
+      "mtime_ns": 1793661941397334035,
+      "hash_verified": false
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/build/ov_msckf/run_subscribe_msckf",
+      "size": 27631776,
+      "mtime_ns": 1793172545007497057,
+      "hash_verified": false
+    },
+    {
+      "path": "/home/baai/zl/egomemory_ws/models/fast_foundation_stereo/20-30-48/model_best_bp2_serialize.pth",
+      "size": 62078956,
+      "mtime_ns": 1772240585000000000,
+      "hash_verified": false
+    }
+  ],
+  "execution": "Imports use installed absolute paths; CLI checks their hashes against these committed snapshots before a new run. Snapshots are audit/restore material, not an alternate import tree. Model weights and build binaries remain external and are checked by size/mtime only."
+}

@@ -1,0 +1,18 @@
+{
+  "repo_id": "ggml-org/Qwen3.8-27B-GGUF",
+  "revision": "a316ea527fde32c12487be7574e2db5ac2ad2a7e",
+  "files": [
+    {
+      "name": "Qwen3.8-27B-Q4_K_M.gguf",
+      "size": 18973870528,
+      "sha256": "c600de0300ae8a0eb3a6c0b8b5561b8b96f16bd2c863c2a66c42de29d391a747",
+      "blob_id": "5b5a4e94b3ff8363bbd2e556c306bf3da06344f8"
+    },
+    {
+      "name": "mmproj-Qwen3.8-27B-Q8_0.gguf",
+      "size": 629247008,
+      "sha256": "2e968a6af97ce35d8971890b257b9b7edabf20ad91450501fa53162a19ee33eb",
+      "blob_id": "1f53dcb74687a88208cdea802a0ebdb9efbdef5e"
+    }
+  ]
+}

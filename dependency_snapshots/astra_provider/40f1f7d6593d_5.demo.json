@@ -1,0 +1,33 @@
+{
+  "schema": "astra_memory.run_config.v1",
+  "episode_id": "5",
+  "scene_id": "scene_cp_0011_shared",
+  "source_bag": "/home/baai/zl/egomemory_ws/src/datasets/rosbags/5",
+  "output": "/home/baai/zl/egomemory_ws/outputs/astra_scene_memory_v1/demo_5",
+  "event_images": "/home/baai/zl/demo/5三帧图像",
+  "fps": 30,
+  "target": {
+    "description": "固定扳手",
+    "category": "spanner"
+  },
+  "success_policy": "manual_confirmation_only",
+  "selection": {
+    "mode": "all_bag_frames_baseline"
+  },
+  "model": {
+    "name": "gpt-6-astra",
+    "base_url": "https://zyapi.xmsxb.com/v1",
+    "api_key_env": "ZYAPI_API_KEY",
+    "transport": "responses",
+    "reasoning_effort": "low",
+    "max_output_tokens": 16000,
+    "timeout_s": 180,
+    "transport_retries": 1,
+    "contract_retries": 2,
+    "past_images": 2,
+    "max_candidate_objects": 100
+  },
+  "association": {
+    "minimum_bbox_iou": 0.65
+  }
+}

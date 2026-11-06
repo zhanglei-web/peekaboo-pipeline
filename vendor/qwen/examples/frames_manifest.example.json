@@ -1,0 +1,7 @@
+{
+  "clip_id": "demo_001",
+  "frames": [
+    {"frame_id": "f0", "path": "../data/synthetic/frame-0.png", "timestamp_s": 0.0},
+    {"frame_id": "f1", "path": "../data/synthetic/frame-3.png", "timestamp_s": 3.0}
+  ]
+}

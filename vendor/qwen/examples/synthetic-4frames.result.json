@@ -1,0 +1,101 @@
+{
+  "clip_id": "synthetic_4frames",
+  "objects": [
+    {
+      "id": "obj1",
+      "name": "绿色三角形",
+      "appearance": "绿色实心三角形",
+      "evidence_frames": [
+        "f0",
+        "f1",
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "id": "obj2",
+      "name": "红色正方形",
+      "appearance": "红色实心正方形",
+      "evidence_frames": [
+        "f0",
+        "f1",
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "id": "obj3",
+      "name": "蓝色圆形",
+      "appearance": "蓝色实心圆形",
+      "evidence_frames": [
+        "f0",
+        "f1",
+        "f2",
+        "f3"
+      ]
+    }
+  ],
+  "before_state": {
+    "frame_id": "f0",
+    "visible_objects": [
+      "obj1",
+      "obj2",
+      "obj3"
+    ],
+    "position_description": "绿色三角形位于上方中央，红色正方形位于左侧，蓝色圆形位于中央偏右",
+    "relations": [
+      {
+        "subject": "obj1",
+        "relation": "位于上方",
+        "object": "obj3"
+      },
+      {
+        "subject": "obj2",
+        "relation": "位于左侧",
+        "object": "obj3"
+      }
+    ]
+  },
+  "after_state": {
+    "frame_id": "f3",
+    "visible_objects": [
+      "obj1",
+      "obj2",
+      "obj3"
+    ],
+    "position_description": "绿色三角形位于上方中央，蓝色圆形位于中央偏左，红色正方形位于右侧",
+    "relations": [
+      {
+        "subject": "obj1",
+        "relation": "位于上方",
+        "object": "obj3"
+      },
+      {
+        "subject": "obj2",
+        "relation": "位于右侧",
+        "object": "obj3"
+      }
+    ]
+  },
+  "events": [
+    {
+      "action": "位置变化",
+      "object_ids": [
+        "obj2",
+        "obj3"
+      ],
+      "state_change": "红色正方形和蓝色圆形相对位置发生变化，从分离到接触再到分离",
+      "evidence_frames": [
+        "f0",
+        "f1",
+        "f2",
+        "f3"
+      ],
+      "uncertainty": "无法确定是物体移动还是相机移动导致"
+    }
+  ],
+  "uncertainties": [
+    "无法区分物体移动和相机移动",
+    "稀疏采样，中间状态不确定"
+  ]
+}

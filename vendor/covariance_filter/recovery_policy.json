@@ -1,0 +1,8 @@
+{
+  "schema": "astra_memory.isolated_vio_recovery.v1",
+  "original_source": "/home/baai/zl/egomemory_ws/src/egomemory-core",
+  "original_helper_sha256": "02bf3d7fdfe91700a182cf1ddf287dc26e004bbbf3ef912be0fb59203e5c23d6",
+  "modified_helper_sha256": "f708bfabacf7934f08aa53d70e6d7945f1ce65ee2cf245c148c819ddf116f53d",
+  "source_files_modified": false,
+  "policy": "exclude_invalid_covariance; preserve_original_threshold; prohibit_interpolation_across_rejections"
+}

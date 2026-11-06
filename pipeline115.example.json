@@ -1,0 +1,46 @@
+{
+  "version": "11-5",
+  "output_root": "/absolute/path/to/new_run/run001",
+  "annotation_inventory": "/absolute/path/to/input/annotation_inventory.json",
+  "preprocessing_inventory": "/absolute/path/to/input/preprocessing_inventory.json",
+  "facts": null,
+  "astra_config": "/absolute/path/to/config/selector.json",
+  "routes": {
+    "scene": "local",
+    "events": "local",
+    "temporal": "local"
+  },
+  "endpoints": {
+    "local": {
+      "name": "local",
+      "base_url": "http://127.0.0.1:8080/v1",
+      "model": "local-vlm",
+      "context_tokens": 16384,
+      "placement": "local_gpu",
+      "quantization": "Q4_K_M",
+      "timeout_s": 1200
+    }
+  },
+  "limits": {
+    "cpu_workers": 2,
+    "queue_episodes": 4,
+    "queue_bytes": 42949672960,
+    "min_available_ram_mib": 8192,
+    "min_free_disk_mib": 20480,
+    "depth_group_size": 4,
+    "local_residency_budget_s": 900
+  },
+  "gpu": {
+    "device": 0,
+    "lock_path": "/absolute/path/to/shared/.pipeline115-gpu0.lock",
+    "depth_min_free_mib": 10000,
+    "local_min_free_mib": 20000,
+    "local_server_config": "/absolute/path/to/processing/local_qwen.server.json"
+  },
+  "dispatch": {
+    "mode": "episode",
+    "endpoints": [
+      "local"
+    ]
+  }
+}

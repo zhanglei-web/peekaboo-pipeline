@@ -1,0 +1,30 @@
+server:
+  host: 127.0.0.1
+  port: 8080
+  alias: local-vlm
+  binary: third_party/llama.cpp/build/bin/llama-server
+  model: models/qwen3.8-27b/Qwen3.8-27B-Q4_K_M.gguf
+  mmproj: models/qwen3.8-27b/mmproj-Qwen3.8-27B-Q8_0.gguf
+  ctx_size: 8192
+  parallel: 1
+  n_gpu_layers: 99
+  batch_size: 512
+  ubatch_size: 128
+  flash_attn: auto
+  mmproj_offload: true
+  image_max_tokens: 1024
+  startup_timeout: 600
+  log_verbosity: 4
+  reasoning: 'off'
+  reasoning_preserve: false
+  cors_origins: http://127.0.0.1:8080,http://localhost:8080
+client:
+  max_tokens: 1024
+  image_max_edge: 768
+  max_frames: 4
+  timeout: 600
+  temperature: 0
+  seed: 42
+  repair_attempts: 1
+  resource_interval_s: 0.5
+  degradations: []

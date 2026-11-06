@@ -1,0 +1,193 @@
+{
+  "version": "11-4",
+  "episodes": 29,
+  "events": 196,
+  "preprocessing_seconds": 5013.075466,
+  "first_annotation_execution_seconds": 25961.223836,
+  "resumed_annotation_execution_seconds": 1574.626066,
+  "active_batch_wall_seconds": 32548.925368,
+  "successful_local_request_seconds": 24701.801554642923,
+  "rows": [
+    {
+      "episode_id": "cs_0001_session_20261030_183844",
+      "events": 4,
+      "successful_local_request_seconds": 555.2136782379966,
+      "local_request_count": 9
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_184058",
+      "events": 8,
+      "successful_local_request_seconds": 916.970436063988,
+      "local_request_count": 17
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_184223",
+      "events": 10,
+      "successful_local_request_seconds": 1103.5662516009324,
+      "local_request_count": 21
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_184355",
+      "events": 6,
+      "successful_local_request_seconds": 779.5031757419929,
+      "local_request_count": 13
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_184455",
+      "events": 8,
+      "successful_local_request_seconds": 927.2658382529335,
+      "local_request_count": 17
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_184551",
+      "events": 6,
+      "successful_local_request_seconds": 713.5036483090662,
+      "local_request_count": 13
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_184649",
+      "events": 9,
+      "successful_local_request_seconds": 984.020425385941,
+      "local_request_count": 19
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_184744",
+      "events": 5,
+      "successful_local_request_seconds": 665.8349100729683,
+      "local_request_count": 11
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_184830",
+      "events": 8,
+      "successful_local_request_seconds": 964.4050217780168,
+      "local_request_count": 17
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_184935",
+      "events": 9,
+      "successful_local_request_seconds": 993.4652459169738,
+      "local_request_count": 19
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_185124",
+      "events": 8,
+      "successful_local_request_seconds": 916.415587630996,
+      "local_request_count": 17
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_185225",
+      "events": 7,
+      "successful_local_request_seconds": 838.943269781972,
+      "local_request_count": 15
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_185401",
+      "events": 9,
+      "successful_local_request_seconds": 1001.8754752019595,
+      "local_request_count": 19
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_185505",
+      "events": 6,
+      "successful_local_request_seconds": 808.903863123036,
+      "local_request_count": 14
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_185556",
+      "events": 9,
+      "successful_local_request_seconds": 991.8340847490472,
+      "local_request_count": 19
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_192044",
+      "events": 6,
+      "successful_local_request_seconds": 752.7506881350128,
+      "local_request_count": 13
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_192049",
+      "events": 5,
+      "successful_local_request_seconds": 744.5385638359876,
+      "local_request_count": 11
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_192059",
+      "events": 6,
+      "successful_local_request_seconds": 895.0988556470547,
+      "local_request_count": 13
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_192108",
+      "events": 6,
+      "successful_local_request_seconds": 802.915702858998,
+      "local_request_count": 13
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_192132",
+      "events": 8,
+      "successful_local_request_seconds": 1101.1553742079996,
+      "local_request_count": 17
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_192135",
+      "events": 6,
+      "successful_local_request_seconds": 810.7857689969824,
+      "local_request_count": 13
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_192154",
+      "events": 7,
+      "successful_local_request_seconds": 865.8248322600266,
+      "local_request_count": 15
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_192214",
+      "events": 6,
+      "successful_local_request_seconds": 799.7248221749323,
+      "local_request_count": 13
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_192218",
+      "events": 4,
+      "successful_local_request_seconds": 635.4161675250216,
+      "local_request_count": 9
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_192233",
+      "events": 7,
+      "successful_local_request_seconds": 944.8262969120406,
+      "local_request_count": 15
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_192307",
+      "events": 5,
+      "successful_local_request_seconds": 737.0482488079579,
+      "local_request_count": 11
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_192321",
+      "events": 7,
+      "successful_local_request_seconds": 939.5805118689896,
+      "local_request_count": 15
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_192323",
+      "events": 5,
+      "successful_local_request_seconds": 611.4063913950813,
+      "local_request_count": 11
+    },
+    {
+      "episode_id": "cs_0001_session_20261030_192339",
+      "events": 6,
+      "successful_local_request_seconds": 899.0084181690181,
+      "local_request_count": 13
+    }
+  ],
+  "definition": "Sum of actual batch execution windows; excludes stopped time between runs; includes transport timeouts/retries during execution. Preparation/local pipeline overlap is counted once. CPU-only publication repair was not separately wall-clock-instrumented and is not invented. HTTP request durations are not pure GPU kernel time.",
+  "evidence": {
+    "preprocessing": "/home/baai/zl/todo/11.4/processing/state.json",
+    "first_annotation": "/home/baai/zl/todo/11.4/processing/repair_evidence/20261105_100610/batch_status.json",
+    "resume": "/home/baai/zl/todo/11.4/processing/orchestrator_state.json",
+    "resume_final_receipt": "/home/baai/zl/todo/11.4/search_episode_outputs/episodes/cs_0001_session_20261030_184455/complete.json"
+  }
+}

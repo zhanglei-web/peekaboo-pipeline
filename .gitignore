@@ -1,0 +1,30 @@
+# Secrets and local environments
+.env
+.env.*
+!.env.example
+*api-key*
+*.pem
+*.key
+__pycache__/
+*.py[cod]
+.venv/
+# Large assets, generated builds and evidence
+models/
+.toolchains/
+.cache/
+build/
+install/
+log/
+logs/
+outputs/
+preprocessed/
+preprocessed_recovery/
+third_party/
+*.mkv
+*.mp4
+*.db3
+*.bag
+*.gguf
+*.pth
+*.safetensors
+*.log

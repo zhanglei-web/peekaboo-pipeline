@@ -1,0 +1,204 @@
+{
+  "type": "object",
+  "properties": {
+    "clip_id": {
+      "type": "string"
+    },
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "appearance": {
+            "type": "string"
+          },
+          "evidence_frames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "appearance",
+          "evidence_frames"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "before_state": {
+      "type": "object",
+      "properties": {
+        "frame_id": {
+          "type": "string"
+        },
+        "visible_objects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "position_description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "subject": {
+                "type": "string"
+              },
+              "relation": {
+                "type": "string"
+              },
+              "object": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "subject",
+              "relation",
+              "object"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "frame_id",
+        "visible_objects",
+        "position_description",
+        "relations"
+      ],
+      "additionalProperties": false
+    },
+    "after_state": {
+      "type": "object",
+      "properties": {
+        "frame_id": {
+          "type": "string"
+        },
+        "visible_objects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "position_description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "subject": {
+                "type": "string"
+              },
+              "relation": {
+                "type": "string"
+              },
+              "object": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "subject",
+              "relation",
+              "object"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "frame_id",
+        "visible_objects",
+        "position_description",
+        "relations"
+      ],
+      "additionalProperties": false
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "object_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0
+          },
+          "state_change": {
+            "type": "string"
+          },
+          "evidence_frames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "uncertainty": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "action",
+          "object_ids",
+          "state_change",
+          "evidence_frames",
+          "uncertainty"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "uncertainties": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "clip_id",
+    "objects",
+    "before_state",
+    "after_state",
+    "events",
+    "uncertainties"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}
