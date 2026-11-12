@@ -1,0 +1,1742 @@
+{
+  "type": "object",
+  "properties": {
+    "README": {
+      "type": "object",
+      "properties": {
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rules": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "scope": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "purpose",
+        "rules",
+        "scope"
+      ],
+      "additionalProperties": false
+    },
+    "derived_statistics": {
+      "type": "object",
+      "properties": {
+        "counting_unit": {
+          "const": "original_search_event"
+        },
+        "events_before_success": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "events_through_success": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "found_event_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "search_event_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "search_unit_catalog_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "counting_unit",
+        "events_before_success",
+        "events_through_success",
+        "found_event_count",
+        "note",
+        "search_event_count",
+        "search_unit_catalog_count"
+      ],
+      "additionalProperties": false
+    },
+    "episode_outcome": {
+      "type": "object",
+      "properties": {
+        "final_location": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "evidence_state_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "location_granularity": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "note": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sample_time_s": {
+                  "type": "number"
+                },
+                "source": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "unit_id": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "description",
+                "evidence_state_id",
+                "location_granularity",
+                "note",
+                "sample_time_s",
+                "source",
+                "unit_id"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "result": {
+          "enum": [
+            "found",
+            "not_found",
+            "unknown"
+          ]
+        },
+        "success_event_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "success_event_order": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "target_instance_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "final_location",
+        "result",
+        "success_event_id",
+        "success_event_order",
+        "target_instance_id"
+      ],
+      "additionalProperties": false
+    },
+    "inspections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "action_summary": {
+            "type": "string",
+            "minLength": 1
+          },
+          "event_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "granularity": {
+            "enum": [
+              "single_unit_event",
+              "multi_unit_event"
+            ]
+          },
+          "order": {
+            "type": "integer"
+          },
+          "result": {
+            "enum": [
+              "found",
+              "not_found",
+              "unknown"
+            ]
+          },
+          "result_source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sample_window_s": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "source_region_text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unit_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "unit_link_basis": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "action_summary",
+          "event_id",
+          "granularity",
+          "order",
+          "result",
+          "result_source",
+          "sample_window_s",
+          "source_region_text",
+          "unit_ids",
+          "unit_link_basis"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "episode_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fps": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "full_search_coverage_confirmed": {
+          "type": "boolean"
+        },
+        "only_final_event_found_target_confirmed": {
+          "type": "boolean"
+        },
+        "provenance": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scene_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "search_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "search_scope_source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "confirmed_instance_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "description": {
+              "type": "string",
+              "minLength": 1
+            },
+            "identity_source": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "category",
+            "confirmed_instance_id",
+            "description",
+            "identity_source"
+          ],
+          "additionalProperties": false
+        },
+        "time_axis": {
+          "const": "original_video_seconds"
+        },
+        "zone_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "episode_id",
+        "fps",
+        "full_search_coverage_confirmed",
+        "only_final_event_found_target_confirmed",
+        "provenance",
+        "scene_id",
+        "search_scope",
+        "search_scope_source",
+        "target",
+        "time_axis",
+        "zone_id"
+      ],
+      "additionalProperties": false
+    },
+    "scene_memory": {
+      "type": "object",
+      "properties": {
+        "object_schema": {
+          "type": "object",
+          "properties": {
+            "rules": {
+              "type": "object",
+              "properties": {
+                "affordances": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "appearance": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "commonsense": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "history": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "identity": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "observations": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "provenance": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "search_event_states": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "spatial_node_id": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "affordances",
+                "appearance",
+                "commonsense",
+                "history",
+                "identity",
+                "observations",
+                "provenance",
+                "search_event_states",
+                "spatial_node_id"
+              ],
+              "additionalProperties": false
+            },
+            "version": {
+              "const": "ego.scene.self_contained_object_profiles.v7"
+            }
+          },
+          "required": [
+            "rules",
+            "version"
+          ],
+          "additionalProperties": false
+        },
+        "objects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "affordances": {
+                "type": "object",
+                "properties": {
+                  "containment": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "support": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "occlusion": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "appearance": {
+                "type": "object",
+                "properties": {
+                  "attributes": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "uniqueItems": true
+                    }
+                  },
+                  "shape": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "shape_status": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "attributes"
+                ],
+                "additionalProperties": false
+              },
+              "commonsense": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "maxItems": 3,
+                "uniqueItems": true
+              },
+              "historical_observation": {
+                "type": "object",
+                "properties": {
+                  "state_changes": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "frame_id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "time_s": {
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "frame_id",
+                        "time_s",
+                        "description"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "state_changes"
+                ],
+                "additionalProperties": false
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "identity": {
+                "type": "object",
+                "properties": {
+                  "category": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "entity_type": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "identity_status": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "source_categories": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                },
+                "required": [
+                  "category",
+                  "entity_type",
+                  "identity_status",
+                  "name",
+                  "source_categories"
+                ],
+                "additionalProperties": false
+              },
+              "last_observation": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "location": {
+                        "type": "null"
+                      },
+                      "status": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "location",
+                      "status"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "frame_id": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "time_s": {
+                        "type": "number",
+                        "minimum": 0
+                      },
+                      "location": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "relation": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "reference_id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "reference_name": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "description": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "relation",
+                            "reference_id",
+                            "reference_name",
+                            "description"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "minItems": 1
+                      }
+                    },
+                    "required": [
+                      "frame_id",
+                      "time_s",
+                      "location"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "spatial_node_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "appearance",
+              "commonsense",
+              "historical_observation",
+              "id",
+              "identity",
+              "last_observation",
+              "spatial_node_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "spatial_structure": {
+          "type": "object",
+          "properties": {
+            "context_nodes": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/node"
+              }
+            },
+            "coverage": {
+              "type": "object",
+              "properties": {
+                "metric_geometry": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "navigation_connectivity": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "parent_room": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "position_in_room": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "metric_geometry",
+                "navigation_connectivity",
+                "parent_room",
+                "position_in_room"
+              ],
+              "additionalProperties": false
+            },
+            "description": {
+              "type": "string",
+              "minLength": 1
+            },
+            "identity_candidates": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "entity_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "status": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "entity_ids",
+                  "id",
+                  "name",
+                  "status"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "nodes": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/node"
+              },
+              "minItems": 1
+            },
+            "reference_frame": {
+              "type": "string",
+              "minLength": 1
+            },
+            "root_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "schema": {
+              "const": "ego.scene.nested_local_spatial_graph.v4"
+            },
+            "semantics": {
+              "type": "object",
+              "properties": {
+                "cross_level": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "evidence": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "hierarchy": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "identity": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "missing": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "position": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "query": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "time": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "cross_level",
+                "evidence",
+                "hierarchy",
+                "identity",
+                "missing",
+                "position",
+                "query",
+                "time"
+              ],
+              "additionalProperties": false
+            },
+            "unlocated_nodes": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/node"
+              }
+            }
+          },
+          "required": [
+            "context_nodes",
+            "coverage",
+            "description",
+            "identity_candidates",
+            "nodes",
+            "reference_frame",
+            "root_id",
+            "schema",
+            "semantics",
+            "unlocated_nodes"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "object_schema",
+        "objects",
+        "spatial_structure"
+      ],
+      "additionalProperties": false
+    },
+    "schema": {
+      "const": "spatial_memory.search_episode.p0_p1_2.v1"
+    },
+    "search_event_states": {
+      "type": "object",
+      "properties": {
+        "entity_reference_catalog": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "link_status": {
+                "type": "string",
+                "minLength": 1
+              },
+              "memory_entity_candidates": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "required": [
+              "label",
+              "link_status",
+              "memory_entity_candidates"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "event_count": {
+          "type": "integer"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "event_summary": {
+                "type": "string",
+                "minLength": 1
+              },
+              "interval_alignment": {
+                "type": "object",
+                "properties": {
+                  "basis_for_this_record": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "note": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "status": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "basis_for_this_record",
+                  "note",
+                  "status"
+                ],
+                "additionalProperties": false
+              },
+              "observed_changes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "ordinal": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "outcome": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "target_found": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "target_identity_confirmed": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "reason",
+                  "target_found",
+                  "target_identity_confirmed"
+                ],
+                "additionalProperties": false
+              },
+              "phase_frame_indices": {
+                "type": "object",
+                "properties": {
+                  "end": {
+                    "type": "integer"
+                  },
+                  "middle": {
+                    "type": "integer"
+                  },
+                  "start": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "end",
+                  "middle",
+                  "start"
+                ],
+                "additionalProperties": false
+              },
+              "previous_json_interval_seconds": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "search_region": {
+                "type": "string",
+                "minLength": 1
+              },
+              "search_region_status": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_human_interval_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "states": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "evidence_status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "focus_object_states": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "entity_ref": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "observed_state": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "entity_ref",
+                          "observed_state"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "frame_label": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "frame_namespace": {
+                      "const": "original_video_frame_index_from_filename"
+                    },
+                    "hand_action": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "image_filename": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "image_path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "image_sha256": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    },
+                    "original_video_frame_index": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "original_video_seconds": {
+                      "type": "number"
+                    },
+                    "phase": {
+                      "enum": [
+                        "start",
+                        "middle",
+                        "end"
+                      ]
+                    },
+                    "phase_label": {
+                      "enum": [
+                        "开始",
+                        "进行中",
+                        "结束"
+                      ]
+                    },
+                    "state_description": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "state_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "visibility_and_occlusion": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "evidence_status",
+                    "focus_object_states",
+                    "frame_label",
+                    "frame_namespace",
+                    "hand_action",
+                    "image_filename",
+                    "image_path",
+                    "image_sha256",
+                    "original_video_frame_index",
+                    "original_video_seconds",
+                    "phase",
+                    "phase_label",
+                    "state_description",
+                    "state_id",
+                    "visibility_and_occlusion"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 3,
+                "maxItems": 3
+              },
+              "supplied_image_interval_seconds": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              }
+            },
+            "required": [
+              "event_id",
+              "event_summary",
+              "interval_alignment",
+              "observed_changes",
+              "ordinal",
+              "outcome",
+              "phase_frame_indices",
+              "previous_json_interval_seconds",
+              "search_region",
+              "search_region_status",
+              "source_human_interval_id",
+              "states",
+              "supplied_image_interval_seconds"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "frame_numbering": {
+          "type": "object",
+          "properties": {
+            "fps_source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "namespace_note": {
+              "type": "string",
+              "minLength": 1
+            },
+            "original_video_fps": {
+              "type": "integer"
+            },
+            "original_video_frame_index_base": {
+              "type": "integer"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "time_formula": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "fps_source",
+            "namespace_note",
+            "original_video_fps",
+            "original_video_frame_index_base",
+            "source",
+            "time_formula"
+          ],
+          "additionalProperties": false
+        },
+        "image_count": {
+          "type": "integer"
+        },
+        "image_directory": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "coverage": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description_source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "knowledge_scope": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "coverage",
+            "description_source",
+            "knowledge_scope"
+          ],
+          "additionalProperties": false
+        },
+        "schema": {
+          "const": "ego.search_event_triplet_states.v1"
+        }
+      },
+      "required": [
+        "entity_reference_catalog",
+        "event_count",
+        "events",
+        "frame_numbering",
+        "image_count",
+        "image_directory",
+        "provenance",
+        "schema"
+      ],
+      "additionalProperties": false
+    },
+    "search_units": {
+      "type": "object",
+      "properties": {
+        "catalog_status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "coverage_note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "id_policy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "boundary": {
+                "type": "string",
+                "minLength": 1
+              },
+              "entity_link_basis": {
+                "type": "string",
+                "minLength": 1
+              },
+              "is_container": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_entity_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "type": {
+                "enum": [
+                  "inspection_area",
+                  "container_interior",
+                  "covered_surface",
+                  "exposed_surface"
+                ]
+              },
+              "unit_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "zone_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "boundary",
+              "entity_link_basis",
+              "is_container",
+              "label",
+              "source_entity_ids",
+              "type",
+              "unit_id",
+              "zone_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "catalog_status",
+        "coverage_note",
+        "id_policy",
+        "list",
+        "scope"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "README",
+    "derived_statistics",
+    "episode_outcome",
+    "inspections",
+    "metadata",
+    "scene_memory",
+    "schema",
+    "search_event_states",
+    "search_units"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:spatial-memory:search-episode:p0-p1-2:v1:contract:20261102",
+  "$defs": {
+    "node": {
+      "type": "object",
+      "properties": {
+        "additional_parent_relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "predicate": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "observation_summary": {
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "first_seen_s": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "last_seen_s": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "first_frame": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "last_frame": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "count",
+                  "first_seen_s",
+                  "last_seen_s",
+                  "first_frame",
+                  "last_frame"
+                ],
+                "additionalProperties": false
+              },
+              "evidence_frames": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "position_in_region": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "id",
+              "predicate",
+              "kind",
+              "status"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "associations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "predicate": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "observation_summary": {
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "first_seen_s": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "last_seen_s": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "first_frame": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "last_frame": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "count",
+                  "first_seen_s",
+                  "last_seen_s",
+                  "first_frame",
+                  "last_frame"
+                ],
+                "additionalProperties": false
+              },
+              "evidence_frames": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "position_in_region": {
+                "type": "null"
+              },
+              "target_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "predicate",
+              "kind",
+              "status",
+              "target_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "basis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cross_level_relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "predicate": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "observation_summary": {
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "first_seen_s": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "last_seen_s": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "first_frame": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "last_frame": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "count",
+                  "first_seen_s",
+                  "last_seen_s",
+                  "first_frame",
+                  "last_frame"
+                ],
+                "additionalProperties": false
+              },
+              "evidence_frames": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "position_in_region": {
+                "type": "null"
+              },
+              "target_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "predicate",
+              "kind",
+              "status",
+              "target_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "entity_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "object_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parent_room_id": {
+          "type": "null"
+        },
+        "placement": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "predicate": {
+              "type": "string",
+              "minLength": 1
+            },
+            "kind": {
+              "type": "string",
+              "minLength": 1
+            },
+            "status": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": {
+              "type": "string",
+              "minLength": 1
+            },
+            "observation_summary": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "first_seen_s": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "last_seen_s": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "first_frame": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "last_frame": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "count",
+                "first_seen_s",
+                "last_seen_s",
+                "first_frame",
+                "last_frame"
+              ],
+              "additionalProperties": false
+            },
+            "evidence_frames": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            },
+            "position_in_region": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "predicate",
+            "status"
+          ],
+          "additionalProperties": false
+        },
+        "placement_status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "position_in_room": {
+          "type": "null"
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "predicate": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "observation_summary": {
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "first_seen_s": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "last_seen_s": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "first_frame": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "last_frame": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "count",
+                  "first_seen_s",
+                  "last_seen_s",
+                  "first_frame",
+                  "last_frame"
+                ],
+                "additionalProperties": false
+              },
+              "evidence_frames": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "position_in_region": {
+                "type": "null"
+              },
+              "target_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "predicate",
+              "kind",
+              "status",
+              "target_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/node"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "type",
+        "children"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "region"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "else": {
+            "required": [
+              "object_ref"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "README": {
+    "format_extension": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "policy": {
+          "type": "string"
+        },
+        "legacy_revisit_policy": {
+          "type": "string"
+        },
+        "temporal_policy": {
+          "type": "string"
+        },
+        "null_policy": {
+          "type": "string"
+        },
+        "identity_policy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "version",
+        "policy",
+        "legacy_revisit_policy",
+        "temporal_policy",
+        "null_policy",
+        "identity_policy"
+      ],
+      "additionalProperties": false
+    },
+    "annotation_record": {
+      "type": "object",
+      "properties": {
+        "annotation_profile": {
+          "type": "string"
+        },
+        "label_source": {
+          "type": "string"
+        },
+        "label_status": {
+          "type": "string"
+        },
+        "source_annotation_json": {
+          "type": "string"
+        },
+        "source_annotation_sha256": {
+          "type": "string"
+        },
+        "temporal_annotation_json": {
+          "type": "string"
+        },
+        "manifest": {
+          "type": "null"
+        },
+        "completion": {
+          "type": "null"
+        },
+        "home_id_basis": {
+          "type": "null"
+        },
+        "scene_ref": {
+          "type": "string"
+        },
+        "model_evidence_available_after_s": {
+          "type": "null"
+        },
+        "new_model_calls": {
+          "type": "integer"
+        },
+        "temporal_annotation_sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "annotation_profile",
+        "label_source",
+        "label_status",
+        "source_annotation_json",
+        "source_annotation_sha256",
+        "temporal_annotation_json",
+        "manifest",
+        "completion",
+        "home_id_basis",
+        "scene_ref",
+        "model_evidence_available_after_s",
+        "new_model_calls",
+        "temporal_annotation_sha256"
+      ],
+      "additionalProperties": false
+    },
+    "completeness": {
+      "type": "object",
+      "properties": {
+        "video_labels_complete": {
+          "type": "boolean"
+        },
+        "spec_complete": {
+          "type": "boolean"
+        },
+        "required_fields_present": {
+          "type": "boolean"
+        },
+        "experiment_values_required_for_template": {
+          "type": "boolean"
+        },
+        "temporal_links_verified": {
+          "type": "boolean"
+        },
+        "missing": {
+          "type": "object",
+          "properties": {
+            "experiment_records": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "unit_measurements": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "pending_annotations": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "spatial_temporal_review": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "experiment_records",
+            "unit_measurements",
+            "pending_annotations",
+            "spatial_temporal_review"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "video_labels_complete",
+        "spec_complete",
+        "required_fields_present",
+        "experiment_values_required_for_template",
+        "temporal_links_verified",
+        "missing"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "timebase": {
+    "type": "object",
+    "properties": {
+      "unit": {
+        "type": "string"
+      },
+      "index_base": {
+        "type": "integer"
+      },
+      "fps": {
+        "type": "number"
+      },
+      "interval_convention": {
+        "type": "string"
+      },
+      "seconds_formula": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "unit",
+      "index_base",
+      "fps",
+      "interval_convention",
+      "seconds_formula"
+    ],
+    "additionalProperties": false
+  }
+}

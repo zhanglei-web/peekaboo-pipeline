@@ -1,0 +1,7 @@
+-r requirements.txt
+# Install torch/torchvision matching your CUDA environment before these dependencies.
+torch>=2.5
+torchvision>=0.20
+transformers>=4.55,<4.56
+ultralytics>=8.4,<8.5
+# Fast-FoundationStereo has its own requirements in its external source checkout.

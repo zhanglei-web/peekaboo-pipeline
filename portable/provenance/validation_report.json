@@ -1,0 +1,26 @@
+{
+  "validation_date": "2026-11-12",
+  "python": "3.12.3",
+  "platform": "Linux",
+  "pytest": {
+    "command": "python3 -m pytest -c pytest.ini -q",
+    "passed": 66,
+    "failed": 0,
+    "duration_seconds": 14.31
+  },
+  "repository_check": "passed",
+  "relocated_checkout_test": "passed; directory containing spaces; no source-workspace imports",
+  "synthetic_pipeline": "schema-valid scene/event assembly -> temporal parent relations -> source-bound candidates -> mock geometry -> compact export -> independent validation -> tamper rejection",
+  "credential_scan": "No long literal credentials found in assignment scan; no model/data/secret files in publication set",
+  "original_data_or_outputs_modified": false,
+  "real_gpu_inference_run": true,
+  "real_vlm_requests": 11,
+  "ros_openvins_hardware_pipeline_rerun": true,
+  "semantic_human_reviewed": false,
+  "limitations": [
+    "Real execution covers one sample on the existing host and supplied manual event triplets, with an audited assembly-only retry after an export filename fix.",
+    "OpenVINS camera-pose coverage gate failed and exit code was -11; JSON structural success is not trajectory or semantic quality acceptance.",
+    "Original dataset, model checkpoints, services, and external ROS builds are supplied separately."
+  ],
+  "real_sample_validation": "real_sample_validation.json"
+}

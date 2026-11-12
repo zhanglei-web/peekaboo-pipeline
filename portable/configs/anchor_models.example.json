@@ -1,0 +1,7 @@
+{
+  "grounding_dino_path": "${GROUNDING_DINO_DIR}",
+  "fastsam_weights": "${FASTSAM_WEIGHTS}",
+  "gpu_lock": "${EGOMEMORY_GPU_LOCK}",
+  "device": "cuda:0",
+  "min_free_gpu_mib": 6000
+}

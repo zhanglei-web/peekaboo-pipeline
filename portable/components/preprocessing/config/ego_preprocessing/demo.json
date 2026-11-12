@@ -1,0 +1,37 @@
+{
+  "openvins_binary": "${OPENVINS_BINARY}",
+  "geometry": {
+    "width": 960,
+    "height": 600,
+    "horizontal_fov_deg": 100.0
+  },
+  "vio": {
+    "replay_rate": 1.0,
+    "initialization_profile": "dynamic"
+  },
+  "selection": {
+    "soft_translation_mm": 60.0,
+    "hard_translation_mm": 150.0,
+    "soft_rotation_deg": 5.0,
+    "hard_rotation_deg": 12.0,
+    "min_interval_s": 0.0,
+    "max_gap_s": 0.25
+  },
+  "depth": {
+    "repo": "${STEREO_REPO}",
+    "checkpoint": "${STEREO_CHECKPOINT}",
+    "python": "${PYTHON_EXECUTABLE}",
+    "iterations": 8,
+    "max_disp": 416,
+    "volume_builder": "triton",
+    "confidence_mode": "left-right",
+    "max_depth_mm": 65535,
+    "warmup": 2
+  },
+  "ros_output": {
+    "enabled": false,
+    "mode": "none"
+  },
+  "source": "${CAPTURE_DIR}",
+  "output": "${PREPROCESSED_DIR}"
+}

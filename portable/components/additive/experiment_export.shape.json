@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "participant_id": null,
+    "home_id": null,
+    "encoding_condition": null,
+    "target_description_to_participant": null
+  },
+  "history": [
+    {
+      "time_h": null,
+      "unit_id": null,
+      "event_type": null
+    }
+  ],
+  "hidden": {
+    "true_unit_id": null,
+    "original_unit_id": null,
+    "relocation_source": null,
+    "relocation_evidence_state": null,
+    "evidence_coverage": null,
+    "evidence_confidence": null,
+    "intervention_time_h": null
+  },
+  "priors": {
+    "habit_prior": {
+      "counts": {
+        "cp_0011_session_20261029_115034:unit:pegboard_tools": null,
+        "cp_0011_session_20261029_115034:unit:rack_slots": null,
+        "cp_0011_session_20261029_115034:unit:yellow_bin_inside": null,
+        "cp_0011_session_20261029_115034:unit:purple_item_area": null,
+        "cp_0011_session_20261029_115034:unit:white_box_inside": null,
+        "cp_0011_session_20261029_115034:unit:black_item_covered_surface": null,
+        "cp_0011_session_20261029_115034:unit:gray_item_covered_surface": null,
+        "cp_0011_session_20261029_115034:unit:exposed_tabletop": null
+      }
+    },
+    "cohabitant_counts": {
+      "counts": {
+        "cp_0011_session_20261029_115034:unit:pegboard_tools": null,
+        "cp_0011_session_20261029_115034:unit:rack_slots": null,
+        "cp_0011_session_20261029_115034:unit:yellow_bin_inside": null,
+        "cp_0011_session_20261029_115034:unit:purple_item_area": null,
+        "cp_0011_session_20261029_115034:unit:white_box_inside": null,
+        "cp_0011_session_20261029_115034:unit:black_item_covered_surface": null,
+        "cp_0011_session_20261029_115034:unit:gray_item_covered_surface": null,
+        "cp_0011_session_20261029_115034:unit:exposed_tabletop": null
+      }
+    }
+  },
+  "units": {
+    "cp_0011_session_20261029_115034:unit:pegboard_tools": {
+      "inspect_cost_trials_s": [
+        null
+      ],
+      "volume_l": null
+    },
+    "cp_0011_session_20261029_115034:unit:rack_slots": {
+      "inspect_cost_trials_s": [
+        null
+      ],
+      "volume_l": null
+    },
+    "cp_0011_session_20261029_115034:unit:yellow_bin_inside": {
+      "inspect_cost_trials_s": [
+        null
+      ],
+      "volume_l": null
+    },
+    "cp_0011_session_20261029_115034:unit:purple_item_area": {
+      "inspect_cost_trials_s": [
+        null
+      ],
+      "volume_l": null
+    },
+    "cp_0011_session_20261029_115034:unit:white_box_inside": {
+      "inspect_cost_trials_s": [
+        null
+      ],
+      "volume_l": null
+    },
+    "cp_0011_session_20261029_115034:unit:black_item_covered_surface": {
+      "inspect_cost_trials_s": [
+        null
+      ],
+      "volume_l": null
+    },
+    "cp_0011_session_20261029_115034:unit:gray_item_covered_surface": {
+      "inspect_cost_trials_s": [
+        null
+      ],
+      "volume_l": null
+    },
+    "cp_0011_session_20261029_115034:unit:exposed_tabletop": {
+      "inspect_cost_trials_s": [
+        null
+      ],
+      "volume_l": null
+    }
+  }
+}

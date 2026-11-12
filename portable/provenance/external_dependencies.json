@@ -1,0 +1,26 @@
+{
+  "provenance": "Read from historical local source checkouts and run reports; not claims of latest upstream versions.",
+  "openvins": {
+    "repository": "https://github.com/rpng/open_vins.git",
+    "commit": "69488123ed9362dd44b6f28e7f4680abbff1442b",
+    "patch": "patches/openvins_jazzy_compat.patch"
+  },
+  "fast_foundation_stereo": {
+    "repository": "https://github.com/NVlabs/Fast-FoundationStereo.git",
+    "commit": "a290ba04c1b3ad1ec41a33974a157b2917b624d4",
+    "checkpoint": "20-30-48/model_best_bp2_serialize.pth",
+    "checkpoint_sha256": "98b5a9acf39fbfa795025de8cea95ce123daa40f6b6234d719167751024cf692"
+  },
+  "grounding_dino": {
+    "model": "Grounding DINO Tiny",
+    "weights": "external local directory"
+  },
+  "fastsam": {
+    "model": "FastSAM-s",
+    "weights": "external FastSAM-s.pt"
+  },
+  "vlm": {
+    "selector": "Configured Responses service; historical Astra/Sol profiles",
+    "annotation": "Configured Qwen-compatible service; historical Q4_K_M/Q8_0 deployments"
+  }
+}

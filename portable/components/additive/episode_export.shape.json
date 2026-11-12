@@ -1,0 +1,106 @@
+{
+  "schema": null,
+  "annotation_profile": null,
+  "label_source": null,
+  "label_status": null,
+  "metadata": {
+    "episode_id": null,
+    "participant_id": null,
+    "home_id": null,
+    "zone_id": null,
+    "encoding_condition": null,
+    "target_instance_id": null,
+    "target_category": null,
+    "fps": null,
+    "time_axis": null,
+    "video_duration_s": null,
+    "target_description_to_participant": null,
+    "mobility_tier": null,
+    "search_start_unit": null,
+    "search_start_s": null,
+    "search_end_s": null,
+    "boundary_sampling_interval_s": null
+  },
+  "units": [
+    {
+      "unit_id": null,
+      "label": null,
+      "boundary": null,
+      "is_container": null,
+      "room": null,
+      "parent_id": null,
+      "inspect_cost_s": null,
+      "volume_l": null,
+      "surface_vs_enclosed": null
+    }
+  ],
+  "inspections": [
+    {
+      "event_id": null,
+      "order": null,
+      "sample_window_s": [
+        null
+      ],
+      "unit_id": null,
+      "validity": null,
+      "result": null,
+      "obstruction": null,
+      "evidence_frames": [
+        null
+      ],
+      "start_s": null,
+      "end_s": null,
+      "revisit_kind": null,
+      "source_region_text": null,
+      "note": null
+    }
+  ],
+  "episode_outcome": {
+    "result": null,
+    "success_order": null,
+    "found_unit_id": null,
+    "found_evidence_frames": [
+      null
+    ],
+    "stop_reason": null,
+    "duration_s": null
+  },
+  "history": null,
+  "hidden": null,
+  "model_evidence_available_after_s": null,
+  "source": {
+    "manifest": null,
+    "completion": null,
+    "home_id_basis": null
+  },
+  "priors": {
+    "habit_prior": null,
+    "cohabitant_counts": null,
+    "semantic_scores": {
+      "source": null,
+      "scores": {
+        "cp_0011_session_20261029_115034:unit:pegboard_tools": null,
+        "cp_0011_session_20261029_115034:unit:rack_slots": null,
+        "cp_0011_session_20261029_115034:unit:yellow_bin_inside": null,
+        "cp_0011_session_20261029_115034:unit:purple_item_area": null,
+        "cp_0011_session_20261029_115034:unit:white_box_inside": null,
+        "cp_0011_session_20261029_115034:unit:black_item_covered_surface": null,
+        "cp_0011_session_20261029_115034:unit:gray_item_covered_surface": null,
+        "cp_0011_session_20261029_115034:unit:exposed_tabletop": null
+      }
+    }
+  },
+  "scene_ref": null,
+  "completeness": {
+    "video_labels_complete": null,
+    "spec_complete": null,
+    "missing": {
+      "experiment_records": [
+        null
+      ],
+      "unit_measurements": [
+        null
+      ]
+    }
+  }
+}

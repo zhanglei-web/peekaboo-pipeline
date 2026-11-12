@@ -1,0 +1,20 @@
+name: Portable pipeline contracts
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: portable
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: sudo apt-get update && sudo apt-get install -y fonts-dejavu-core curl
+      - run: pip install -r requirements.txt
+      - run: python scripts/check_repository.py
+      - run: python scripts/pipeline.py doctor
+      - run: pytest -q

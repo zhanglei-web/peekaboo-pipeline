@@ -1,0 +1,11 @@
+%YAML:1.0
+---
+schema_version: 1
+profile: dynamic
+base_estimator_config: estimator_config.yaml
+rationale: >-
+  Reusable dynamic initializer for Ego captures that may begin in motion.
+  Calibration and tracking settings remain frozen in the generated estimator
+  configuration.
+ros_parameter_overrides:
+  init_dyn_use: true

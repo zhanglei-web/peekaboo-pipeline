@@ -1,0 +1,8 @@
+{
+  "groups": [
+    {
+      "name": "batch_001",
+      "directory": "../runs/annotation/run/annotations/json"
+    }
+  ]
+}

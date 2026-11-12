@@ -1,0 +1,80 @@
+{
+  "episodes": [
+    {
+      "episode_id": "episode_001",
+      "capture": "../data/episode_001",
+      "markdown": "../data/labels/episode_001/episode_001_三帧.md",
+      "left_triplets": "../data/labels/episode_001/left",
+      "right_triplets": "../data/labels/episode_001/right",
+      "target": "blue cup",
+      "fps": 30
+    }
+  ],
+  "preprocessing": {
+    "openvins_binary": "${OPENVINS_BINARY}",
+    "geometry": {
+      "width": 960,
+      "height": 600,
+      "horizontal_fov_deg": 100.0
+    },
+    "vio": {
+      "replay_rate": 1.0,
+      "initialization_profile": "dynamic"
+    },
+    "selection": {
+      "soft_translation_mm": 60.0,
+      "hard_translation_mm": 150.0,
+      "soft_rotation_deg": 5.0,
+      "hard_rotation_deg": 12.0,
+      "min_interval_s": 0.0,
+      "max_gap_s": 0.25
+    },
+    "depth": {
+      "repo": "${STEREO_REPO}",
+      "checkpoint": "${STEREO_CHECKPOINT}",
+      "python": null,
+      "iterations": 8,
+      "max_disp": 416,
+      "volume_builder": "triton",
+      "confidence_mode": "left-right",
+      "max_depth_mm": 65535,
+      "warmup": 2
+    },
+    "ros_output": {
+      "enabled": false,
+      "mode": "none"
+    }
+  },
+  "selector": {
+    "model": {
+      "name": "gpt-6.1-sol",
+      "base_url": "https://selector.example.com/v1",
+      "api_key_env": "SELECTOR_API_KEY",
+      "transport": "responses",
+      "reasoning_effort": "low",
+      "max_output_tokens": 16000,
+      "timeout_s": 180,
+      "transport_retries": 1,
+      "contract_retries": 2,
+      "past_images": 2,
+      "max_candidate_objects": 100
+    }
+  },
+  "routes": {
+    "scene": "qwen",
+    "events": "qwen",
+    "temporal": "qwen"
+  },
+  "endpoints": {
+    "qwen": {
+      "name": "qwen",
+      "base_url": "http://127.0.0.1:8089/v1",
+      "model": "qwen3.8-27b",
+      "context_tokens": 16384,
+      "placement": "remote",
+      "api_key_env": "QWEN_API_KEY",
+      "quantization": "Q8_0",
+      "timeout_s": 1200
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "contract_id": "urn:spatial-memory:search-episode:p0-p1-2:v1:contract:20261102",
+  "schema_version": "spatial_memory.search_episode.p0_p1_2.v1",
+  "reference_path": "historical-reference-not-distributed.json",
+  "reference_sha256": "6abec4722a5dd2571ee55a72333c6f596239bffa851b1b1b647988c1b3552973",
+  "schema_path": "search_episode.schema.json",
+  "schema_sha256": "20569d416b09522aa383296aeea094dfe0b90d5f1d2f3c9d52e4448b7dc3d198",
+  "status": "design_contract_prototype_not_end_to_end_pipeline",
+  "unknown_policy": "explicit_nulls_and_unknown_without_copying_reference_confirmations",
+  "generation_policy": "maintenance_only; runtime never infers schema from candidate output"
+}

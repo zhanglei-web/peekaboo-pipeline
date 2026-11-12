@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "validated_at": "2026-11-12T09:44:43.532970+00:00",
+  "episode_id": "cs_0001_session_20261030_185941",
+  "target": "橡皮",
+  "events": 4,
+  "event_frames": 12,
+  "final_sha256": "30b3648eada2ee6b10b8664dbb0df7bfa9167a2b6eed85d053cca34bb87e4f7e",
+  "reference_sha256": "b9966603ef47680ea9d611176952f34ebc186d9a542d5d0d75d97878dc91807f",
+  "schema_errors": {
+    "new_base": [],
+    "new_compact_without_anchors": [],
+    "historical_without_anchors": []
+  },
+  "core_field_keyset_differences": {},
+  "original_base_values_preserved": true,
+  "historical_event_triplets_match": true,
+  "all_fresh_stage_receipts_passed": true,
+  "stage_seconds": {
+    "assemble": 0.38187399999878835,
+    "direct": 2.211771871003293,
+    "cpu": 24.831738311000663,
+    "scene": 240.5455817309994,
+    "events": 237.80805586000133,
+    "depth": 34.06021947800036,
+    "temporal": 118.53560904700134,
+    "astra": 209.61534186000063
+  },
+  "anchor_status_counts": {
+    "mask_unreviewed": 19,
+    "bbox_center_needs_review": 34,
+    "mask_needs_review": 58,
+    "not_detected": 7
+  },
+  "independent_anchor_validation": "passed",
+  "real_models_used": true,
+  "historical_model_outputs_reused": false,
+  "raw_input_audit": "passed",
+  "vio_quality_passed": false,
+  "vio_quality_gates": {
+    "camera_pose_coverage": false,
+    "odometry_max_gap": true,
+    "odometry_rate": true,
+    "position_std": true,
+    "rotation_std": true
+  },
+  "openvins_exit_code": -11,
+  "semantic_human_reviewed": false,
+  "accuracy_measured": false,
+  "scope": "Fresh raw-data + supplied manual triplets to compact JSON; structural compatibility, evidence identity and normalized ranges. Not semantic accuracy or VIO quality acceptance.",
+  "raw_inputs_published": false,
+  "local_report": "runs/real_e2e_20261112/real_e2e_validation.json",
+  "fresh_execution_with_audited_assembly_retry": true,
+  "semantic_requests": {
+    "selector": 2,
+    "local_qwen_scene": 1,
+    "local_qwen_events": 4,
+    "local_qwen_temporal": 4
+  },
+  "depth_frames": 55,
+  "selected_scene_frames": 3
+}
