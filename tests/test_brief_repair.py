@@ -29,7 +29,10 @@ class BriefRepairTests(unittest.TestCase):
         bad_kind["r"][0][5] = "v"
         bad_box = valid_output()
         bad_box["r"][0][-1] = [[42, 20, 30, 800, 30]]
-        model = StubModel([bad_kind, bad_box, valid_output(), valid_output()])
+        named = valid_output()
+        for row in named["p"] + named["r"]:
+            row[-1] = [dict(zip(("frame_index", "x_min", "y_min", "x_max", "y_max"), e)) for e in row[-1]]
+        model = StubModel([bad_kind, bad_box, named, valid_output()])
         with TemporaryDirectory() as tmp:
             draft, final, receipt, _ = propose(model, tmp, ["shown-image.jpg"],
                                                [{"frame_index": 42}], "prompt", "review")

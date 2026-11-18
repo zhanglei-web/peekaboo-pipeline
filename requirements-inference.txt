@@ -1,0 +1,9 @@
+# Install into the environment used by --geometry-python, alongside this package.
+torch>=2.1
+torchvision
+timm
+einops
+omegaconf
+imageio
+ultralytics
+PyYAML>=6

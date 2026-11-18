@@ -1,0 +1,5 @@
+{
+  "stereo_repository": "/path/to/Fast-FoundationStereo",
+  "stereo_checkpoint": "/path/to/Fast-FoundationStereo/weights/20-30-48/model_best_bp2_serialize.pth",
+  "fastsam_weights": "/path/to/FastSAM-x.pt"
+}

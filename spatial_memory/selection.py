@@ -1,4 +1,4 @@
-"""Qwen3.8-8B chooses all three event frames and proposes unit associations."""
+"""Qwen3-VL-8B-Instruct chooses all three event frames and proposes unit associations."""
 import base64
 from io import BytesIO
 import json
@@ -12,7 +12,7 @@ import requests
 from .io import sha256, write_json
 
 
-MODEL = "Qwen3.8-8B"
+MODEL = "Qwen3-VL-8B-Instruct"
 
 
 def validate_event(event):

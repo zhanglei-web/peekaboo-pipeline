@@ -4,6 +4,7 @@ Only transport changes: the active v3 region and review rules remain inputs.
 The model still supplies boundaries, existence evidence and uncertainty.
 """
 from pathlib import Path
+from copy import deepcopy
 import json
 
 import jsonschema
@@ -82,6 +83,13 @@ def propose(model, output, images, selected, base_prompt, review_template):
     frames = [row["frame_index"] for row in selected]
     transport = (ROOT / "prompts/brief_transport.txt").read_text()
     schema = schema_for(frames)
+    repair_schema = deepcopy(schema)
+    named_evidence = object_schema({
+        "frame_index": {"type": "integer", "enum": frames},
+        **{key: {"type": "integer", "minimum": 0, "maximum": 1000}
+           for key in ("x_min", "y_min", "x_max", "y_max")}})
+    repair_schema["properties"]["p"]["items"]["items"][1]["items"] = named_evidence
+    repair_schema["properties"]["r"]["items"]["items"][7]["items"] = named_evidence
     prompt = base_prompt + "\n\n" + transport
     initial, initial_receipt = model.infer(output / "model/regions", prompt, images, schema, 6500)
     def expand_or_reask(value, receipt, stage):
@@ -98,9 +106,18 @@ def propose(model, output, images, selected, base_prompt, review_template):
                                  "每个证据严格按 [帧号,x_min,y_min,x_max,y_max]，必须 x_min<x_max 且 y_min<y_max；"
                                  "框应包围可见锚点且有正面积。相同 y_min/y_max 是无效的零高度框。"
                                  "应使区域的类型、边界和图像证据一致。"
+                                 "本轮修订的所有图像证据改用具名对象："
+                                 "{frame_index,x_min,y_min,x_max,y_max}，与返回模式一致。"
+                                 "x_min/x_max是水平方向左/右坐标；y_min/y_max是竖直方向上/下坐标。"
                                  f"\n错误：{exc}\n原始输出：" + json.dumps(value, ensure_ascii=False))
                 fixed, fixed_receipt = model.infer(output / f"model/{stage}_repair_{attempt + 1}",
-                                                   repair_prompt, images, schema, 6500)
+                                                   repair_prompt, images, repair_schema, 6500)
+                # Convert named fields to the unchanged public transport ordering.
+                # Values are never reordered, clamped, or inferred by the program.
+                fixed = deepcopy(fixed)
+                for row in fixed["p"] + fixed["r"]:
+                    row[-1] = [[e[key] for key in ("frame_index", "x_min", "y_min", "x_max", "y_max")]
+                               if isinstance(e, dict) else e for e in row[-1]]
                 receipt = {**fixed_receipt,
                            "seconds": receipt["seconds"] + fixed_receipt["seconds"],
                            "previous_attempt": receipt, "validation_repair_executed": True}

@@ -8,5 +8,5 @@
   "stereo_tolerance_ms": 2.0,
   "model_image_max_edge": 1280,
   "model_root": "models/Qwen",
-  "base_url": "http://127.0.0.1:8089/v1"
+  "base_url": null
 }

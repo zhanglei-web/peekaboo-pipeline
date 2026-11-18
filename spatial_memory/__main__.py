@@ -1,4 +1,4 @@
-"""python -m spatial_memory <initialize|prepare-event|select|prepare-geometry|score|assemble-event|replay>"""
+"""Two-stage spatial memory, selected-triplet geometry compilation and event replay."""
 import argparse
 from pathlib import Path
 
@@ -26,12 +26,12 @@ def main():
     prep.add_argument("--spec", required=True)
     prep.add_argument("--output", required=True)
     prep.add_argument("--max-frames", type=int, default=20)
-    pick = sub.add_parser("select", help="Qwen3.8-8B selects Pre, PNR, Post and region associations")
+    pick = sub.add_parser("select", help="Qwen3-VL-8B-Instruct selects Pre, PNR, Post and region associations")
     pick.add_argument("--candidates", required=True)
     pick.add_argument("--catalog", required=True)
     pick.add_argument("--output", required=True)
-    pick.add_argument("--base-url", default="http://127.0.0.1:8089/v1")
-    pick.add_argument("--model", default="Qwen3.8-8B")
+    pick.add_argument("--base-url", default="http://127.0.0.1:8090/v1")
+    pick.add_argument("--model", default="Qwen3-VL-8B-Instruct")
     pick.add_argument("--image-max-edge", type=int, default=768)
     score = sub.add_parser("score", help="Three-frame fixed-reference geometry for one associated unit")
     score.add_argument("--job", required=True)
@@ -41,6 +41,12 @@ def main():
     geo.add_argument("--sources", required=True)
     geo.add_argument("--selection", required=True)
     geo.add_argument("--output", required=True)
+    auto = sub.add_parser("compile-geometry", help="Generate selected-frame stereo, masks, geometric q and cumulative memory")
+    for name in ("session", "config", "event", "selection", "catalog", "memory", "model-root", "output"):
+        auto.add_argument("--" + name, required=True)
+    auto.add_argument("--base-url", default="http://127.0.0.1:8090/v1")
+    auto.add_argument("--registry")
+    auto.add_argument("--detections", required=True)
     assemble = sub.add_parser("assemble-event", help="Freeze one event for cumulative memory replay")
     assemble.add_argument("--candidates", required=True)
     assemble.add_argument("--selection", required=True)
@@ -84,6 +90,14 @@ def main():
             for key in ("left_image", "depth_npz", "foreground_mask", "dynamic_mask"):
                 frame[key] = _relative(frame[key], root)
         prepare_geometry(config, read_json(args.selection), args.output)
+        return
+    elif args.command == "compile-geometry":
+        from .geometry_compiler import GeometryCompiler
+        compiler = GeometryCompiler(read_json(args.config), args.model_root, args.base_url)
+        registry = read_json(args.registry) if args.registry else []
+        compiler.compile(args.session, read_json(args.event), read_json(args.selection),
+                         read_json(args.catalog), read_json(args.memory), args.output, registry,
+                         args.detections)
         return
     elif args.command == "assemble-event":
         event = read_json(args.candidates)

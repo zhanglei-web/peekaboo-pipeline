@@ -116,7 +116,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--pnr-root", required=True)
     parser.add_argument("--model-root", required=True)
-    parser.add_argument("--base-url", default="http://127.0.0.1:8089/v1")
+    parser.add_argument("--base-url", default="http://127.0.0.1:8090/v1")
     parser.add_argument("--recordings", nargs="+", required=True)
     parser.add_argument("--output", required=True)
     parser.add_argument("--stage1-root", help="Reuse a completed stage-one run, keeping its original receipts")
