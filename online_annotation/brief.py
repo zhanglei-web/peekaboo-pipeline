@@ -84,7 +84,28 @@ def propose(model, output, images, selected, base_prompt, review_template):
     schema = schema_for(frames)
     prompt = base_prompt + "\n\n" + transport
     initial, initial_receipt = model.infer(output / "model/regions", prompt, images, schema, 6500)
-    draft = expand(initial, frames)
+    def expand_or_reask(value, receipt, stage):
+        for attempt in range(4):
+            try:
+                return value, receipt, expand(value, frames)
+            except (ValueError, jsonschema.ValidationError) as exc:
+                if attempt == 3:
+                    raise
+                # Ask the same visual model to resolve the contradiction. Do not
+                # silently rewrite its type, visibility, or boundary judgment.
+                repair_prompt = (prompt + "\n\n校验失败，请重新查看全部图像并输出修订后的完整JSON。"
+                                 "类型 s/o 的内部可见性必须为 a；类型 i/m 的内部可见性必须为 v/p/n。"
+                                 "每个证据严格按 [帧号,x_min,y_min,x_max,y_max]，必须 x_min<x_max 且 y_min<y_max；"
+                                 "框应包围可见锚点且有正面积。相同 y_min/y_max 是无效的零高度框。"
+                                 "应使区域的类型、边界和图像证据一致。"
+                                 f"\n错误：{exc}\n原始输出：" + json.dumps(value, ensure_ascii=False))
+                fixed, fixed_receipt = model.infer(output / f"model/{stage}_repair_{attempt + 1}",
+                                                   repair_prompt, images, schema, 6500)
+                receipt = {**fixed_receipt,
+                           "seconds": receipt["seconds"] + fixed_receipt["seconds"],
+                           "previous_attempt": receipt, "validation_repair_executed": True}
+                value = fixed
+    initial, initial_receipt, draft = expand_or_reask(initial, initial_receipt, "regions")
     save_json(output / "model/regions/expanded_proposals.json", draft)
     print(json.dumps({"stage": "brief_full_review", "initial_regions": len(draft["regions"])},
                      ensure_ascii=False), flush=True)
@@ -93,6 +114,6 @@ def propose(model, output, images, selected, base_prompt, review_template):
         prompt + "\n\n" + (ROOT / "prompts/brief_review.txt").read_text()
         + "\n" + json.dumps(initial, ensure_ascii=False, separators=(",", ":")),
         images, schema, 6500)
-    final = expand(reviewed, frames)
+    reviewed, review_receipt, final = expand_or_reask(reviewed, review_receipt, "region_review")
     save_json(output / "model/region_review/expanded_proposals.json", final)
     return draft, final, initial_receipt, review_receipt

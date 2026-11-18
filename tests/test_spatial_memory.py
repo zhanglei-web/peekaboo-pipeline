@@ -129,12 +129,17 @@ class SpatialMemoryTests(unittest.TestCase):
                          source_frame_id=fid)
                 paths[role] = str(path)
             job = {"search_unit_id": "u", "scope": "original_support_footprint",
-                   "reference_npz": str(ref), "frames": paths}
+                   "reference_npz": str(ref), "frames": paths,
+                   "quality_audit": {"accepted": True, "reasons": [], "source": "synthetic_fixture"}}
             result = score_job(job, selected(), root / "score")
             self.assertEqual(result["status"], "valid")
             self.assertAlmostEqual(result["q"], 1.0)
             self.assertLess(result["per_frame_visible_fraction"]["pre"], 1.0)
             self.assertLess(result["per_frame_visible_fraction"]["pnr"], 1.0)
+            job["quality_audit"] = {"accepted": False, "reasons": ["competing_support_planes"]}
+            rejected = score_job(job, selected(), root / "rejected")
+            self.assertIsNone(rejected["q"])
+            self.assertEqual(rejected["raw_q"], 1.0)
 
 
 if __name__ == "__main__":

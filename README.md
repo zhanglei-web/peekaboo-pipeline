@@ -81,7 +81,8 @@ python -m spatial_memory select \
   "search_unit_id": "episode:R001",
   "scope": "original_support_footprint",
   "reference_npz": "reference.npz",
-  "frames": {"pre": "pre.npz", "pnr": "pnr.npz", "post": "post.npz"}
+  "frames": {"pre": "pre.npz", "pnr": "pnr.npz", "post": "post.npz"},
+  "quality_audit": {"accepted": true, "reasons": [], "source": "path/to/geometry_audit.json"}
 }
 ```
 
@@ -109,6 +110,10 @@ python -m spatial_memory replay \
 
 每个关联区域都要提供一条评估记录，无法计算时 `q=null` 且注明原因。`q` 是本次三帧固定参考点的**几何可见并集比例**；`Q=max(Q_previous,q)` 是同一稳定单元跨事件的历史最佳单次分数。等级标注与几何覆盖不能进入同一数值通道。未检查单元保持原状态；首次检查不可计算时仍未知。物体层等权平均已确认单元，大区层等权平均物体；未知项使主均值为 `null`，同时给出上下界。`--cutoff-s` 只读取当时已经提交的事件。修订事件须从原目录按顺序重放。
 
+几何任务还须提供来自上游支撑面及跨帧审计的 `quality_audit`，并由 `prepare-geometry` 原样带入 job。只有审计明确通过且无失败原因时，诊断覆盖率才可写成有效 `q`；缺少审计、支撑面歧义、深度容差敏感或静态表面跨帧不一致时保留 `q=null`。示例中的 `accepted=true` 必须来自实际审计结果。该接口消费审计结果，本仓库尚未自动生成完整的支撑面歧义审计。
+
 ## 验证范围
 
 `python -m unittest discover -s tests -v` 覆盖第一阶段引用与未知状态、三帧候选引用、合成几何并集、`max` 更新、未知值和时间截止。此处没有实际运行 Qwen3.8-8B、100DOH 或双目模型，也没有由这些单元测试得出视觉准确率。实际视频评测仍应独立人工复核三帧角色、区域关联和几何参考范围。
+
+2026-11-18 的真实输入接口测试及暂停状态见 [实测记录](docs/SMOKE_TEST_STATUS.md)。可复用脚本为 `scripts/smoke_real.py` 和 `scripts/smoke_geometry.py`；运行视频实测会调用模型服务。

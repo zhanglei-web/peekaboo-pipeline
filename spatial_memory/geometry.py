@@ -153,7 +153,11 @@ def score_job(job, selection, output_dir, *, epsilon_m=EPSILON_M, max_unknown_fr
         result["per_frame_visible_fraction"] = {r: float(np.mean(v)) for r, v in zip(("pre", "pnr", "post"), visible)}
         np.savez_compressed(output_dir / "point_evidence.npz", reference_points=points,
                             visible=np.stack(visible), known=np.stack(known), union=union)
-        if unknown_fraction > max_unknown_fraction:
+        audit = job.get("quality_audit", {})
+        result["quality_audit"] = audit
+        if audit.get("accepted") is not True or audit.get("reasons"):
+            result["reason"] = "geometry_quality_audit_failed_or_missing"
+        elif unknown_fraction > max_unknown_fraction:
             result["reason"] = "too_many_reference_points_without_valid_depth"
         else:
             result["q"] = result["raw_q"]

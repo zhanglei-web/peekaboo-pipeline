@@ -73,7 +73,10 @@ def prepare_geometry(config, selection, output_dir):
         frames[role] = str(target)
         diagnostics[role] = quality
     job = {"search_unit_id": config["search_unit_id"], "scope": config["scope"],
-           "reference_npz": str(output_dir / "reference.npz"), "frames": frames}
+           "reference_npz": str((output_dir / "reference.npz").resolve()),
+           "frames": {role: str(Path(path).resolve()) for role, path in frames.items()},
+           "quality_audit": config.get("quality_audit", {
+               "accepted": False, "reasons": ["support_and_cross_frame_quality_audit_not_provided"]})}
     write_json(output_dir / "registration.json", diagnostics)
     write_json(output_dir / "job.json", job)
     return job
