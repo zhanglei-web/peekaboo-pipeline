@@ -1,0 +1,13 @@
+{
+  "strategy": "spatial_decay",
+  "feature_top_k": 6,
+  "minimum_peak_gap_seconds": 0.1,
+  "batch_size": 16,
+  "image_max_edge": 1280,
+  "spatial_long_edge": 448,
+  "decay_sigma_factor": 0.5,
+  "decay_cutoff_sigma": 3.0,
+  "path_weight": 0.75,
+  "minimum_valid_patch_fraction": 0.9,
+  "maximum_path_gap_seconds": 0.5
+}

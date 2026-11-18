@@ -1,0 +1,23 @@
+{
+  "sample_stride": 3,
+  "hand_score_min": 0.5,
+  "maximum_object_image_fraction": 0.3,
+  "maximum_object_hand_area_ratio": 12.0,
+  "minimum_contact_frames": 10,
+  "maximum_contact_gap_seconds": 1.0,
+  "comparison_window_seconds": 0.4,
+  "minimum_event_seconds": 0.7,
+  "target_change_distance": 0.14,
+  "target_change_histogram_distance": 0.28,
+  "target_change_position_distance": 0.09,
+  "reset_speed_max": 0.12,
+  "reset_window_seconds": 0.2,
+  "minimum_settled_seconds": 0.15,
+  "return_distance_max": 0.06,
+  "excursion_distance_min": 0.12,
+  "minimum_boundary_gap_seconds": 0.6,
+  "support_expansion_area_ratio": 3.0,
+  "support_containment_min": 0.5,
+  "target_absence_reset_seconds": 0.9,
+  "minimum_release_seconds": 0.15
+}
