@@ -1,0 +1,453 @@
+{
+  "model": "Qwen3-VL-8B-Instruct",
+  "quantization": "Q8_0",
+  "source_and_resource_hashes_verified": 65,
+  "full_raw_frame_count": 2498,
+  "total_events": 18,
+  "historical_prediction_reused_frames": 0,
+  "score_method_counts": {
+    "qwen_continuous_visual_estimate": 16,
+    "validated_geometric_union": 2,
+    "geometric_union_with_quality_warnings": 1
+  },
+  "selection_status_counts": {
+    "ok": 18
+  },
+  "strict_geometry_failure_counts": {
+    "ValueError: No FastSAM mask matches the operated-object grounding": 7,
+    "ValueError: No adjacent connected support plane": 3,
+    "ValueError: Initial operated object cannot be grounded": 5,
+    "geometry_quality_audit_failed_or_missing": 1,
+    "ValueError: ValueError: Selected source frame 1043 has no synchronized right image": 1
+  },
+  "elapsed_seconds": 914.0106532389982,
+  "recordings": [
+    {
+      "recording": "cs_0001_session_20261030_184551",
+      "frames": 803,
+      "events": 5,
+      "numeric_events": 5,
+      "initial_regions": 9,
+      "final_units": 9,
+      "score_method_counts": {
+        "qwen_continuous_visual_estimate": 6
+      },
+      "full_memory_replay_matches": true,
+      "triplets_and_scores": [
+        {
+          "event_id": "event_001",
+          "frames": [
+            102,
+            178,
+            216
+          ],
+          "selection_status": "ok",
+          "q_event": 0.3,
+          "assessments": [
+            {
+              "q": 0.3,
+              "type": "visual_sufficiency_estimate",
+              "method": "qwen_continuous_visual_estimate"
+            }
+          ]
+        },
+        {
+          "event_id": "event_002",
+          "frames": [
+            309,
+            432,
+            447
+          ],
+          "selection_status": "ok",
+          "q_event": 0.5,
+          "assessments": [
+            {
+              "q": 0.3,
+              "type": "visual_sufficiency_estimate",
+              "method": "qwen_continuous_visual_estimate"
+            },
+            {
+              "q": 0.7,
+              "type": "visual_sufficiency_estimate",
+              "method": "qwen_continuous_visual_estimate"
+            }
+          ]
+        },
+        {
+          "event_id": "event_003",
+          "frames": [
+            449,
+            485,
+            498
+          ],
+          "selection_status": "ok",
+          "q_event": 0.3,
+          "assessments": [
+            {
+              "q": 0.3,
+              "type": "visual_sufficiency_estimate",
+              "method": "qwen_continuous_visual_estimate"
+            }
+          ]
+        },
+        {
+          "event_id": "event_004",
+          "frames": [
+            551,
+            676,
+            683
+          ],
+          "selection_status": "ok",
+          "q_event": 0.6,
+          "assessments": [
+            {
+              "q": 0.6,
+              "type": "visual_sufficiency_estimate",
+              "method": "qwen_continuous_visual_estimate"
+            }
+          ]
+        },
+        {
+          "event_id": "event_005",
+          "frames": [
+            695,
+            725,
+            784
+          ],
+          "selection_status": "ok",
+          "q_event": 0.3,
+          "assessments": [
+            {
+              "q": 0.3,
+              "type": "visual_sufficiency_estimate",
+              "method": "qwen_continuous_visual_estimate"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "recording": "cs_0001_session_20261030_192339",
+      "frames": 651,
+      "events": 5,
+      "numeric_events": 5,
+      "initial_regions": 8,
+      "final_units": 10,
+      "score_method_counts": {
+        "validated_geometric_union": 2,
+        "qwen_continuous_visual_estimate": 3
+      },
+      "full_memory_replay_matches": true,
+      "triplets_and_scores": [
+        {
+          "event_id": "event_001",
+          "frames": [
+            105,
+            137,
+            232
+          ],
+          "selection_status": "ok",
+          "q_event": 0.14309764309764308,
+          "assessments": [
+            {
+              "q": 0.14309764309764308,
+              "type": "geometric_coverage",
+              "method": "validated_geometric_union"
+            }
+          ]
+        },
+        {
+          "event_id": "event_002",
+          "frames": [
+            265,
+            286,
+            343
+          ],
+          "selection_status": "ok",
+          "q_event": 0.3,
+          "assessments": [
+            {
+              "q": 0.3,
+              "type": "visual_sufficiency_estimate",
+              "method": "qwen_continuous_visual_estimate"
+            }
+          ]
+        },
+        {
+          "event_id": "event_003",
+          "frames": [
+            399,
+            433,
+            440
+          ],
+          "selection_status": "ok",
+          "q_event": 0.3,
+          "assessments": [
+            {
+              "q": 0.3,
+              "type": "visual_sufficiency_estimate",
+              "method": "qwen_continuous_visual_estimate"
+            }
+          ]
+        },
+        {
+          "event_id": "event_004",
+          "frames": [
+            475,
+            498,
+            528
+          ],
+          "selection_status": "ok",
+          "q_event": 1.0,
+          "assessments": [
+            {
+              "q": 1.0,
+              "type": "geometric_coverage",
+              "method": "validated_geometric_union"
+            }
+          ]
+        },
+        {
+          "event_id": "event_005",
+          "frames": [
+            510,
+            530,
+            570
+          ],
+          "selection_status": "ok",
+          "q_event": 0.7,
+          "assessments": [
+            {
+              "q": 0.7,
+              "type": "visual_sufficiency_estimate",
+              "method": "qwen_continuous_visual_estimate"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "recording": "cs_0001_session_20261030_185159",
+      "frames": 1044,
+      "events": 8,
+      "numeric_events": 8,
+      "initial_regions": 9,
+      "final_units": 10,
+      "score_method_counts": {
+        "geometric_union_with_quality_warnings": 1,
+        "qwen_continuous_visual_estimate": 7
+      },
+      "full_memory_replay_matches": true,
+      "triplets_and_scores": [
+        {
+          "event_id": "event_001",
+          "frames": [
+            58,
+            73,
+            116
+          ],
+          "selection_status": "ok",
+          "q_event": 0.0,
+          "assessments": [
+            {
+              "q": 0.0,
+              "type": "geometric_coverage",
+              "method": "geometric_union_with_quality_warnings"
+            }
+          ]
+        },
+        {
+          "event_id": "event_002",
+          "frames": [
+            72,
+            113,
+            236
+          ],
+          "selection_status": "ok",
+          "q_event": 0.3,
+          "assessments": [
+            {
+              "q": 0.3,
+              "type": "visual_sufficiency_estimate",
+              "method": "qwen_continuous_visual_estimate"
+            }
+          ]
+        },
+        {
+          "event_id": "event_003",
+          "frames": [
+            300,
+            382,
+            467
+          ],
+          "selection_status": "ok",
+          "q_event": 0.6,
+          "assessments": [
+            {
+              "q": 0.6,
+              "type": "visual_sufficiency_estimate",
+              "method": "qwen_continuous_visual_estimate"
+            }
+          ]
+        },
+        {
+          "event_id": "event_004",
+          "frames": [
+            408,
+            488,
+            539
+          ],
+          "selection_status": "ok",
+          "q_event": 0.6,
+          "assessments": [
+            {
+              "q": 0.6,
+              "type": "visual_sufficiency_estimate",
+              "method": "qwen_continuous_visual_estimate"
+            }
+          ]
+        },
+        {
+          "event_id": "event_005",
+          "frames": [
+            480,
+            514,
+            539
+          ],
+          "selection_status": "ok",
+          "q_event": 0.6,
+          "assessments": [
+            {
+              "q": 0.6,
+              "type": "visual_sufficiency_estimate",
+              "method": "qwen_continuous_visual_estimate"
+            }
+          ]
+        },
+        {
+          "event_id": "event_006",
+          "frames": [
+            525,
+            696,
+            780
+          ],
+          "selection_status": "ok",
+          "q_event": 0.6,
+          "assessments": [
+            {
+              "q": 0.6,
+              "type": "visual_sufficiency_estimate",
+              "method": "qwen_continuous_visual_estimate"
+            }
+          ]
+        },
+        {
+          "event_id": "event_007",
+          "frames": [
+            787,
+            817,
+            866
+          ],
+          "selection_status": "ok",
+          "q_event": 0.6,
+          "assessments": [
+            {
+              "q": 0.6,
+              "type": "visual_sufficiency_estimate",
+              "method": "qwen_continuous_visual_estimate"
+            }
+          ]
+        },
+        {
+          "event_id": "event_008",
+          "frames": [
+            912,
+            942,
+            1043
+          ],
+          "selection_status": "ok",
+          "q_event": 0.3,
+          "assessments": [
+            {
+              "q": 0.3,
+              "type": "visual_sufficiency_estimate",
+              "method": "qwen_continuous_visual_estimate"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "weight_revision": "f982a07559d4a2f6c8744d840bf6fccab30eea96",
+  "source_hashes": {
+    "event_frontend/feature_config.json": "ba50423d4d04fb4ae38439a1d1ac62dc5f2ce61ed1653a2e43083cf4d5ddffa4",
+    "event_frontend/action_views.py": "21edc5c1617cee3ed255845a7e15bb7b0b6b7274bb58e7bff4dd01db4b73beb8",
+    "event_frontend/features.py": "18afcd634aff455e075f01746af5463dfd08d0c733888e26b7ca2ddb3b9f2f94",
+    "event_frontend/__main__.py": "5b607b582bf5564c7b98101d5c03ec0b08587f6b2d74f6fb20086ff526e5064c",
+    "event_frontend/action_config.json": "f862a0a5bdb3885cd5e1f9cd128f57f7d971ff2e7de0668829ca66fe3717bde9",
+    "event_frontend/clip.py": "7143653970b0fe6f20a27ddc895db07fcbf08219d2f1da9aae01aa9c1ee029d1",
+    "event_frontend/targets.py": "fad53e1d8b4125fb8603912f8ec43c8fa9307adb6da21be2a2426b0ee2ad913d",
+    "event_frontend/__init__.py": "1d1f1327e91b41469fb9b585ccd36ff76703267db9be6dcccb7f054612da788f",
+    "event_frontend/event_signals.py": "e9a8b6952759ea99b736cda94d36fdefaa2a6fdc55b2aaa3219871243fb6106d",
+    "event_frontend/candidates.py": "cd3572d315d5c5c7d50cdb90ec4fef725c80b6d18870a89b755efc0d0bb66599",
+    "event_frontend/candidate_config.json": "824811e77e1c6096a0997e4fba1f7013395cda2569d95d082557c238f74d89b5",
+    "event_frontend/action_cycles.py": "e97a3e0b19022b10ed1168744c6740cb518e97af4869a18f3405a1ed5a127394",
+    "event_frontend/clusters.py": "cb88ea6033619a3b8883401600d2a114350f5aec19d6ce2c331c215bd27444b1",
+    "event_frontend/tsm_model.py": "f8e7b922cf0eae2826c2cd79db458307243d18beec7bc6bce74d1720a2fddc01",
+    "event_frontend/action_events.py": "975ed1187b0a2608394caafdba8493ac1d839847398233f4791ec33685503adf",
+    "event_frontend/action_cycle_config.json": "fc2e4d01baf9dc27076f1063d3ed92806908ffaeca8b35513a4750742855e719",
+    "event_frontend/pipeline_config.json": "08aefd9b0c8f4c58e1bd23086dd8f2528bcc4309e1cb1cb4b5e8216c9be5522f",
+    "event_frontend/events.py": "91cff94c134be05bc27be75608823327fee07803bcee2cdc89fbea8c85b1a25d",
+    "event_frontend/event_config.json": "297fcdd6cbcdfeaa786b3d88f93fd55a128b1743dc7991c728c1c484d689e293",
+    "event_frontend/video.py": "6d6051dead771e0edc6b7c51d0f0029ee572c0b0f11f3021accb7da9397d8dd8",
+    "event_frontend/detector.py": "a9135d07baa1b5f658b87cf73810c29eea1255209da623ff6b7937fdd0938353",
+    "event_frontend/actions.py": "42be677d141581f0ae686fc8939556483a89c060102659a7a0430244bcc055b1",
+    "event_frontend/spatial_features.py": "4dd13e7ad4bcbe1246c62de4fe071604e3b5b7465c5a666040c8e805052c3a80",
+    "event_frontend/objects.py": "f97a5835938a603c7fcf7a1ecaba18105d4442fb86e40c386193434a630a19ae",
+    "event_frontend/object_config.json": "14f8d413e4377631729323ae4a7dc16f026c8f7918b61e91104b8bd1a5c2d4cd",
+    "event_frontend/compat.py": "e763af1b179c7bcf201ec298a00fcf4425b27be5d20a2b6ca865e6ddf0b2ff2a",
+    "online_annotation/config.json": "cee0653490a2dd0b5ea890cb063cc0cfd083830a83672a2d69243eff2b64eb12",
+    "online_annotation/model.py": "b8394e3654a0ff174d73482848330dfe319ed1b97f72826a9bfe42978ee521a5",
+    "online_annotation/frames.py": "c4a051c5c1f2579b68ea1e4a3c3d96007154dc2b67cb14793edda3aad8f6361f",
+    "online_annotation/__main__.py": "e4cf09f53bc610fe560d518dc81c9837b75c50ee9b206c424206ebec306f70ac",
+    "online_annotation/compact.py": "75b5c87e6f0ae4f9943d93c7568ee21ca05beb8f9172923e0b5957da0fe43331",
+    "online_annotation/__init__.py": "354218188680250f19fbe82079cadd90c283c81e7a1436999d891db674657024",
+    "online_annotation/report.py": "0c746c32ebbbe4283de4129aa1156670b24e6ba1b2be9cad1dd1348dfe1c60f1",
+    "online_annotation/contracts.py": "135b5195a9278c75834dab7eee92499f42b5fa90b0ba093f2e2843a06f92ba99",
+    "online_annotation/multiscale.py": "8c1fbb010669ae9efecc4fe0eee0f319930ad04dd81c06d227b74f91ab08e3bc",
+    "online_annotation/brief.py": "f150afc0598ab3f00a684428873f1782ece6a631ba45454eab06b42275153527",
+    "online_annotation/prompts/region_review.txt": "868a6d5036a4157229fb8fbd31279d80669118384108c3fa8fa18695b97208b6",
+    "online_annotation/prompts/brief_review.txt": "9cae827d53de705b7f2417ead638420fedb4574fee514c44e6812df2c9763fbc",
+    "online_annotation/prompts/compact_repair.txt": "dd0e8776b6929f709a0f3b879cc2838874088515a22d0f3fc2e04f3aca0be209",
+    "online_annotation/prompts/brief_transport.txt": "f582fe79af7f2a4bcd4c13a86bc650f4cceac1bae79f4b799281a2958b6dec8e",
+    "online_annotation/prompts/regions.txt": "9e4c96ceebd244d26788d7ba317910643b845367e8876e3d7f565e051b3a6b05",
+    "online_annotation/prompts/multiscale_regions.txt": "c25f1e622d448909bd866b6710e957d7eb3e6262376bc8577aeb9becc556184e",
+    "online_annotation/prompts/compact_regions.txt": "bbb7b710a3e87c081b1fc743032430df6117b8d9c2ea3fe7379be23d1a02ff41",
+    "spatial_memory/memory.py": "b01f9829e257334dfcbe3433ccdab999152cb684b8df67f765c5b4ed388f866a",
+    "spatial_memory/io.py": "17c8aae5a2c4b3827fd20372093cd0467b68ce96e20b03ece6359e33e46479ce",
+    "spatial_memory/__main__.py": "fbed335d1a8aa9336401bca12be7daf1649c00bdd7e0a55d03f34e428ccc31fd",
+    "spatial_memory/selection.py": "929b3fcee5c514bc61ac8b3493cf43a84f8203e77ae3666c43fe512907f15734",
+    "spatial_memory/registration.py": "cf3ed75d86fb265ef9a2c0b090640388eb09cc0de2b9d029a0c4eaa8bee221e2",
+    "spatial_memory/geometry_inputs.py": "8c0ee683f18b14b913fc20a61f3e4e3669bbf802c74f962a8eeb2dff950a01da",
+    "spatial_memory/__init__.py": "0c610e4bee6fa381814313f803064032e3f2d9324b0ddb19beb86ccbcc997359",
+    "spatial_memory/candidates.py": "44209b53bce55c7e3847935321d703814656b4711954da02a7eb7fe27e73596a",
+    "spatial_memory/geometry_compiler.py": "0abf57f9964c1710498c7898a96b869fbe35ffb175aac56fc9ecb494c81eb623",
+    "spatial_memory/estimation.py": "3fff4747b7367eb07a3e58b6338d8850aeabfee384e34a4002e8eec3630ab538",
+    "spatial_memory/grounding.py": "5066f08955ea5b335d470512d8463a0b8dc1ff84196516d1f0332540800bc80e",
+    "spatial_memory/stereo.py": "26c05a466ecd195b1d04a64580cd2bd951146eaae490932ea15d5db89e824a46",
+    "spatial_memory/support.py": "474823fbdaf31f84b7e829f79ef807f523baaf4a514b94522ac65b684fbef34e",
+    "spatial_memory/catalog.py": "00c5a49b1683f5927e755e4d7b06b44e4d0fe08c2d750a1ddccc03b9607252ce",
+    "spatial_memory/geometry.py": "b558ca170ac6ab51a8df8ae04aa776d813280ad5b45e60079755bf12224f53a0",
+    "scripts/recompile_geometry.py": "26539e43beeedbcb9e76d4070baff8475ea2df70ae3aa5b9a8905e48a0ba1317",
+    "scripts/process_recording.py": "22ab395eb264c8e9453feada193f378d3b6bb66762d47b1a64e9eb6b9897e203",
+    "scripts/test_8b_pipeline.py": "6cc5cd4da9357fc6f982b413f990c60c6febf733c8ab8e5ecea157810ac5ae58",
+    "scripts/full_pipeline.py": "c0af0120c4a785fff8c18c6e91aeffcec0f824aa03e576e8e0ca9a56caf78d0e",
+    "scripts/qwen8b_service.py": "6ca82e7fa9dd5c73c35519429fffe943020f3c846ab371c3a4683a0b49a2d419",
+    "scripts/smoke_real.py": "59b86a3b38d20d9fd64ef42f49d4af6db2bad1bc95fab1d854412390583f6b2b",
+    "scripts/smoke_geometry.py": "3b39464cedd5b31200244aa5ef02ba0dd9d6ba0497ef2a25c8d74c0787197cd0"
+  },
+  "run_artifacts": "/data/storage/peekaboo-runs/full_numeric_20261118_v4",
+  "unit_tests_passed": 25,
+  "wheel_resource_check_passed": true,
+  "validation_scope": "full execution and numeric availability; not independent semantic or geometric accuracy"
+}

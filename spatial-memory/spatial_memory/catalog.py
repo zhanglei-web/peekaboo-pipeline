@@ -33,7 +33,10 @@ def initialize(catalog):
             "searched": False,
             "visit_count": 0,
             "last_q": None,
-            "Q": None,
+            "Q": 0.0,
+            "Q_geometric": None,
+            "Q_estimated": None,
+            "Q_source": {"status": "unsearched", "method": "initial_unsearched_zero"},
             "history": [],
         }
     return {
@@ -46,4 +49,5 @@ def initialize(catalog):
         "applied_events": [],
         "object_summary": {},
         "macro_summary": {},
+        "Q_semantics": "operational_best_available_sufficiency_estimate_with_provenance",
     }

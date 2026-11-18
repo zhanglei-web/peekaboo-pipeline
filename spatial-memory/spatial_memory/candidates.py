@@ -14,7 +14,7 @@ def prepare_event(spec, output_dir, *, max_frames=20):
     """
     start = int(spec["start_source_frame_id"])
     end = int(spec["end_source_frame_id"])
-    if start < 0 or end <= start:
+    if start < 0 or end < start:
         raise ValueError("Invalid event source-frame interval")
     video = cv2.VideoCapture(str(spec["left_video"]))
     if not video.isOpened():

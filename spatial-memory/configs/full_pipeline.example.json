@@ -1,0 +1,19 @@
+{
+  "sessions": ["/path/to/session_scene_a", "/path/to/session_scene_b", "/path/to/session_scene_c"],
+  "frontend_python": "/path/to/frontend/python",
+  "geometry_python": "/path/to/geometry/python",
+  "model_root": "/path/to/Qwen3-VL-8B-Instruct",
+  "base_url": "http://127.0.0.1:8090/v1",
+  "detection_repository": "/path/to/hand_object_detector",
+  "detection_checkpoint": "/path/to/faster_rcnn_1_8_132028.pth",
+  "tsm_checkpoint": "/path/to/tsm_rgb.ckpt",
+  "tsm_labels": "/path/to/tsm_labels",
+  "clip_checkpoint": "/path/to/ViT-B-32.pt",
+  "yolo_weights": "/path/to/yolov8s-worldv2.pt",
+  "geometry": {
+    "stereo_repository": "/path/to/Fast-FoundationStereo",
+    "stereo_checkpoint": "/path/to/model_best_bp2_serialize.pth",
+    "fastsam_weights": "/path/to/FastSAM-x.pt",
+    "score_policy": "best_effort"
+  }
+}

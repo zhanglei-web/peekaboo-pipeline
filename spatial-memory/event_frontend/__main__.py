@@ -21,6 +21,7 @@ def main():
     detect.add_argument("--repository", required=True)
     detect.add_argument("--checkpoint", required=True)
     detect.add_argument("--device", default="cuda")
+    detect.add_argument("--max-frames", type=int)
     act = sub.add_parser("recognize-actions")
     act.add_argument("--run", required=True)
     act.add_argument("--output", required=True)
@@ -68,7 +69,7 @@ def main():
     if args.command == "detect":
         detector = HandObjectDetector(Path(args.repository), Path(args.checkpoint), .3, .3,
                                       args.device, 4)
-        result = detect_video(Path(args.session), Path(args.output), detector)
+        result = detect_video(Path(args.session), Path(args.output), detector, max_frames=args.max_frames)
     elif args.command == "recognize-actions":
         result = extract_actions(args.run, args.output, args.checkpoint, args.labels_dir,
                                  action_config(), args.device, args.view)

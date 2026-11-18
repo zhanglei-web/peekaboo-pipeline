@@ -44,9 +44,10 @@ def event(eid, q, end, available):
 
 
 class SpatialMemoryTests(unittest.TestCase):
-    def test_stage_one_is_provisional_and_unknown(self):
+    def test_stage_one_is_provisional_with_unsearched_zero_and_unmeasured_geometry(self):
         state = initialize(catalog())
-        self.assertIsNone(state["units"]["u"]["Q"])
+        self.assertEqual(state["units"]["u"]["Q"], 0.0)
+        self.assertIsNone(state["units"]["u"]["Q_geometric"])
         self.assertFalse(state["units"]["u"]["confirmed"])
         self.assertEqual(state["object_summary"], {})
 
@@ -60,7 +61,7 @@ class SpatialMemoryTests(unittest.TestCase):
         self.assertEqual(u["visit_count"], 3)
         self.assertEqual(state["object_summary"]["p"]["Q"], 0.6)
         self.assertEqual(replay(catalog(), events, cutoff_s=4)["units"]["u"]["Q"], 0.6)
-        self.assertIsNone(replay(catalog(), events, cutoff_s=2)["units"]["u"]["Q"])
+        self.assertEqual(replay(catalog(), events, cutoff_s=2)["units"]["u"]["Q"], 0.0)
 
     def test_rejects_numeric_semantic_grade_and_duplicate_event(self):
         bad = event("e1", 0.5, 2, 3)
@@ -97,7 +98,7 @@ class SpatialMemoryTests(unittest.TestCase):
         second["assessments"][0]["search_unit_id"] = uid
         state = replay(catalog(), [first, second])
         self.assertEqual(state["units"][uid]["Q"], .4)
-        self.assertIsNone(state["units"]["u"]["Q"])
+        self.assertEqual(state["units"]["u"]["Q"], 0.0)
         self.assertEqual(state["object_summary"]["operated_object"]["Q"], .4)
         self.assertNotIn("p", state["object_summary"])
 

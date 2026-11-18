@@ -38,6 +38,7 @@ def summarize(state):
 
 def _q_snapshot(state):
     return {uid: {"Q": unit["Q"], "last_q": unit["last_q"],
+                  "Q_geometric": unit.get("Q_geometric"), "Q_source": unit.get("Q_source"),
                   "confirmed": unit["confirmed"], "visit_count": unit["visit_count"]}
             for uid, unit in state["units"].items()}
 
@@ -58,7 +59,8 @@ def apply_event(state, event):
                                     or available < state["applied_events"][-1]["available_after_s"]):
         raise ValueError("Events must be committed in chronological availability order")
     selection = event["selection"]
-    if selection["status"] != "ok" or selection["event_id"] != eid:
+    best_effort = event.get("score_policy") == "best_effort"
+    if selection["status"] not in (("ok", "uncertain") if best_effort else ("ok",)) or selection["event_id"] != eid:
         raise ValueError("Event needs a confirmed three-frame selection")
     if not selection["pre"] < selection["pnr"] < selection["post"]:
         raise ValueError("Pre, PNR, Post source frames must be ordered")
@@ -88,6 +90,7 @@ def apply_event(state, event):
                                "source_region_id": new.get("source_region_id"),
                                "searched": False, "visit_count": 0, "last_q": None,
                                "Q": 0.0, "history": [],
+                               "Q_geometric": None, "Q_estimated": None,
                                "confirmation_basis": new["confirmation_basis"]}
     associated = {a["candidate_id"] for a in selection["associations"]}
     if any(uid not in state["units"] for uid in associated):
@@ -100,29 +103,44 @@ def apply_event(state, event):
         uid = assessment["search_unit_id"]
         if (assessment["event_id"] != eid
                 or assessment.get("episode_id") != state["episode_id"]
-                or assessment["score_type"] != "geometric_coverage"
+                or assessment["score_type"] not in ("geometric_coverage", "visual_sufficiency_estimate", "default_sufficiency")
                 or not assessment.get("scope")):
             raise ValueError("Assessment identity or numeric semantics mismatch")
         q = assessment.get("q")
         if q is not None and (isinstance(q, bool) or not isinstance(q, (int, float))
                               or not math.isfinite(q) or not 0 <= q <= 1):
             raise ValueError("Geometric q must be finite and in [0,1]")
-        if assessment["status"] not in ("valid", "uncomputable"):
+        if assessment["status"] not in ("valid", "estimated", "fallback", "uncomputable"):
             raise ValueError("Unknown geometry status")
         if assessment["status"] == "valid" and q is None:
             raise ValueError("Valid geometry needs q")
         if assessment["status"] == "valid" and assessment["scope"] != "original_support_footprint":
             raise ValueError("Numeric geometry has no implemented scope")
-        if assessment["status"] != "valid" and q is not None:
+        if assessment["status"] == "valid" and assessment["score_type"] != "geometric_coverage":
+            raise ValueError("A visual estimate cannot be labeled valid geometric coverage")
+        if assessment["status"] == "uncomputable" and q is not None:
             raise ValueError("Uncomputable geometry must not write a numeric q")
+        if assessment["status"] in ("estimated", "fallback") and (q is None or not assessment.get("estimation_method")):
+            raise ValueError("Estimated sufficiency requires a numeric value and its method")
+        if best_effort and q is None:
+            raise ValueError("Best-effort events require a numeric value for every inspected scope")
         unit = state["units"][uid]
         first_inspection = unit["visit_count"] == 0
-        unit["confirmed"] = True
+        unit["confirmed"] = unit.get("identity_anchor") != "event_local"
         unit["searched"] = True
         unit["visit_count"] += 1
         unit["last_q"] = q
         if q is not None:
+            rank = {"valid": 3, "estimated": 2, "fallback": 1, "unsearched": 0}
+            previous_rank = rank.get(unit.get("Q_source", {}).get("status"), -1)
+            if unit["Q"] is None or q > unit["Q"] or (q == unit["Q"] and rank.get(assessment["status"], -1) > previous_rank):
+                unit["Q_source"] = {"event_id": eid, "score_type": assessment["score_type"],
+                                    "status": assessment["status"], "method": assessment.get("estimation_method")}
             unit["Q"] = q if unit["Q"] is None else max(unit["Q"], q)
+            if assessment["status"] == "valid" and assessment["score_type"] == "geometric_coverage":
+                unit["Q_geometric"] = max(unit.get("Q_geometric") or 0., q)
+            elif assessment["status"] == "estimated":
+                unit["Q_estimated"] = max(unit.get("Q_estimated") or 0., q)
         elif first_inspection:
             # Discovery's zero is not evidence of a successfully computed inspection.
             unit["Q"] = None
@@ -130,12 +148,20 @@ def apply_event(state, event):
                                  "status": assessment["status"],
                                  "reason": assessment.get("reason"),
                                  "scope": assessment.get("scope"),
+                                 "score_type": assessment["score_type"],
+                                 "estimation_method": assessment.get("estimation_method"),
+                                 "evidence_strength": assessment.get("evidence_strength"),
                                  "available_after_s": available})
+    if best_effort:
+        state["Q_semantics"] = "operational_best_available_sufficiency_estimate_with_provenance"
     summarize(state)
     state["applied_events"].append({"event_id": eid, "event_end_time_s": end,
                                      "available_after_s": available,
                                      "pre": selection["pre"], "pnr": selection["pnr"],
                                      "post": selection["post"],
+                                     "q_event_estimate": event.get("q_event_estimate"),
+                                     "score_policy": event.get("score_policy", "strict"),
+                                     "score_types": [a["score_type"] for a in assessments],
                                      "before": before, "after": _q_snapshot(state),
                                      "object_summary": deepcopy(state["object_summary"]),
                                      "macro_summary": deepcopy(state["macro_summary"])})

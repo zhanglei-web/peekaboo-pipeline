@@ -8,6 +8,7 @@ import numpy as np
 
 from online_annotation.model import JsonModel
 from .geometry import _backproject, make_reference, score_job
+from .estimation import ensure_numeric
 from .geometry_inputs import prepare_geometry
 from .grounding import ObjectMasks, ground_triplet
 from .io import read_json, write_json
@@ -97,24 +98,47 @@ class GeometryCompiler:
     def compile(self, session, event, selection, catalog, state, output_dir, registry=None,
                 detections=None):
         """A registry preserves fixed references for verified geometric revisits."""
-        if selection["model"] != MODEL or selection["status"] != "ok":
+        best_effort = self.config.get("score_policy", "best_effort") == "best_effort"
+        if selection["model"] != MODEL or selection["status"] not in (("ok", "uncertain") if best_effort else ("ok",)):
             raise ValueError("Requires a confirmed triplet from the requested 8B model")
+        if not all(isinstance(selection.get(role), int) for role in ("pre", "pnr", "post")):
+            raise ValueError("The VLM must select all three actual frame references before scoring")
         output_dir = Path(output_dir).resolve()
         output_dir.mkdir(parents=True, exist_ok=True)
         start = time.perf_counter()
         registry = deepcopy(registry or [])
-        stereo = StereoSequence(session)
-        frames = stereo.prepare(selection, output_dir / "stereo")
-        if detections is None:
-            raise ValueError("Automatic geometry requires source-frame hand detections")
-        hand_masks = stereo.hand_exclusions(selection, detections, output_dir / "hand_evidence.json")
+        geometry_setup_failure = None
+        try:
+            stereo = StereoSequence(session)
+            frames = stereo.prepare(selection, output_dir / "stereo")
+            if detections is None:
+                raise ValueError("Automatic geometry requires source-frame hand detections")
+            hand_masks = stereo.hand_exclusions(selection, detections, output_dir / "hand_evidence.json")
+        except (ValueError, KeyError, OSError, RuntimeError) as exc:
+            if not best_effort:
+                raise
+            geometry_setup_failure = f"{type(exc).__name__}: {exc}"
+            by_id = {c["source_frame_id"]: c for c in event["candidates"]}
+            frames = {role: {"left": by_id[selection[role]]["image"]} for role in ("pre", "pnr", "post")}
         geometry_selection = deepcopy(selection)
         geometry_selection["associations"] = []
         assessments, new_units = [], []
         new_parents = []
         event_references = []
         regions = {r["candidate_id"]: r for r in catalog["regions"]}
-        for association_index, association in enumerate(selection["associations"]):
+        associations = deepcopy(selection["associations"])
+        if not associations and best_effort:
+            uid = f"{catalog['episode_id']}:unresolved_scope:{event['event_id']}"
+            parent = uid + ":object"
+            regions[uid] = {"candidate_id": uid, "parent_id": parent, "name": "unresolved event search scope",
+                            "boundary_description": "Inspection scope visible in this event; catalog association unresolved"}
+            associations = [{"candidate_id": uid, "reason": "numeric estimate with unresolved spatial association",
+                             "confidence": "low"}]
+            new_parents.append({"parent_id": parent, "name": "unresolved event context", "source": "unresolved_event"})
+            new_units.append({"search_unit_id": uid, "parent_id": parent, "name": regions[uid]["name"],
+                "boundary_description": regions[uid]["boundary_description"], "region_type": "unresolved_visual_scope",
+                "identity_anchor": "event_local", "confirmation_basis": "operational_estimate_only_unresolved_association"})
+        for association_index, association in enumerate(associations):
             source_id = association["candidate_id"]
             region = regions[source_id]
             folder = output_dir / f"unit_{association_index:03d}"
@@ -122,7 +146,14 @@ class GeometryCompiler:
             uid = source_id
             scope = "unestablished"
             failure = None
+            job = None
             try:
+                if selection["status"] != "ok":
+                    raise ValueError("VLM selected best-effort frames with uncertain semantic roles")
+                if geometry_setup_failure:
+                    raise ValueError(geometry_setup_failure)
+                if source_id not in {r["candidate_id"] for r in catalog["regions"]}:
+                    raise ValueError("Event has no resolved catalog region association")
                 grounding = ground_triplet(self.model, frames, region, folder)
                 scope = grounding["scope"]
                 if scope != "original_support_footprint":
@@ -233,18 +264,29 @@ class GeometryCompiler:
                     "search_unit_id": uid, "score_type": "geometric_coverage", "scope": scope,
                     "q": None, "status": "uncomputable", "reason": failure}
                 write_json(folder / "assessment_failure.json", assessment)
+            if best_effort:
+                estimate_region = region
+                if uid != source_id:
+                    estimate_region = {"name": grounding["object_name"] + " original support footprint",
+                        "boundary_description": "Only the fixed initial operated-object support footprint, not the entire parent region"}
+                assessment = ensure_numeric(assessment, job, self.model, frames, estimate_region, folder / "numeric_score")
             assessment["source_region_id"] = source_id
             assessments.append(assessment)
             geometry_selection["associations"].append({**association, "candidate_id": uid,
                                                         "source_region_id": source_id})
-        completed_after = max(c["timestamp_s"] for c in event["candidates"]) + (
+        previous_ready = (state["applied_events"][-1]["available_after_s"] if state["applied_events"]
+                          else state.get("available_after_s", 0.))
+        completed_after = max(previous_ready, max(c["timestamp_s"] for c in event["candidates"])) + (
             selection.get("model_seconds", 0) + time.perf_counter() - start)
         record = {"episode_id": catalog["episode_id"], "event_id": event["event_id"],
             "catalog_version": catalog["catalog_version"], "event_end_time_s": event["event_end_time_s"],
             "available_after_s": completed_after,
             "availability_note": "offline conservative serial replay: last input arrival + selection + geometry wall time",
             "selection": geometry_selection, "assessments": assessments, "new_units": new_units,
-            "new_parents": new_parents}
+            "new_parents": new_parents, "score_policy": "best_effort" if best_effort else "strict"}
+        if best_effort:
+            record["q_event_estimate"] = float(np.mean([a["q"] for a in assessments]))
+            record["q_event_semantics"] = "operational_best_available_sufficiency_estimate"
         memory = apply_event(state, record)
         write_json(output_dir / "committed_event.json", record)
         write_json(output_dir / "memory.json", memory)
