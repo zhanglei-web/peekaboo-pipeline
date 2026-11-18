@@ -1,0 +1,13 @@
+{
+  "minimum_close_probability": 0.75,
+  "withdrawal_edge_center_y": 0.91,
+  "minimum_withdrawal_seconds": 0.35,
+  "withdrawal_maximum_observation_gap_seconds": 0.35,
+  "maximum_reapproach_seconds": 0.8,
+  "minimum_reapproach_y_distance": 0.08,
+  "close_guard_seconds": 0.4,
+  "maximum_action_supported_contact_gap_seconds": 1.5,
+  "maximum_action_continuation_seconds": 0.9,
+  "minimum_gap_hand_observation_fraction": 0.6,
+  "ambiguous_cycle_seconds": 8.0
+}

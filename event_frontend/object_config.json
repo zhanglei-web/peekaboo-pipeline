@@ -1,0 +1,12 @@
+{
+  "categories": ["drawer", "box", "basket", "cabinet", "door", "card", "card reader", "bottle", "cup", "bag", "book", "phone", "keyboard", "tool"],
+  "confidence": 0.15,
+  "image_size": 640,
+  "crop_padding": 0.1,
+  "category_match_iou_min": 0.1,
+  "track_max_missing_frames": 15,
+  "track_iou_min": 0.15,
+  "track_center_distance_max": 0.75,
+  "track_appearance_distance_max": 0.5,
+  "track_area_ratio_max": 4.0
+}

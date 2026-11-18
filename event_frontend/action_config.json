@@ -1,0 +1,10 @@
+{
+  "window_seconds": 1.2,
+  "stride_seconds": 0.2,
+  "batch_size": 4,
+  "minimum_action_probability": 0.35,
+  "minimum_action_margin": 0.1,
+  "minimum_action_persistence_seconds": 0.4,
+  "boundary_contact_window_seconds": 0.6,
+  "minimum_observed_release_seconds": 0.1
+}

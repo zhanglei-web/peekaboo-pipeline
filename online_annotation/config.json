@@ -1,0 +1,12 @@
+{
+  "observation_seconds": 2.0,
+  "sample_hz": 10,
+  "temporal_bin_seconds": 0.25,
+  "novelty_threshold": 0.025,
+  "max_shortlist": 8,
+  "max_semantic_keyframes": 4,
+  "stereo_tolerance_ms": 2.0,
+  "model_image_max_edge": 1280,
+  "model_root": "models/Qwen",
+  "base_url": "http://127.0.0.1:8089/v1"
+}
