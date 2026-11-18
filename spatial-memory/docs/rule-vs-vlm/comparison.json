@@ -1,0 +1,1652 @@
+{
+  "selection_root": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2",
+  "reference_sha256": "ef736b5c5873bf198b04acf277a45c61119eebe56d1edd6e188a79e400bdb87a",
+  "runner_summary_sha256": "c3a97d86806641e90083afc21eb9565051fc26c667491c4b6b086a5a4205c336",
+  "legacy_implementation_hashes": {
+    "/home/user/zl/pipeline/pnr/holdout_twenty_score.py": "62e009de69a5774fb1f612bc4755e84bb7dba6d6450dd67f0c7fe880cac19e9b",
+    "/home/user/zl/pipeline/pnr/signals.py": "06f9814cbad97d7dffc2ecc098ed960279da11cb5b58d8af181afae2cae215e3",
+    "/home/user/zl/pipeline/pnr/smol_experiment.py": "b3fb48ff487354d53ff5bd7d2fedffa8bae734fd92342107c6ff0ab0dce65d99",
+    "/home/user/zl/pipeline/pnr/event_evaluation.py": "0eb67dbed88b8c75bb6cb405d4f353b4419d3f34b77d5c8232c7a0d9b4f6a662",
+    "/home/user/zl/pipeline/pnr/action_views.py": "21edc5c1617cee3ed255845a7e15bb7b0b6b7274bb58e7bff4dd01db4b73beb8",
+    "/home/user/zl/pipeline/pnr/internvl_experiment.py": "63703a9dcbd6dba8259fb56d3894a1eb3e532dd83f50cb8a23b6d2f8debcf5e9",
+    "/home/user/zl/pipeline/pnr/internvl_model.py": "8310598119d35a8f40f9548c5149baecd32a3a6974e5c55e8cca11ec7cb1a611",
+    "/home/user/zl/pipeline/pnr/features.py": "18afcd634aff455e075f01746af5463dfd08d0c733888e26b7ca2ddb3b9f2f94",
+    "/home/user/zl/pipeline/pnr/__main__.py": "27026effe6c178ec7359df5f65f7cc42b67d12d58251d9108a02abf377386573",
+    "/home/user/zl/pipeline/pnr/clip.py": "7143653970b0fe6f20a27ddc895db07fcbf08219d2f1da9aae01aa9c1ee029d1",
+    "/home/user/zl/pipeline/pnr/vlm.py": "518ca2513795a1284969949fd75f1a33f19def02fe21a7d17b54bbbabcd072e0",
+    "/home/user/zl/pipeline/pnr/targets.py": "fad53e1d8b4125fb8603912f8ec43c8fa9307adb6da21be2a2426b0ee2ad913d",
+    "/home/user/zl/pipeline/pnr/internvl_structured.py": "5e4d9a2a727d9f38f015f6098e9bf07e0575ab4ffc8940e6e04f371646d30775",
+    "/home/user/zl/pipeline/pnr/__init__.py": "1d1f1327e91b41469fb9b585ccd36ff76703267db9be6dcccb7f054612da788f",
+    "/home/user/zl/pipeline/pnr/event_signals.py": "e9a8b6952759ea99b736cda94d36fdefaa2a6fdc55b2aaa3219871243fb6106d",
+    "/home/user/zl/pipeline/pnr/candidates.py": "cd3572d315d5c5c7d50cdb90ec4fef725c80b6d18870a89b755efc0d0bb66599",
+    "/home/user/zl/pipeline/pnr/report.py": "01773de53f0278133e9cbcfad74e6a02090cd3f330374a97718722e46608349a",
+    "/home/user/zl/pipeline/pnr/smol_boundaries.py": "d035695e2eefcc9a3a810116af793165499d88e33db29b5191a6f7c2d0613850",
+    "/home/user/zl/pipeline/pnr/action_cycles.py": "e97a3e0b19022b10ed1168744c6740cb518e97af4869a18f3405a1ed5a127394",
+    "/home/user/zl/pipeline/pnr/clusters.py": "cb88ea6033619a3b8883401600d2a114350f5aec19d6ce2c331c215bd27444b1",
+    "/home/user/zl/pipeline/pnr/download_weights.py": "69681e526856c9c39b12cd5543533a4e866704b5f26237fb775bf752f0828d1f",
+    "/home/user/zl/pipeline/pnr/triplet_semantic_scoring.py": "b2b5fc27fec7ddbb81160ca03b91c5431f4cee39eb3d74de400450e52dc8b515",
+    "/home/user/zl/pipeline/pnr/peak.py": "e2d6841b3bc2ab934685821919c11d56138ac5b68c82f914ee5165bea701080d",
+    "/home/user/zl/pipeline/pnr/smol_model.py": "0099e9764c71e8f05adad9166c2fccd56b2a84a563b642b817961756d6d14a47",
+    "/home/user/zl/pipeline/pnr/tsm_model.py": "f8e7b922cf0eae2826c2cd79db458307243d18beec7bc6bce74d1720a2fddc01",
+    "/home/user/zl/pipeline/pnr/action_events.py": "975ed1187b0a2608394caafdba8493ac1d839847398233f4791ec33685503adf",
+    "/home/user/zl/pipeline/pnr/feature_selection.py": "27614fe705b5f8edfbf056cce6f536e1e9e759303cc6835ddeb93cc23e06b1e4",
+    "/home/user/zl/pipeline/pnr/triplet_accuracy_experiment.py": "b4639419a026043016e9a6edc89ca40a5420dc45c944b39690df61eacf6bed58",
+    "/home/user/zl/pipeline/pnr/events.py": "91cff94c134be05bc27be75608823327fee07803bcee2cdc89fbea8c85b1a25d",
+    "/home/user/zl/pipeline/pnr/vlm_review.py": "5a60ee02df55d677fafdedf676849a14cde9cc11d969f7359f7be171d7df828e",
+    "/home/user/zl/pipeline/pnr/video.py": "6d6051dead771e0edc6b7c51d0f0029ee572c0b0f11f3021accb7da9397d8dd8",
+    "/home/user/zl/pipeline/pnr/audit.py": "18066d0feb0d33ddfcf5215997006716272206b70198fb17421284be36a7c39f",
+    "/home/user/zl/pipeline/pnr/detector.py": "a9135d07baa1b5f658b87cf73810c29eea1255209da623ff6b7937fdd0938353",
+    "/home/user/zl/pipeline/pnr/actions.py": "42be677d141581f0ae686fc8939556483a89c060102659a7a0430244bcc055b1",
+    "/home/user/zl/pipeline/pnr/events_batch.py": "c97aaf44c6246dad385bc0e1bf31a6ad9bfb961efd07c192f00023ab38d45e5f",
+    "/home/user/zl/pipeline/pnr/spatial_features.py": "4dd13e7ad4bcbe1246c62de4fe071604e3b5b7465c5a666040c8e805052c3a80",
+    "/home/user/zl/pipeline/pnr/holdout_twenty.py": "d32b8c7e412e072fbd9ff8b04ab3a80022c8529752b4ea0174f171010a47726a",
+    "/home/user/zl/pipeline/pnr/objects.py": "f97a5835938a603c7fcf7a1ecaba18105d4442fb86e40c386193434a630a19ae",
+    "/home/user/zl/pipeline/pnr/review_model.py": "e6630f90a8b192b9cc986026048a1f1c5689706874a5441645aa6cfb6453a095",
+    "/home/user/zl/pipeline/pnr/smol_report.py": "a443f2e1105da28284845576d9b4dfeac67454bbb804e8a2d172164f289175b6",
+    "/home/user/zl/pipeline/pnr/holdout_twenty_cards.py": "79159bf9d69624de4a1ffafd4baf64a256ff21a01965958595d01366d2be8d07",
+    "/home/user/zl/pipeline/pnr/internvl_report.py": "aeaf013e778c25b4e77a16ed861f03b616141a71649adcb07c4b03303efed3ea",
+    "/home/user/zl/pipeline/pnr/holdout_twenty_run.py": "c985109bc4d3eaf8d74d1645ced7b60e5901f89745a8d1f898d96ff0f5441ceb",
+    "/home/user/zl/pipeline/pnr/event_review.py": "666470e435c7af6123f2f212fbe275d9a8bd2d3e5d9642a57298f097eafe25df",
+    "/home/user/zl/pipeline/pnr/compat.py": "e763af1b179c7bcf201ec298a00fcf4425b27be5d20a2b6ca865e6ddf0b2ff2a"
+  },
+  "analysis_source_sha256": "92aab4b559aac561ce015df230ba72cfc7b20b4ebe3effc1bbab9516eb8eca38",
+  "rule_triplet_shown_to_vlm_count": 18,
+  "pnr_shift": {
+    "earlier_count": 18,
+    "same_count": 0,
+    "later_count": 0,
+    "mean_seconds": -1.6425925925925928,
+    "median_seconds": -0.75
+  },
+  "all_events": {
+    "rule": {
+      "events": 18,
+      "complete_triplets": 18,
+      "three_distinct_frames": 10,
+      "all_three_in_prediction": 18,
+      "pnr_in_prediction": 18,
+      "pnr_in_any_human_interval": 12,
+      "n_equals_endpoint": 8
+    },
+    "vlm": {
+      "events": 18,
+      "complete_triplets": 18,
+      "three_distinct_frames": 18,
+      "all_three_in_prediction": 2,
+      "pnr_in_prediction": 17,
+      "pnr_in_any_human_interval": 16,
+      "n_equals_endpoint": 0
+    }
+  },
+  "matched_diagnostics": {
+    "0.3": {
+      "rule": {
+        "matched_events": 11,
+        "pre_in_matched_truth": 5,
+        "pnr_in_matched_truth": 6,
+        "post_in_matched_truth": 5,
+        "all_three_in_matched_truth": 3
+      },
+      "vlm": {
+        "matched_events": 11,
+        "pre_in_matched_truth": 0,
+        "pnr_in_matched_truth": 8,
+        "post_in_matched_truth": 7,
+        "all_three_in_matched_truth": 0
+      }
+    },
+    "0.5": {
+      "rule": {
+        "matched_events": 8,
+        "pre_in_matched_truth": 4,
+        "pnr_in_matched_truth": 5,
+        "post_in_matched_truth": 4,
+        "all_three_in_matched_truth": 2
+      },
+      "vlm": {
+        "matched_events": 8,
+        "pre_in_matched_truth": 0,
+        "pnr_in_matched_truth": 5,
+        "post_in_matched_truth": 5,
+        "all_three_in_matched_truth": 0
+      }
+    }
+  },
+  "recordings": [
+    {
+      "recording": "cs_0001_session_20261030_184551",
+      "scene": "S03",
+      "target": "耳机",
+      "fps": 30.0,
+      "frame_count": 803,
+      "truth": [
+        {
+          "id": "G1",
+          "start": 135,
+          "middle": 162,
+          "end": 216
+        },
+        {
+          "id": "G2",
+          "start": 241,
+          "middle": 264,
+          "end": 316
+        },
+        {
+          "id": "G3",
+          "start": 335,
+          "middle": 360,
+          "end": 407
+        },
+        {
+          "id": "G4",
+          "start": 417,
+          "middle": 463,
+          "end": 493
+        },
+        {
+          "id": "G5",
+          "start": 583,
+          "middle": 613,
+          "end": 654
+        },
+        {
+          "id": "G6",
+          "start": 662,
+          "middle": 676,
+          "end": 696
+        }
+      ],
+      "events": [
+        {
+          "id": "P1",
+          "event_id": "event_001",
+          "start": 132,
+          "end": 338,
+          "rule": {
+            "pre": 247,
+            "pnr": 310,
+            "post": 310
+          },
+          "vlm": {
+            "pre": 102,
+            "pnr": 178,
+            "post": 216
+          },
+          "owners": {
+            "rule": {
+              "pre": [
+                "G2"
+              ],
+              "pnr": [
+                "G2"
+              ],
+              "post": [
+                "G2"
+              ]
+            },
+            "vlm": {
+              "pre": [],
+              "pnr": [
+                "G1"
+              ],
+              "post": [
+                "G1"
+              ]
+            }
+          },
+          "match_at_0.3": {
+            "prediction": "P1",
+            "truth": "G1",
+            "tIoU": 0.3961352657004831,
+            "start_error_seconds": -0.1,
+            "end_error_seconds": 4.066666666666666
+          },
+          "best_truth": "G1",
+          "best_tIoU": 0.3961352657004831,
+          "maximum_feature_change": 0.3127765102918281,
+          "cluster": "c0013",
+          "contact_object": "box",
+          "rule_status": "complete",
+          "rule_equals_endpoint": true,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -132,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_184551/event_001/receipt.json": "9ebcf9b164c8a112cad57b0cca2fcabc12a2edbc8eac34698cdfdf2ea650a86a",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_001/rank/feature_scores.jsonl": "641d411c6584b7e1dddfa203370e6ebd6e6cb42d2ee45e5e3059aa1911961d17",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_001/rank/packets.jsonl": "743306a7f7b5bb808f1351daf9a7e9b5215dd96bb2d6b801a18fd411ce720ba7",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_001/final_selection.json": "5d4889cf8308541e462e9961bce9cae9ef798b4e27891ee9057cd51951d47dc8",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_001/final_candidates.json": "d339f307f818d68f91760213d2a245c1037a3aa6d5a38b4d90f302788ea56ecb"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S03_P1.jpg"
+        },
+        {
+          "id": "P2",
+          "event_id": "event_002",
+          "start": 339,
+          "end": 440,
+          "rule": {
+            "pre": 413,
+            "pnr": 440,
+            "post": 440
+          },
+          "vlm": {
+            "pre": 309,
+            "pnr": 432,
+            "post": 447
+          },
+          "owners": {
+            "rule": {
+              "pre": [],
+              "pnr": [
+                "G4"
+              ],
+              "post": [
+                "G4"
+              ]
+            },
+            "vlm": {
+              "pre": [
+                "G2"
+              ],
+              "pnr": [
+                "G4"
+              ],
+              "post": [
+                "G4"
+              ]
+            }
+          },
+          "match_at_0.3": {
+            "prediction": "P2",
+            "truth": "G3",
+            "tIoU": 0.6509433962264151,
+            "start_error_seconds": 0.13333333333333333,
+            "end_error_seconds": 1.1
+          },
+          "best_truth": "G3",
+          "best_tIoU": 0.6509433962264151,
+          "maximum_feature_change": 0.1449892913286395,
+          "cluster": "c0005",
+          "contact_object": "cabinet",
+          "rule_status": "complete",
+          "rule_equals_endpoint": true,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -8,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_184551/event_002/receipt.json": "0e1c89e9b912e7b0060be4def8bcdea8dd8db9a5e51d567f3a5e8b3c838719f8",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_002/rank/feature_scores.jsonl": "96b98bd660582ecc016adda76d080d4a3805c9e71d9b4e0fa7d96ba49cec1d80",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_002/rank/packets.jsonl": "83d3e3a091f2d92a12997e99fff533112fb083d2557c1cf2817ce9d5faa77f88",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_002/final_selection.json": "869b139db5e80a310d11a7250f94edab9961389e14f33fc848d121a4095ab6a6",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_002/final_candidates.json": "3240594c3b13d5d314ecbfde07fba514160cc89f179d2db54f1fb4614b15dd1d"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S03_P2.jpg"
+        },
+        {
+          "id": "P3",
+          "event_id": "event_003",
+          "start": 479,
+          "end": 498,
+          "rule": {
+            "pre": 479,
+            "pnr": 498,
+            "post": 498
+          },
+          "vlm": {
+            "pre": 449,
+            "pnr": 485,
+            "post": 498
+          },
+          "owners": {
+            "rule": {
+              "pre": [
+                "G4"
+              ],
+              "pnr": [],
+              "post": []
+            },
+            "vlm": {
+              "pre": [
+                "G4"
+              ],
+              "pnr": [
+                "G4"
+              ],
+              "post": []
+            }
+          },
+          "match_at_0.3": null,
+          "best_truth": "G4",
+          "best_tIoU": 0.18292682926829268,
+          "maximum_feature_change": 0.26189775095189183,
+          "cluster": "c0000",
+          "contact_object": "unknown",
+          "rule_status": "complete",
+          "rule_equals_endpoint": true,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -13,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_184551/event_003/receipt.json": "50d41307c99dca477d39e2f3982d6c157574aad16e3e5dfc8a0dd82a3d10098c",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_003/rank/feature_scores.jsonl": "8495bfbebc34006fc00b9ec2dbbd07c8e8d03cc2a9477dafdca7c2e4edc0ceb5",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_003/rank/packets.jsonl": "9a5bbd7777f81bebafde499b789842ab5e149c7dbe98ea6d43ed33f9b8553075",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_003/final_selection.json": "047cf20f68c5a23a4c6b25bcf25b67ea138d9c3fe36c688b18e63768a64e5f38",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_003/final_candidates.json": "b44a62f84b1eb2b001f7ce69d29ec346e05e7a911fefe67bf5e39abaa0beac70"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S03_P3.jpg"
+        },
+        {
+          "id": "P4",
+          "event_id": "event_004",
+          "start": 581,
+          "end": 683,
+          "rule": {
+            "pre": 674,
+            "pnr": 683,
+            "post": 683
+          },
+          "vlm": {
+            "pre": 551,
+            "pnr": 676,
+            "post": 683
+          },
+          "owners": {
+            "rule": {
+              "pre": [
+                "G6"
+              ],
+              "pnr": [
+                "G6"
+              ],
+              "post": [
+                "G6"
+              ]
+            },
+            "vlm": {
+              "pre": [],
+              "pnr": [
+                "G6"
+              ],
+              "post": [
+                "G6"
+              ]
+            }
+          },
+          "match_at_0.3": {
+            "prediction": "P4",
+            "truth": "G5",
+            "tIoU": 0.6990291262135923,
+            "start_error_seconds": -0.06666666666666667,
+            "end_error_seconds": 0.9666666666666667
+          },
+          "best_truth": "G5",
+          "best_tIoU": 0.6990291262135923,
+          "maximum_feature_change": 0.24718776167971412,
+          "cluster": "c0017",
+          "contact_object": "unknown",
+          "rule_status": "complete",
+          "rule_equals_endpoint": true,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -7,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_184551/event_004/receipt.json": "60bb098eff44bbf70d0465fb56804342794d122f3bc2b2dec52054689daceb1b",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_004/rank/feature_scores.jsonl": "8e51aebaa57ab39d7a73a73fc3979829fedc916bd6c6d242dbca91cbc5165300",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_004/rank/packets.jsonl": "f70f9070601e75c8c3f25e1ec858ea1b438caab36b0e82c0955f63998d72ad74",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_004/final_selection.json": "dc95eed4bccf11f5d387d278b3355a8fea59b9eb8ad46cce162938fc6d1ed27b",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_004/final_candidates.json": "db92e9d341584eb457f41a8fea76dc8d2ed45ba32f04e431ff8da0b8da737c6a"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S03_P4.jpg"
+        },
+        {
+          "id": "P5",
+          "event_id": "event_005",
+          "start": 725,
+          "end": 802,
+          "rule": {
+            "pre": 775,
+            "pnr": 795,
+            "post": 802
+          },
+          "vlm": {
+            "pre": 695,
+            "pnr": 725,
+            "post": 784
+          },
+          "owners": {
+            "rule": {
+              "pre": [],
+              "pnr": [],
+              "post": []
+            },
+            "vlm": {
+              "pre": [
+                "G6"
+              ],
+              "pnr": [],
+              "post": []
+            }
+          },
+          "match_at_0.3": null,
+          "best_truth": null,
+          "best_tIoU": 0.0,
+          "maximum_feature_change": 0.3698914290758231,
+          "cluster": "c0008",
+          "contact_object": "phone",
+          "rule_status": "complete",
+          "rule_equals_endpoint": false,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -70,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_184551/event_005/receipt.json": "7a6a8dd3314b8acc5d4bdca3ecd4d94f723e3e725260c6fe4f107421f89b159c",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_005/rank/feature_scores.jsonl": "b435347f2b69bb0337f8c9dd1f91bfa0a613d9d1930b02b611a3b87b4236fb37",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_005/rank/packets.jsonl": "de8324aefbe710b37bfc76fe1552dc10e86d83a6b2a60c84219dc28e38be22eb",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_005/final_selection.json": "dd485aa321704fbac685da1a9490753c9a40a25f474f211d3b3b693369d3342c",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_184551/event_runs/event_005/final_candidates.json": "94bcd6bf849685e95c72ac380b8c74f278cf77235c32c40beace625417a3ffdc"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S03_P5.jpg"
+        }
+      ],
+      "event_metrics": {
+        "0.3": {
+          "TP": 3,
+          "FP": 2,
+          "FN": 3,
+          "precision": 0.6,
+          "recall": 0.5,
+          "F1": 0.5454545454545454,
+          "pairs": [
+            {
+              "prediction": "P1",
+              "truth": "G1",
+              "tIoU": 0.3961352657004831,
+              "start_error_seconds": -0.1,
+              "end_error_seconds": 4.066666666666666
+            },
+            {
+              "prediction": "P2",
+              "truth": "G3",
+              "tIoU": 0.6509433962264151,
+              "start_error_seconds": 0.13333333333333333,
+              "end_error_seconds": 1.1
+            },
+            {
+              "prediction": "P4",
+              "truth": "G5",
+              "tIoU": 0.6990291262135923,
+              "start_error_seconds": -0.06666666666666667,
+              "end_error_seconds": 0.9666666666666667
+            }
+          ],
+          "unmatched_predictions": [
+            "P3",
+            "P5"
+          ],
+          "unmatched_truth": [
+            "G2",
+            "G4",
+            "G6"
+          ]
+        },
+        "0.5": {
+          "TP": 2,
+          "FP": 3,
+          "FN": 4,
+          "precision": 0.4,
+          "recall": 0.3333333333333333,
+          "F1": 0.3636363636363636,
+          "pairs": [
+            {
+              "prediction": "P2",
+              "truth": "G3",
+              "tIoU": 0.6509433962264151,
+              "start_error_seconds": 0.13333333333333333,
+              "end_error_seconds": 1.1
+            },
+            {
+              "prediction": "P4",
+              "truth": "G5",
+              "tIoU": 0.6990291262135923,
+              "start_error_seconds": -0.06666666666666667,
+              "end_error_seconds": 0.9666666666666667
+            }
+          ],
+          "unmatched_predictions": [
+            "P1",
+            "P3",
+            "P5"
+          ],
+          "unmatched_truth": [
+            "G1",
+            "G2",
+            "G4",
+            "G6"
+          ]
+        },
+        "0.7": {
+          "TP": 0,
+          "FP": 5,
+          "FN": 6,
+          "precision": 0.0,
+          "recall": 0.0,
+          "F1": 0.0,
+          "pairs": [],
+          "unmatched_predictions": [
+            "P1",
+            "P2",
+            "P3",
+            "P4",
+            "P5"
+          ],
+          "unmatched_truth": [
+            "G1",
+            "G2",
+            "G3",
+            "G4",
+            "G5",
+            "G6"
+          ]
+        }
+      },
+      "video": "/home/user/zl/third_party/policy/dataset/dataset(mask)/EGO数据-mask/S03/耳机/11.4/cs_0001_session_20261030_184551/videos/left.mkv"
+    },
+    {
+      "recording": "cs_0001_session_20261030_192339",
+      "scene": "S07",
+      "target": "数据线",
+      "fps": 30.0,
+      "frame_count": 651,
+      "truth": [
+        {
+          "id": "G1",
+          "start": 113,
+          "middle": 156,
+          "end": 177
+        },
+        {
+          "id": "G2",
+          "start": 195,
+          "middle": 222,
+          "end": 255
+        },
+        {
+          "id": "G3",
+          "start": 273,
+          "middle": 297,
+          "end": 359
+        },
+        {
+          "id": "G4",
+          "start": 371,
+          "middle": 398,
+          "end": 448
+        },
+        {
+          "id": "G5",
+          "start": 483,
+          "middle": 499,
+          "end": 538
+        },
+        {
+          "id": "G6",
+          "start": 542,
+          "middle": 555,
+          "end": 571
+        }
+      ],
+      "events": [
+        {
+          "id": "P1",
+          "event_id": "event_001",
+          "start": 105,
+          "end": 262,
+          "rule": {
+            "pre": 186,
+            "pnr": 227,
+            "post": 256
+          },
+          "vlm": {
+            "pre": 105,
+            "pnr": 137,
+            "post": 232
+          },
+          "owners": {
+            "rule": {
+              "pre": [],
+              "pnr": [
+                "G2"
+              ],
+              "post": []
+            },
+            "vlm": {
+              "pre": [],
+              "pnr": [
+                "G1"
+              ],
+              "post": [
+                "G2"
+              ]
+            }
+          },
+          "match_at_0.3": {
+            "prediction": "P1",
+            "truth": "G1",
+            "tIoU": 0.41139240506329117,
+            "start_error_seconds": -0.26666666666666666,
+            "end_error_seconds": 2.8333333333333335
+          },
+          "best_truth": "G1",
+          "best_tIoU": 0.41139240506329117,
+          "maximum_feature_change": 0.3291070076067783,
+          "cluster": "c0014",
+          "contact_object": "box",
+          "rule_status": "complete",
+          "rule_equals_endpoint": false,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -90,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_192339/event_001/receipt.json": "1ee2791dfeb542114b0ec49db3ddfb6cf7f4ed79d0753f3d0fff8cf75624e428",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_001/rank/feature_scores.jsonl": "1e20e6aa9f151f0e4287341592df69afa87ac17a96b76f06a478d413953a3ec0",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_001/rank/packets.jsonl": "ac0fb64cee41d74c24e9bbf986fa598d08ddb8f5bd8f48aee9efccce913b43c6",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_001/final_selection.json": "6b0a64318b7b6eccccb3404350f208b92a929705a1db351d7eb4d49e68d426c0",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_001/final_candidates.json": "967744d1801b10b34b5ab23c45fc67528056e7c8f60acae007a7c4d9069171f9"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S07_P1.jpg"
+        },
+        {
+          "id": "P2",
+          "event_id": "event_002",
+          "start": 269,
+          "end": 391,
+          "rule": {
+            "pre": 286,
+            "pnr": 302,
+            "post": 353
+          },
+          "vlm": {
+            "pre": 265,
+            "pnr": 286,
+            "post": 343
+          },
+          "owners": {
+            "rule": {
+              "pre": [
+                "G3"
+              ],
+              "pnr": [
+                "G3"
+              ],
+              "post": [
+                "G3"
+              ]
+            },
+            "vlm": {
+              "pre": [],
+              "pnr": [
+                "G3"
+              ],
+              "post": [
+                "G3"
+              ]
+            }
+          },
+          "match_at_0.3": {
+            "prediction": "P2",
+            "truth": "G3",
+            "tIoU": 0.7073170731707317,
+            "start_error_seconds": -0.13333333333333333,
+            "end_error_seconds": 1.0666666666666667
+          },
+          "best_truth": "G3",
+          "best_tIoU": 0.7073170731707317,
+          "maximum_feature_change": 0.3267944553472739,
+          "cluster": "c0004",
+          "contact_object": "unknown",
+          "rule_status": "complete",
+          "rule_equals_endpoint": false,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -16,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_192339/event_002/receipt.json": "2f54a4b603d570a0b9a1214fa9c588fa91e5b9cf200d2581cf3d6cbd130b20df",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_002/rank/feature_scores.jsonl": "3628b991a22770c40268175f4b049b12d7a76720667cab8a6af17cf06ba830fa",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_002/rank/packets.jsonl": "c06fce9f28953d13bfb5cd5ec3a0783d31e904626125d8f20285ddbf5063a1ac",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_002/final_selection.json": "bbd91e17927f4ea95623d134a1ff1d146b8645081c6bf614bb6598f8720c0a7d",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_002/final_candidates.json": "6d3fd30d34ab88d883e288f5d3fe2234b03102fd1fb0dbcb5b6c71a340e2c636"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S07_P2.jpg"
+        },
+        {
+          "id": "P3",
+          "event_id": "event_003",
+          "start": 429,
+          "end": 440,
+          "rule": {
+            "pre": 433,
+            "pnr": 436,
+            "post": 436
+          },
+          "vlm": {
+            "pre": 399,
+            "pnr": 433,
+            "post": 440
+          },
+          "owners": {
+            "rule": {
+              "pre": [
+                "G4"
+              ],
+              "pnr": [
+                "G4"
+              ],
+              "post": [
+                "G4"
+              ]
+            },
+            "vlm": {
+              "pre": [
+                "G4"
+              ],
+              "pnr": [
+                "G4"
+              ],
+              "post": [
+                "G4"
+              ]
+            }
+          },
+          "match_at_0.3": null,
+          "best_truth": "G4",
+          "best_tIoU": 0.15384615384615385,
+          "maximum_feature_change": 0.27823305494541156,
+          "cluster": "c0003",
+          "contact_object": "unknown",
+          "rule_status": "complete",
+          "rule_equals_endpoint": true,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -3,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_192339/event_003/receipt.json": "2b7b5834e99b86d602adf9e4382ed2c3229a5f484d3f77c192026f9a05a83549",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_003/rank/feature_scores.jsonl": "28cde403ea283d3a6f888cff982263ccd660a97bd5900e08a77e5bdf68a60950",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_003/rank/packets.jsonl": "9cd38d66aab7df7345b1394b596554a570e6b121362e28439bd00a56b344d888",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_003/final_selection.json": "5d5e75fdc302f25b745ce0fc6e306944f60c1d6c2cde268ac7a766b7c8a298e0",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_003/final_candidates.json": "754f2485d5ecaecace66cd324744a89b706e8cd11e3d7880c2201373bb1bac4c"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S07_P3.jpg"
+        },
+        {
+          "id": "P4",
+          "event_id": "event_004",
+          "start": 475,
+          "end": 539,
+          "rule": {
+            "pre": 483,
+            "pnr": 519,
+            "post": 539
+          },
+          "vlm": {
+            "pre": 475,
+            "pnr": 498,
+            "post": 528
+          },
+          "owners": {
+            "rule": {
+              "pre": [
+                "G5"
+              ],
+              "pnr": [
+                "G5"
+              ],
+              "post": []
+            },
+            "vlm": {
+              "pre": [],
+              "pnr": [
+                "G5"
+              ],
+              "post": [
+                "G5"
+              ]
+            }
+          },
+          "match_at_0.3": {
+            "prediction": "P4",
+            "truth": "G5",
+            "tIoU": 0.8615384615384616,
+            "start_error_seconds": -0.26666666666666666,
+            "end_error_seconds": 0.03333333333333333
+          },
+          "best_truth": "G5",
+          "best_tIoU": 0.8615384615384616,
+          "maximum_feature_change": 0.25603070893934265,
+          "cluster": "c0002",
+          "contact_object": "box",
+          "rule_status": "complete",
+          "rule_equals_endpoint": false,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -21,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_192339/event_004/receipt.json": "b4328e06c6c8168d669671da0fba3de0dd2b6a2367048565edf56b4a00475524",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_004/rank/feature_scores.jsonl": "45e83f6c40f1c9d7f75bfa489dc1465edb1e1bb174f65b1cf11dfadced2ed1ca",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_004/rank/packets.jsonl": "a030b3828ed148d9031a9931cee0ec753109b5bbd52d42304d12609134fbd3eb",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_004/final_selection.json": "fa9e0564d8f43412aa6da72347615d15e06fd25c935eb29aa0049c00d935f923",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_004/final_candidates.json": "7a2dd6802057c7b82dc870b58a6a69e7e272883cc0f54c2b878114389c104a43"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S07_P4.jpg"
+        },
+        {
+          "id": "P5",
+          "event_id": "event_005",
+          "start": 540,
+          "end": 650,
+          "rule": {
+            "pre": 611,
+            "pnr": 631,
+            "post": 631
+          },
+          "vlm": {
+            "pre": 510,
+            "pnr": 530,
+            "post": 570
+          },
+          "owners": {
+            "rule": {
+              "pre": [],
+              "pnr": [],
+              "post": []
+            },
+            "vlm": {
+              "pre": [
+                "G5"
+              ],
+              "pnr": [
+                "G5"
+              ],
+              "post": [
+                "G6"
+              ]
+            }
+          },
+          "match_at_0.3": null,
+          "best_truth": "G6",
+          "best_tIoU": 0.2702702702702703,
+          "maximum_feature_change": 0.33346274443051405,
+          "cluster": "c0008",
+          "contact_object": "cabinet",
+          "rule_status": "complete",
+          "rule_equals_endpoint": true,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -101,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_192339/event_005/receipt.json": "21457fb998aaf81110b31709d704d24fbdae3dec675b51bd23bcd8122c4ead54",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_005/rank/feature_scores.jsonl": "e6310a8d9692ea677ff41098a5017b767c3e030d1364ec5b2e1d037fd9de3ac2",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_005/rank/packets.jsonl": "96916724ad619f497ac1c3d32a3946d1744afe786ba56bc7ab5c75898eefd2c2",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_005/final_selection.json": "04c8f1e930ea2224b233c85465733cbf7bd269356aab7a24c036004cc757af3e",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_192339/event_runs/event_005/final_candidates.json": "e442897c62c9532334ca717aa0ac6d0a9debbdebc506741122898896568e852a"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S07_P5.jpg"
+        }
+      ],
+      "event_metrics": {
+        "0.3": {
+          "TP": 3,
+          "FP": 2,
+          "FN": 3,
+          "precision": 0.6,
+          "recall": 0.5,
+          "F1": 0.5454545454545454,
+          "pairs": [
+            {
+              "prediction": "P1",
+              "truth": "G1",
+              "tIoU": 0.41139240506329117,
+              "start_error_seconds": -0.26666666666666666,
+              "end_error_seconds": 2.8333333333333335
+            },
+            {
+              "prediction": "P2",
+              "truth": "G3",
+              "tIoU": 0.7073170731707317,
+              "start_error_seconds": -0.13333333333333333,
+              "end_error_seconds": 1.0666666666666667
+            },
+            {
+              "prediction": "P4",
+              "truth": "G5",
+              "tIoU": 0.8615384615384616,
+              "start_error_seconds": -0.26666666666666666,
+              "end_error_seconds": 0.03333333333333333
+            }
+          ],
+          "unmatched_predictions": [
+            "P3",
+            "P5"
+          ],
+          "unmatched_truth": [
+            "G2",
+            "G4",
+            "G6"
+          ]
+        },
+        "0.5": {
+          "TP": 2,
+          "FP": 3,
+          "FN": 4,
+          "precision": 0.4,
+          "recall": 0.3333333333333333,
+          "F1": 0.3636363636363636,
+          "pairs": [
+            {
+              "prediction": "P2",
+              "truth": "G3",
+              "tIoU": 0.7073170731707317,
+              "start_error_seconds": -0.13333333333333333,
+              "end_error_seconds": 1.0666666666666667
+            },
+            {
+              "prediction": "P4",
+              "truth": "G5",
+              "tIoU": 0.8615384615384616,
+              "start_error_seconds": -0.26666666666666666,
+              "end_error_seconds": 0.03333333333333333
+            }
+          ],
+          "unmatched_predictions": [
+            "P1",
+            "P3",
+            "P5"
+          ],
+          "unmatched_truth": [
+            "G1",
+            "G2",
+            "G4",
+            "G6"
+          ]
+        },
+        "0.7": {
+          "TP": 2,
+          "FP": 3,
+          "FN": 4,
+          "precision": 0.4,
+          "recall": 0.3333333333333333,
+          "F1": 0.3636363636363636,
+          "pairs": [
+            {
+              "prediction": "P2",
+              "truth": "G3",
+              "tIoU": 0.7073170731707317,
+              "start_error_seconds": -0.13333333333333333,
+              "end_error_seconds": 1.0666666666666667
+            },
+            {
+              "prediction": "P4",
+              "truth": "G5",
+              "tIoU": 0.8615384615384616,
+              "start_error_seconds": -0.26666666666666666,
+              "end_error_seconds": 0.03333333333333333
+            }
+          ],
+          "unmatched_predictions": [
+            "P1",
+            "P3",
+            "P5"
+          ],
+          "unmatched_truth": [
+            "G1",
+            "G2",
+            "G4",
+            "G6"
+          ]
+        }
+      },
+      "video": "/home/user/zl/third_party/policy/dataset/dataset(mask)/EGO数据-mask/S07/数据线/11.4/cs_0001_session_20261030_192339/videos/left.mkv"
+    },
+    {
+      "recording": "cs_0001_session_20261030_185159",
+      "scene": "S09",
+      "target": "铅笔",
+      "fps": 30.0,
+      "frame_count": 1044,
+      "truth": [
+        {
+          "id": "G1",
+          "start": 75,
+          "middle": 115,
+          "end": 149
+        },
+        {
+          "id": "G2",
+          "start": 206,
+          "middle": 233,
+          "end": 319
+        },
+        {
+          "id": "G3",
+          "start": 341,
+          "middle": 381,
+          "end": 494
+        },
+        {
+          "id": "G4",
+          "start": 513,
+          "middle": 533,
+          "end": 586
+        },
+        {
+          "id": "G5",
+          "start": 618,
+          "middle": 743,
+          "end": 905
+        },
+        {
+          "id": "G6",
+          "start": 926,
+          "middle": 939,
+          "end": 1037
+        }
+      ],
+      "events": [
+        {
+          "id": "P1",
+          "event_id": "event_001",
+          "start": 59,
+          "end": 101,
+          "rule": {
+            "pre": 59,
+            "pnr": 78,
+            "post": 99
+          },
+          "vlm": {
+            "pre": 58,
+            "pnr": 73,
+            "post": 116
+          },
+          "owners": {
+            "rule": {
+              "pre": [],
+              "pnr": [
+                "G1"
+              ],
+              "post": [
+                "G1"
+              ]
+            },
+            "vlm": {
+              "pre": [],
+              "pnr": [],
+              "post": [
+                "G1"
+              ]
+            }
+          },
+          "match_at_0.3": null,
+          "best_truth": "G1",
+          "best_tIoU": 0.2967032967032967,
+          "maximum_feature_change": 0.12911796506448767,
+          "cluster": "c0000",
+          "contact_object": "cabinet",
+          "rule_status": "complete",
+          "rule_equals_endpoint": false,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -5,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_185159/event_001/receipt.json": "41a33b7994687baf9fa3ccef921a80f83716f9f2a9ec8fd1cbb65f7357a3bb15",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_001/rank/feature_scores.jsonl": "33dfeda654f78094162307d9160bb7e7baa5b1beee0b28beb798c08d53180459",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_001/rank/packets.jsonl": "d66a6a9b8f7044706512c37c83be4d4737aa168a51a8ba753c05fe92e15c20d7",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_001/final_selection.json": "e0bb00e08cbda030adfffe5d8424f35d83dc126f62637b7e8ea1c870f248f76a",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_001/final_candidates.json": "85102a3c36dd03050f00b5cb7e57e5f98aa19e66129b989520b652f296420679"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S09_P1.jpg"
+        },
+        {
+          "id": "P2",
+          "event_id": "event_002",
+          "start": 102,
+          "end": 329,
+          "rule": {
+            "pre": 198,
+            "pnr": 245,
+            "post": 305
+          },
+          "vlm": {
+            "pre": 72,
+            "pnr": 113,
+            "post": 236
+          },
+          "owners": {
+            "rule": {
+              "pre": [],
+              "pnr": [
+                "G2"
+              ],
+              "post": [
+                "G2"
+              ]
+            },
+            "vlm": {
+              "pre": [],
+              "pnr": [
+                "G1"
+              ],
+              "post": [
+                "G2"
+              ]
+            }
+          },
+          "match_at_0.3": {
+            "prediction": "P2",
+            "truth": "G2",
+            "tIoU": 0.5,
+            "start_error_seconds": -3.466666666666667,
+            "end_error_seconds": 0.3333333333333333
+          },
+          "best_truth": "G2",
+          "best_tIoU": 0.5,
+          "maximum_feature_change": 0.1797055879077051,
+          "cluster": "c0008",
+          "contact_object": "unknown",
+          "rule_status": "complete",
+          "rule_equals_endpoint": false,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -132,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_185159/event_002/receipt.json": "d7deb94917bba4144b9debee3314aba313cfb667e83eb7500691a624583a579c",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_002/rank/feature_scores.jsonl": "1b85ee79c745e159284919309a1728a0c63442579a3e5fcb858b388631b77524",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_002/rank/packets.jsonl": "5fc78c20e574e881f24a05d34846aeb20607f5c5913acbe3c89b0517967341d8",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_002/final_selection.json": "9a58960a6507dd628a60c77fe2bfa1104ae1e2924def90ed67164e1c57ddf0c6",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_002/final_candidates.json": "00bf369a05877f6488533d1873038a2ba4087c3e7a1f277e176f40630345195d"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S09_P2.jpg"
+        },
+        {
+          "id": "P3",
+          "event_id": "event_003",
+          "start": 330,
+          "end": 437,
+          "rule": {
+            "pre": 382,
+            "pnr": 437,
+            "post": 437
+          },
+          "vlm": {
+            "pre": 300,
+            "pnr": 382,
+            "post": 467
+          },
+          "owners": {
+            "rule": {
+              "pre": [
+                "G3"
+              ],
+              "pnr": [
+                "G3"
+              ],
+              "post": [
+                "G3"
+              ]
+            },
+            "vlm": {
+              "pre": [
+                "G2"
+              ],
+              "pnr": [
+                "G3"
+              ],
+              "post": [
+                "G3"
+              ]
+            }
+          },
+          "match_at_0.3": {
+            "prediction": "P3",
+            "truth": "G3",
+            "tIoU": 0.5878787878787879,
+            "start_error_seconds": -0.36666666666666664,
+            "end_error_seconds": -1.9
+          },
+          "best_truth": "G3",
+          "best_tIoU": 0.5878787878787879,
+          "maximum_feature_change": 0.17071701078940327,
+          "cluster": "c0001",
+          "contact_object": "cabinet",
+          "rule_status": "complete",
+          "rule_equals_endpoint": true,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -55,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_185159/event_003/receipt.json": "1fcdf9ae91c43a799fac39efe709c853f5b864e577bacb4ac6057f84fb3658a8",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_003/rank/feature_scores.jsonl": "69c50038decc13668f55f3a1ec3a57ddb2b2bd04bec7994f6c3735fbbad66e9f",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_003/rank/packets.jsonl": "407bb1d077cdc1d08f826fb19b6b791bc3d6353e33499377f70989ce1d5fba42",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_003/final_selection.json": "57b614f4f43a48724a1682e844f67460fc323bfb356d9a0064483dd0fdc18fc2",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_003/final_candidates.json": "771296dcd3f3d83d6aa176c2b5642412813a8f9ed0ffdd3e6036ae4dd16a9f1a"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S09_P3.jpg"
+        },
+        {
+          "id": "P4",
+          "event_id": "event_004",
+          "start": 438,
+          "end": 509,
+          "rule": {
+            "pre": 478,
+            "pnr": 504,
+            "post": 505
+          },
+          "vlm": {
+            "pre": 408,
+            "pnr": 488,
+            "post": 539
+          },
+          "owners": {
+            "rule": {
+              "pre": [
+                "G3"
+              ],
+              "pnr": [],
+              "post": []
+            },
+            "vlm": {
+              "pre": [
+                "G3"
+              ],
+              "pnr": [
+                "G3"
+              ],
+              "post": [
+                "G4"
+              ]
+            }
+          },
+          "match_at_0.3": null,
+          "best_truth": "G3",
+          "best_tIoU": 0.33727810650887574,
+          "maximum_feature_change": 0.18765070603713657,
+          "cluster": "c0003",
+          "contact_object": "box",
+          "rule_status": "complete",
+          "rule_equals_endpoint": false,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -16,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_185159/event_004/receipt.json": "6c4efa57fc3423353003910b33d7974cadef80f597c60c0a2d1da6644a4d07d7",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_004/rank/feature_scores.jsonl": "92e4e241af4ef36a30ac3f26b279393b3dd96a7d9270276e88c485698d1bb21b",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_004/rank/packets.jsonl": "001b5b39b9a1fbcbe477b30f90872e55e4eccdd2750775e61797627940a0869b",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_004/final_selection.json": "44f6609905575294ab4df83ddf3f45d541d819883c0bc4673556c170e2ac59be",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_004/final_candidates.json": "22e8eb79617740f7bb8df33f66cbb2c46c4f6f57e5b01cf832a776587a304f0b"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S09_P4.jpg"
+        },
+        {
+          "id": "P5",
+          "event_id": "event_005",
+          "start": 510,
+          "end": 554,
+          "rule": {
+            "pre": 510,
+            "pnr": 517,
+            "post": 518
+          },
+          "vlm": {
+            "pre": 480,
+            "pnr": 514,
+            "post": 539
+          },
+          "owners": {
+            "rule": {
+              "pre": [],
+              "pnr": [
+                "G4"
+              ],
+              "post": [
+                "G4"
+              ]
+            },
+            "vlm": {
+              "pre": [
+                "G3"
+              ],
+              "pnr": [
+                "G4"
+              ],
+              "post": [
+                "G4"
+              ]
+            }
+          },
+          "match_at_0.3": {
+            "prediction": "P5",
+            "truth": "G4",
+            "tIoU": 0.5454545454545454,
+            "start_error_seconds": -0.1,
+            "end_error_seconds": -1.0666666666666667
+          },
+          "best_truth": "G4",
+          "best_tIoU": 0.5454545454545454,
+          "maximum_feature_change": 0.10558753900935777,
+          "cluster": "c0000",
+          "contact_object": "cabinet",
+          "rule_status": "complete",
+          "rule_equals_endpoint": false,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -3,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_185159/event_005/receipt.json": "5c4b3d699816e3c3e2b415fdcf009f472017c77609b0d22d653f6388106e519b",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_005/rank/feature_scores.jsonl": "a9d06628bff589131ad69e542c520876fd60192e6d2bddfcfc5a0c70bcb31e28",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_005/rank/packets.jsonl": "348efd1490f3abcd0d97cf21a30e487ed3273ff53e9bc18d483a36c687351d6a",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_005/final_selection.json": "8cd18234df3b2d7b3d35f003f3c2d24fcbffbc229d4f72e0752e6f70cc884eee",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_005/final_candidates.json": "10c445d085f5142dadee57380130bef39340ccb727a1df9c4133cf371f49dbd9"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S09_P5.jpg"
+        },
+        {
+          "id": "P6",
+          "event_id": "event_006",
+          "start": 555,
+          "end": 780,
+          "rule": {
+            "pre": 696,
+            "pnr": 720,
+            "post": 752
+          },
+          "vlm": {
+            "pre": 525,
+            "pnr": 696,
+            "post": 780
+          },
+          "owners": {
+            "rule": {
+              "pre": [
+                "G5"
+              ],
+              "pnr": [
+                "G5"
+              ],
+              "post": [
+                "G5"
+              ]
+            },
+            "vlm": {
+              "pre": [
+                "G4"
+              ],
+              "pnr": [
+                "G5"
+              ],
+              "post": [
+                "G5"
+              ]
+            }
+          },
+          "match_at_0.3": {
+            "prediction": "P6",
+            "truth": "G5",
+            "tIoU": 0.46438746438746437,
+            "start_error_seconds": -2.1,
+            "end_error_seconds": -4.166666666666667
+          },
+          "best_truth": "G5",
+          "best_tIoU": 0.46438746438746437,
+          "maximum_feature_change": 0.18288114456463098,
+          "cluster": "c0016",
+          "contact_object": "phone",
+          "rule_status": "complete",
+          "rule_equals_endpoint": false,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -24,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_185159/event_006/receipt.json": "fc71797ffb22a611e930ed26fa44bcbc56b52b3aa678c4c5ffb75bf8a70dcfc1",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_006/rank/feature_scores.jsonl": "6cb45d1e88a6df32eafa9b2184a6b423ce3fb04def9d7d0b5bf461b4194b3239",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_006/rank/packets.jsonl": "e77e4deeb51f590f69f59069718320bdfffc0a35d1a628042175afad40b866f5",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_006/final_selection.json": "dac49f82a508364722bba1a9516b6667d3c5aab70e4a1c7767e62ae18b40707c",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_006/final_candidates.json": "4742dae84ec7bef1a5b3b53cba8abcdddbaf8ad7a22fe2bef1f53112fba5492a"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S09_P6.jpg"
+        },
+        {
+          "id": "P7",
+          "event_id": "event_007",
+          "start": 817,
+          "end": 914,
+          "rule": {
+            "pre": 866,
+            "pnr": 907,
+            "post": 914
+          },
+          "vlm": {
+            "pre": 787,
+            "pnr": 817,
+            "post": 866
+          },
+          "owners": {
+            "rule": {
+              "pre": [
+                "G5"
+              ],
+              "pnr": [],
+              "post": []
+            },
+            "vlm": {
+              "pre": [
+                "G5"
+              ],
+              "pnr": [
+                "G5"
+              ],
+              "post": [
+                "G5"
+              ]
+            }
+          },
+          "match_at_0.3": null,
+          "best_truth": "G5",
+          "best_tIoU": 0.2996632996632997,
+          "maximum_feature_change": 0.19585424562537898,
+          "cluster": "c0002",
+          "contact_object": "cabinet",
+          "rule_status": "complete",
+          "rule_equals_endpoint": false,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -90,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_185159/event_007/receipt.json": "b9f3807ea2bed225fbad7c575a7cbfbb9a67abaa33ba476621e6483293e68276",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_007/rank/feature_scores.jsonl": "abddc8dfef6752d43da8016f1b51c275de963de8351cac6a009934cdab829409",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_007/rank/packets.jsonl": "994b60cfa76e7613be0c835d1ab4d963547c897ddda233473ed5865e51d87f06",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_007/final_selection.json": "2c832b4847dd1a47c8a4f8de5cdde7a2030212d81f6eb4246e1011fa0299051c",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_007/final_candidates.json": "eac227db99af69b8eff98c5d9a25c7a5845a7edfbc463be6cac7e7b787956763"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S09_P7.jpg"
+        },
+        {
+          "id": "P8",
+          "event_id": "event_008",
+          "start": 942,
+          "end": 1043,
+          "rule": {
+            "pre": 1029,
+            "pnr": 1043,
+            "post": 1043
+          },
+          "vlm": {
+            "pre": 912,
+            "pnr": 942,
+            "post": 1043
+          },
+          "owners": {
+            "rule": {
+              "pre": [
+                "G6"
+              ],
+              "pnr": [],
+              "post": []
+            },
+            "vlm": {
+              "pre": [],
+              "pnr": [
+                "G6"
+              ],
+              "post": []
+            }
+          },
+          "match_at_0.3": {
+            "prediction": "P8",
+            "truth": "G6",
+            "tIoU": 0.8135593220338984,
+            "start_error_seconds": 0.5333333333333333,
+            "end_error_seconds": 0.2
+          },
+          "best_truth": "G6",
+          "best_tIoU": 0.8135593220338984,
+          "maximum_feature_change": 0.09782115890736447,
+          "cluster": "c0007",
+          "contact_object": "cabinet",
+          "rule_status": "complete",
+          "rule_equals_endpoint": true,
+          "rule_triplet_shown_to_vlm": true,
+          "pnr_shift_vlm_minus_rule_frames": -101,
+          "input_hashes": {
+            "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/cs_0001_session_20261030_185159/event_008/receipt.json": "5d574a65872e5b2153e95503fa9bdf99b8bfd4053cab82b9825df7fd7a193096",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_008/rank/feature_scores.jsonl": "b54fbe05d2b7a9a472c1fa5c6e2bb518a91a42ef15d75588a432ebeff318ec11",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_008/rank/packets.jsonl": "94b75b60fa5533d288229cd4866db5b1a0d1722426c009e6c4e104f525f4456c",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_008/final_selection.json": "92b27f512c17291d9507141ef829dca543ef56f93e85c6aefeca4e41ae125f09",
+            "/data/storage/peekaboo-runs/full_numeric_20261118_v4/cs_0001_session_20261030_185159/event_runs/event_008/final_candidates.json": "5c483511faa299af16d0ea3490b682917aaea068adb817c0107266de3ed722ac"
+          },
+          "local_contact_sheet": "/data/storage/peekaboo-runs/rule_vs_vlm_20261118_v2/contact_sheets/S09_P8.jpg"
+        }
+      ],
+      "event_metrics": {
+        "0.3": {
+          "TP": 5,
+          "FP": 3,
+          "FN": 1,
+          "precision": 0.625,
+          "recall": 0.8333333333333334,
+          "F1": 0.7142857142857143,
+          "pairs": [
+            {
+              "prediction": "P2",
+              "truth": "G2",
+              "tIoU": 0.5,
+              "start_error_seconds": -3.466666666666667,
+              "end_error_seconds": 0.3333333333333333
+            },
+            {
+              "prediction": "P3",
+              "truth": "G3",
+              "tIoU": 0.5878787878787879,
+              "start_error_seconds": -0.36666666666666664,
+              "end_error_seconds": -1.9
+            },
+            {
+              "prediction": "P5",
+              "truth": "G4",
+              "tIoU": 0.5454545454545454,
+              "start_error_seconds": -0.1,
+              "end_error_seconds": -1.0666666666666667
+            },
+            {
+              "prediction": "P6",
+              "truth": "G5",
+              "tIoU": 0.46438746438746437,
+              "start_error_seconds": -2.1,
+              "end_error_seconds": -4.166666666666667
+            },
+            {
+              "prediction": "P8",
+              "truth": "G6",
+              "tIoU": 0.8135593220338984,
+              "start_error_seconds": 0.5333333333333333,
+              "end_error_seconds": 0.2
+            }
+          ],
+          "unmatched_predictions": [
+            "P1",
+            "P4",
+            "P7"
+          ],
+          "unmatched_truth": [
+            "G1"
+          ]
+        },
+        "0.5": {
+          "TP": 4,
+          "FP": 4,
+          "FN": 2,
+          "precision": 0.5,
+          "recall": 0.6666666666666666,
+          "F1": 0.5714285714285715,
+          "pairs": [
+            {
+              "prediction": "P2",
+              "truth": "G2",
+              "tIoU": 0.5,
+              "start_error_seconds": -3.466666666666667,
+              "end_error_seconds": 0.3333333333333333
+            },
+            {
+              "prediction": "P3",
+              "truth": "G3",
+              "tIoU": 0.5878787878787879,
+              "start_error_seconds": -0.36666666666666664,
+              "end_error_seconds": -1.9
+            },
+            {
+              "prediction": "P5",
+              "truth": "G4",
+              "tIoU": 0.5454545454545454,
+              "start_error_seconds": -0.1,
+              "end_error_seconds": -1.0666666666666667
+            },
+            {
+              "prediction": "P8",
+              "truth": "G6",
+              "tIoU": 0.8135593220338984,
+              "start_error_seconds": 0.5333333333333333,
+              "end_error_seconds": 0.2
+            }
+          ],
+          "unmatched_predictions": [
+            "P1",
+            "P4",
+            "P6",
+            "P7"
+          ],
+          "unmatched_truth": [
+            "G1",
+            "G5"
+          ]
+        },
+        "0.7": {
+          "TP": 1,
+          "FP": 7,
+          "FN": 5,
+          "precision": 0.125,
+          "recall": 0.16666666666666666,
+          "F1": 0.14285714285714288,
+          "pairs": [
+            {
+              "prediction": "P8",
+              "truth": "G6",
+              "tIoU": 0.8135593220338984,
+              "start_error_seconds": 0.5333333333333333,
+              "end_error_seconds": 0.2
+            }
+          ],
+          "unmatched_predictions": [
+            "P1",
+            "P2",
+            "P3",
+            "P4",
+            "P5",
+            "P6",
+            "P7"
+          ],
+          "unmatched_truth": [
+            "G1",
+            "G2",
+            "G3",
+            "G4",
+            "G5"
+          ]
+        }
+      },
+      "video": "/home/user/zl/third_party/policy/dataset/dataset(mask)/EGO数据-mask/S09/铅笔/11.3/cs_0001_session_20261030_185159/videos/left.mkv"
+    }
+  ]
+}
