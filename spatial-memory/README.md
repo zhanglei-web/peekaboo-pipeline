@@ -72,6 +72,8 @@ python -m spatial_memory select \
 
 `prepare-event` 总是包含事件起止帧及前后上下文。若对象接触簇已确定，可将 `contact_cluster_start_source_frame_id`、`contact_cluster_end_source_frame_id` 写入事件 spec；它们同样被保留为重要参考帧。`important_frames` 可加入动作转折、局部变化峰值或观察停顿帧，格式为 `{ "source_frame_id": 123, "tag": "change_peak" }`。如需生成对象／接触簇与变化候选，`event_frontend clip-event`、`recognize-objects`、`prepare-contact-cluster`、`rank-candidates` 提供当前前端实现。所有重要帧都只是候选，三种角色完全由 Qwen3.8-8B 从实际提交的图像中选择。模型若返回 `uncertain`，不提交几何评分。
 
+选择请求默认将每张图的最大边缩为 768，以适配多图上下文预算，保留全部候选帧。可用 `--image-max-edge` 修改，该参数写入请求身份。HTTP 失败和原始模型响应会落盘；不能把上下文超限时遗漏图像的请求当成完整三帧选择。
+
 ## 几何 q 与累计 Q
 
 对**每个**实际关联的搜索单元提供一个 job JSON：
@@ -116,4 +118,4 @@ python -m spatial_memory replay \
 
 `python -m unittest discover -s tests -v` 覆盖第一阶段引用与未知状态、三帧候选引用、合成几何并集、`max` 更新、未知值和时间截止。此处没有实际运行 Qwen3.8-8B、100DOH 或双目模型，也没有由这些单元测试得出视觉准确率。实际视频评测仍应独立人工复核三帧角色、区域关联和几何参考范围。
 
-2026-11-18 的真实输入接口测试及暂停状态见 [实测记录](docs/SMOKE_TEST_STATUS.md)。可复用脚本为 `scripts/smoke_real.py` 和 `scripts/smoke_geometry.py`；运行视频实测会调用模型服务。
+2026-11-18 的真实输入接口测试、暂停与恢复后的结果见 [实测记录](docs/SMOKE_TEST_STATUS.md)。可复用脚本为 `scripts/smoke_real.py` 和 `scripts/smoke_geometry.py`；运行视频实测会调用模型服务。`smoke_real.py --stage1-root` 可复用已有有效目录，来源单独记录，避免选帧重试时重新调用第一阶段模型。

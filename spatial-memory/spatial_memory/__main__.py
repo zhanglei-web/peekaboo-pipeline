@@ -32,6 +32,7 @@ def main():
     pick.add_argument("--output", required=True)
     pick.add_argument("--base-url", default="http://127.0.0.1:8089/v1")
     pick.add_argument("--model", default="Qwen3.8-8B")
+    pick.add_argument("--image-max-edge", type=int, default=768)
     score = sub.add_parser("score", help="Three-frame fixed-reference geometry for one associated unit")
     score.add_argument("--job", required=True)
     score.add_argument("--selection", required=True)
@@ -63,7 +64,8 @@ def main():
         event = read_json(args.candidates)
         for frame in event["candidates"]:
             frame["image"] = _relative(frame["image"], Path(args.candidates).resolve().parent)
-        select(event, read_json(args.catalog), args.output, args.base_url, model=args.model)
+        select(event, read_json(args.catalog), args.output, args.base_url, model=args.model,
+               image_max_edge=args.image_max_edge)
         return
     elif args.command == "score":
         job = read_json(args.job)
