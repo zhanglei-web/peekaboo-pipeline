@@ -2,6 +2,14 @@
 
 从原始第一人称双目视频、IMU、标定及人工事件三帧，生成场景空间关系、事件描述、时序关系和二维物体锚点的精简 JSON。
 
+## 两阶段空间记忆
+
+新增 **[spatial-memory/](spatial-memory/README.md)**：第一阶段生成候选搜索区域目录，第二阶段处理事件候选帧，由 Qwen3.8-8B 同时选择 Pre／PNR／Post，并接入几何充分性与累计记忆。安装、命令行、输入格式和代码位于该目录，使用 `cd spatial-memory && pip install -e .` 安装。
+
+该模块的 13 项单元测试通过；真实视频全链验证仍未完成，具体失败、几何组件回放与暂停状态见 [实测记录](spatial-memory/docs/SMOKE_TEST_STATUS.md)。下面的 `portable/` 文档描述视频标注入口。
+
+## 视频标注入口
+
 当前维护入口位于 **[portable/](portable/README.md)**。2026-11-12 已完成一条真实数据的全部阶段：4 个事件、12 张事件图，最终 JSON 与历史结果的核心字段一致，并通过同一 Schema 和独立证据校验。66 项自动测试通过。
 
 ```text
