@@ -157,6 +157,8 @@ python -m spatial_memory replay \
 
 2026-11-18 使用 Qwen3-VL-8B-Instruct 从三段原始录制完整运行：2,498 帧，18/18 个预测事件均完成三帧选择、数值充分性和累计记忆。检测历史缓存复用为 0，独立重放的全部单元、层级汇总和事件快照一致。19 项单元评分包括 2 项严格几何、1 项有质量警告的近似几何及 16 项视觉估计，默认值回退为 0 项。详见 [三段完整实测](docs/FULL_PIPELINE_NUMERIC_VALIDATION.md) 和 [机读摘要](docs/full_pipeline_numeric_summary.json)。
 
+新增 [事件切分、动作与三帧逐项对照](docs/event-comparison/README.md)：原始人工事件为每段 6 个，预测为 5/5/8 个。按 tIoU≥0.3 一对一匹配，11 对成功，Micro-P/R/F1=0.611；tIoU≥0.5 时 F1=0.444。图表与 18 个事件的逐项区间、动作分数、三帧和 q 均已列出。此项对照区分了事件数量相等、预测事件能处理完成与事件边界正确。
+
 25 项单元测试通过，覆盖第一阶段引用、坐标修订、三帧候选、同区域证据合并、双目换算、静态深度检查、标定 IMU、固定分母、数值降级、来源分离、max 更新与时间截止。可运行 `python scripts/verify_full_run.py /path/to/completed_run` 独立复核落盘结果。数值输出完成率不等于人工真值对照的视觉语义准确率。
 
 较早的严格几何组件测试使用已有手部检测、动作与事件缓存，记录见 [此前 8B 组件实测](docs/QWEN8B_VALIDATION.md)。
