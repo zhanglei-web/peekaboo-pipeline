@@ -62,18 +62,21 @@ def validate_selection(event, catalog, result):
     return result
 
 
-def _jpeg_data(path):
+def _jpeg_data(path, image_max_edge):
     with Image.open(path) as im:
         im = im.convert("RGB")
-        im.thumbnail((1280, 1280))
+        im.thumbnail((image_max_edge, image_max_edge))
         output = BytesIO()
         im.save(output, format="JPEG", quality=90)
     return "data:image/jpeg;base64," + base64.b64encode(output.getvalue()).decode("ascii")
 
 
-def select(event, catalog, out_dir, base_url, *, model=MODEL, api_key=None, request=None):
+def select(event, catalog, out_dir, base_url, *, model=MODEL, api_key=None, request=None,
+           image_max_edge=768):
     """Call an OpenAI-compatible local VLM; `request` permits offline integration tests."""
     validate_event(event)
+    if isinstance(image_max_edge, bool) or not isinstance(image_max_edge, int) or image_max_edge <= 0:
+        raise ValueError("image_max_edge must be a positive integer")
     if event["episode_id"] != catalog["episode_id"]:
         raise ValueError("Event and catalog episode IDs differ")
     out_dir = Path(out_dir)
@@ -94,7 +97,7 @@ def select(event, catalog, out_dir, base_url, *, model=MODEL, api_key=None, requ
         + json.dumps({"event_id": event["event_id"], "candidates": metadata,
                       "candidate_regions": regions}, ensure_ascii=False)
     )
-    descriptor = {"model": model, "event_id": event["event_id"],
+    descriptor = {"model": model, "image_max_edge": image_max_edge, "event_id": event["event_id"],
                   "episode_id": event["episode_id"], "catalog_version": catalog["catalog_version"],
                   "prompt": prompt, "images": [{"source_frame_id": c["source_frame_id"],
                                                   "sha256": sha256(c["image"])} for c in event["candidates"]]}
@@ -105,7 +108,7 @@ def select(event, catalog, out_dir, base_url, *, model=MODEL, api_key=None, requ
     content = [{"type": "text", "text": prompt}]
     for c in event["candidates"]:
         content.append({"type": "text", "text": f"source_frame_id={c['source_frame_id']}"})
-        content.append({"type": "image_url", "image_url": {"url": _jpeg_data(c["image"])}})
+        content.append({"type": "image_url", "image_url": {"url": _jpeg_data(c["image"], image_max_edge)}})
     payload = {"model": model, "messages": [{"role": "user", "content": content}],
                "temperature": 0, "seed": 42, "max_tokens": 1800,
                "chat_template_kwargs": {"enable_thinking": False},
@@ -118,10 +121,15 @@ def select(event, catalog, out_dir, base_url, *, model=MODEL, api_key=None, requ
         response = session.post(base_url.rstrip("/") + "/chat/completions", json=payload,
                                 headers={"Authorization": f"Bearer {key}"}, timeout=(10, 900),
                                 allow_redirects=False)
+        if response.status_code != 200:
+            write_json(out_dir / "selection_http_failure.json", {
+                "http_status": response.status_code, "response": response.text.replace(key, "[REDACTED]"),
+                "seconds": time.perf_counter() - start})
         response.raise_for_status()
         raw = response.json()
     else:
         raw = request(payload)
+    write_json(out_dir / "selection_raw_response.json", raw)
     if raw.get("model") != model or raw["choices"][0].get("finish_reason") != "stop":
         raise ValueError("Unexpected model or incomplete response")
     result = json.loads(raw["choices"][0]["message"]["content"])
@@ -133,6 +141,5 @@ def select(event, catalog, out_dir, base_url, *, model=MODEL, api_key=None, requ
                                        for role in ("pre", "pnr", "post")},
                    "model_seconds": time.perf_counter() - start,
                    "usage": raw.get("usage")})
-    write_json(out_dir / "selection_raw_response.json", raw)
     write_json(out_dir / "selection.json", result)
     return result

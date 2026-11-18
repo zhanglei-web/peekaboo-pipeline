@@ -31,9 +31,13 @@ def probe(recording, args, model, key):
               "full_numeric_pipeline_completed": False}
     start = time.perf_counter()
     try:
-        stage1 = output / "stage1"
-        with (output / "stage1.log").open("w") as log:
-            subprocess.run([sys.executable, "-m", "online_annotation", "initialize",
+        stage1 = (Path(args.stage1_root).resolve() / recording / "stage1"
+                  if args.stage1_root else output / "stage1")
+        result["stage1_source"] = str(stage1)
+        result["stage1_inference_this_run"] = not bool(args.stage1_root)
+        if not args.stage1_root:
+            with (output / "stage1.log").open("w") as log:
+                subprocess.run([sys.executable, "-m", "online_annotation", "initialize",
                             "--session", session, "--output", str(stage1),
                             "--candidate-mode", "brief", "--model-root", args.model_root,
                             "--base-url", args.base_url], cwd=ROOT,
@@ -73,7 +77,7 @@ def probe(recording, args, model, key):
         write_json(output / "event_spec.json", spec)
         event = prepare_event(spec, output / "candidates")
         selection = select(event, catalog, output / "selection", args.base_url,
-                           model=model, api_key=key)
+                           model=model, api_key=key, image_max_edge=args.image_max_edge)
         result.update({"event_id": eid, "candidate_count": len(event["candidates"]),
                        "selection_status": selection["status"],
                        "frames": {role: selection[role] for role in ("pre", "pnr", "post")},
@@ -115,6 +119,8 @@ def main():
     parser.add_argument("--base-url", default="http://127.0.0.1:8089/v1")
     parser.add_argument("--recordings", nargs="+", required=True)
     parser.add_argument("--output", required=True)
+    parser.add_argument("--stage1-root", help="Reuse a completed stage-one run, keeping its original receipts")
+    parser.add_argument("--image-max-edge", type=int, default=768)
     args = parser.parse_args()
     config = read_json(Path(args.model_root) / "config.json")
     key_file = Path(args.model_root) / config["api_key_file"]

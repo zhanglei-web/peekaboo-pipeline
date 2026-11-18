@@ -1,3 +1,5 @@
+import base64
+from io import BytesIO
 import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -83,7 +85,7 @@ class SpatialMemoryTests(unittest.TestCase):
     def test_selection_must_use_displayed_ordered_frames(self):
         with TemporaryDirectory() as tmp:
             image = Path(tmp) / "f.jpg"
-            Image.new("RGB", (8, 8), "white").save(image)
+            Image.new("RGB", (1600, 1000), "white").save(image)
             frames = [{"source_frame_id": i, "timestamp_s": float(i), "image": str(image),
                        "action": "unknown", "object_state": "unknown", "tags": []}
                       for i in (1, 2, 3, 4)]
@@ -94,8 +96,15 @@ class SpatialMemoryTests(unittest.TestCase):
             raw = {"model": "Qwen3.8-8B", "choices": [{"finish_reason": "stop",
                     "message": {"content": json.dumps({k: chosen[k] for k in
                     ("status", "pre", "pnr", "post", "reason", "associations")})}}]}
-            result = select(manifest, catalog(), Path(tmp) / "out", "http://unused",
-                            request=lambda payload: raw)
+            def request(payload):
+                shown = [block["image_url"]["url"] for block in payload["messages"][0]["content"]
+                         if block["type"] == "image_url"]
+                self.assertEqual(len(shown), len(frames))
+                for value in shown:
+                    submitted = Image.open(BytesIO(base64.b64decode(value.split(",", 1)[1])))
+                    self.assertLessEqual(max(submitted.size), 768)
+                return raw
+            result = select(manifest, catalog(), Path(tmp) / "out", "http://unused", request=request)
             self.assertEqual((result["pre"], result["pnr"], result["post"]), (2, 3, 4))
             chosen["pnr"] = 99
             with self.assertRaisesRegex(ValueError, "displayed"):
