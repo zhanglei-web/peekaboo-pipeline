@@ -4,9 +4,9 @@
 
 ## 两阶段空间记忆
 
-新增 **[spatial-memory/](spatial-memory/README.md)**：第一阶段生成候选搜索区域目录，第二阶段处理事件候选帧，由 Qwen3.8-8B 同时选择 Pre／PNR／Post，并接入几何充分性与累计记忆。安装、命令行、输入格式和代码位于该目录，使用 `cd spatial-memory && pip install -e .` 安装。
+新增 **[spatial-memory/](spatial-memory/README.md)**：第一阶段生成候选搜索区域目录，第二阶段处理事件候选帧，由 **Qwen3-VL-8B-Instruct** 同时选择 Pre／PNR／Post，并自动接入双目深度、物体分割、固定局部支撑占地及累计记忆。安装、命令行、输入格式和代码位于该目录，使用 `cd spatial-memory && pip install -e .` 安装。
 
-该模块的 13 项单元测试通过；真实视频全链验证仍未完成，具体失败、几何组件回放与暂停状态见 [实测记录](spatial-memory/docs/SMOKE_TEST_STATUS.md)。下面的 `portable/` 文档描述视频标注入口。
+该模块的 17 项单元测试通过。三段实际 8B 测试均生成目录与三帧，其中一段得到局部几何 `q=Q≈0.10045`，仍存在文字父区域关联歧义；另两段保留未知。范围、原始失败和验证限制见 [8B 实测记录](spatial-memory/docs/QWEN8B_VALIDATION.md)。下面的 `portable/` 文档描述视频标注入口。
 
 ## 视频标注入口
 
