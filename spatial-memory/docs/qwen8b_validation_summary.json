@@ -1,0 +1,91 @@
+{
+  "model": "Qwen3-VL-8B-Instruct",
+  "quantization": "Q8_0",
+  "weight_repository": "Qwen/Qwen3-VL-8B-Instruct-GGUF",
+  "weight_revision": "f982a07559d4a2f6c8744d840bf6fccab30eea96",
+  "source_doc": "search-event/docs/3.md",
+  "cases": [
+    {
+      "scene": "S03 耳机",
+      "recording": "cs_0001_session_20261030_184551",
+      "stage1_regions": 9,
+      "candidate_frames": 17,
+      "frames": {
+        "pre": 102,
+        "pnr": 178,
+        "post": 216
+      },
+      "selection_model": "Qwen3-VL-8B-Instruct",
+      "local_numeric_assessments": [],
+      "unknown_assessments": [
+        {
+          "unit": "cs_0001_session_20261030_184551:R001",
+          "q": null,
+          "Q": null,
+          "reason": "ValueError: No FastSAM mask matches the operated-object grounding",
+          "region_association_status": null
+        },
+        {
+          "unit": "cs_0001_session_20261030_184551:R003",
+          "q": null,
+          "Q": null,
+          "reason": "ValueError: No FastSAM mask matches the operated-object grounding",
+          "region_association_status": null
+        }
+      ]
+    },
+    {
+      "scene": "S07 数据线",
+      "recording": "cs_0001_session_20261030_192339",
+      "stage1_regions": 9,
+      "candidate_frames": 18,
+      "frames": {
+        "pre": 105,
+        "pnr": 137,
+        "post": 256
+      },
+      "selection_model": "Qwen3-VL-8B-Instruct",
+      "local_numeric_assessments": [
+        {
+          "unit": "cs_0001_session_20261030_192339:R002:support_footprint:event_001",
+          "q": 0.10044893378226712,
+          "Q": 0.10044893378226712,
+          "reason": null,
+          "region_association_status": "ambiguous_parent_region_links",
+          "recomputed_visible_union": 0.10044893378226712
+        }
+      ],
+      "unknown_assessments": []
+    },
+    {
+      "scene": "S09 铅笔",
+      "recording": "cs_0001_session_20261030_185159",
+      "stage1_regions": 9,
+      "candidate_frames": 16,
+      "frames": {
+        "pre": 58,
+        "pnr": 73,
+        "post": 116
+      },
+      "selection_model": "Qwen3-VL-8B-Instruct",
+      "local_numeric_assessments": [],
+      "unknown_assessments": [
+        {
+          "unit": "cs_0001_session_20261030_185159:R004",
+          "q": null,
+          "Q": null,
+          "reason": "ValueError: Initial operated object cannot be grounded",
+          "region_association_status": null
+        }
+      ]
+    }
+  ],
+  "runtime": {
+    "python": "3.10.22",
+    "torch": "2.14.1+cu130",
+    "timm": "1.0.30",
+    "opencv": "4.11.0",
+    "ultralytics": "8.4.208",
+    "fast_foundation_stereo_revision": "476f4249561f7c79ca707326954f9255643412a6"
+  }
+}

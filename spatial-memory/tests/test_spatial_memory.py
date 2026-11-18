@@ -82,6 +82,25 @@ class SpatialMemoryTests(unittest.TestCase):
             self.assertIsNone(state["units"]["u"]["Q"])
             self.assertEqual(state["object_summary"]["p"]["unknown_count"], 1)
 
+    def test_local_footprint_does_not_fill_parent_region_and_keeps_max_on_revisit(self):
+        first = event("e1", .4, 2, 3)
+        uid = "u:local_footprint"
+        first["selection"]["associations"][0]["candidate_id"] = uid
+        first["assessments"][0]["search_unit_id"] = uid
+        first["new_parents"] = [{"parent_id": "operated_object", "name": "box"}]
+        first["new_units"] = [{"search_unit_id": uid, "parent_id": "operated_object",
+            "source_region_id": "u", "name": "local box footprint", "region_type": "occluder_footprint",
+            "identity_anchor": "original_footprint", "boundary_description": "frozen local footprint",
+            "confirmation_basis": "geometric reference"}]
+        second = event("e2", .2, 4, 5)
+        second["selection"]["associations"][0]["candidate_id"] = uid
+        second["assessments"][0]["search_unit_id"] = uid
+        state = replay(catalog(), [first, second])
+        self.assertEqual(state["units"][uid]["Q"], .4)
+        self.assertIsNone(state["units"]["u"]["Q"])
+        self.assertEqual(state["object_summary"]["operated_object"]["Q"], .4)
+        self.assertNotIn("p", state["object_summary"])
+
     def test_selection_must_use_displayed_ordered_frames(self):
         with TemporaryDirectory() as tmp:
             image = Path(tmp) / "f.jpg"
@@ -93,7 +112,7 @@ class SpatialMemoryTests(unittest.TestCase):
                         "required_reference_frame_ids": [1, 4]}
             chosen = selected()
             chosen.update({"pre": 2, "pnr": 3, "post": 4})
-            raw = {"model": "Qwen3.8-8B", "choices": [{"finish_reason": "stop",
+            raw = {"model": "Qwen3-VL-8B-Instruct", "choices": [{"finish_reason": "stop",
                     "message": {"content": json.dumps({k: chosen[k] for k in
                     ("status", "pre", "pnr", "post", "reason", "associations")})}}]}
             def request(payload):
@@ -149,6 +168,17 @@ class SpatialMemoryTests(unittest.TestCase):
             rejected = score_job(job, selected(), root / "rejected")
             self.assertIsNone(rejected["q"])
             self.assertEqual(rejected["raw_q"], 1.0)
+            # 3.md: unknown point observations stay in the frozen denominator.
+            for path in paths.values():
+                with np.load(path, allow_pickle=False) as data:
+                    arrays = {key: data[key] for key in data.files}
+                arrays["valid"] = np.zeros((h, w), np.uint8)
+                np.savez(path, **arrays)
+            job["quality_audit"] = {"accepted": True, "reasons": []}
+            unknown = score_job(job, selected(), root / "point_unknown")
+            self.assertEqual(unknown["q"], 0.0)
+            self.assertEqual(unknown["unknown_fraction"], 1.0)
+            self.assertIn("many_reference_points_without_valid_depth", unknown["warnings"])
 
 
 if __name__ == "__main__":

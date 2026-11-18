@@ -65,6 +65,12 @@ def apply_event(state, event):
     if selection["catalog_version"] != state["catalog_version"]:
         raise ValueError("Selection refers to another catalog version")
     before = _q_snapshot(state)
+    known_parents = {p["parent_id"] for p in state["parents"]}
+    for parent in event.get("new_parents", []):
+        if parent["parent_id"] in known_parents:
+            raise ValueError("New parent group ID already exists")
+        state["parents"].append(deepcopy(parent))
+        known_parents.add(parent["parent_id"])
     for new in event.get("new_units", []):
         uid = new["search_unit_id"]
         if uid in state["units"]:
@@ -79,6 +85,7 @@ def apply_event(state, event):
                                "boundary_description": new["boundary_description"],
                                "catalog_version": state["catalog_version"],
                                "source": "event_discovery", "confirmed": True,
+                               "source_region_id": new.get("source_region_id"),
                                "searched": False, "visit_count": 0, "last_q": None,
                                "Q": 0.0, "history": [],
                                "confirmation_basis": new["confirmation_basis"]}
@@ -109,12 +116,16 @@ def apply_event(state, event):
         if assessment["status"] != "valid" and q is not None:
             raise ValueError("Uncomputable geometry must not write a numeric q")
         unit = state["units"][uid]
+        first_inspection = unit["visit_count"] == 0
         unit["confirmed"] = True
         unit["searched"] = True
         unit["visit_count"] += 1
         unit["last_q"] = q
         if q is not None:
             unit["Q"] = q if unit["Q"] is None else max(unit["Q"], q)
+        elif first_inspection:
+            # Discovery's zero is not evidence of a successfully computed inspection.
+            unit["Q"] = None
         unit["history"].append({"event_id": eid, "q": q,
                                  "status": assessment["status"],
                                  "reason": assessment.get("reason"),

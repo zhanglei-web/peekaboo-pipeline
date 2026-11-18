@@ -1,0 +1,19 @@
+{
+  "upstream": "Qwen/Qwen3-VL-8B-Instruct",
+  "quantized_repository": "Qwen/Qwen3-VL-8B-Instruct-GGUF",
+  "revision": "f982a07559d4a2f6c8744d840bf6fccab30eea96",
+  "quantization": "Q8_0",
+  "model_alias": "Qwen3-VL-8B-Instruct",
+  "files": [
+    {
+      "rfilename": "Qwen3VL-8B-Instruct-Q8_0.gguf",
+      "size": 8709519456,
+      "lfs": {"sha256": "0d264b3941185d00a74f75c4245521dae088ff1efc90ab8d1754e83f5844adb0"}
+    },
+    {
+      "rfilename": "mmproj-Qwen3VL-8B-Instruct-F16.gguf",
+      "size": 1159029824,
+      "lfs": {"sha256": "ca524100ebf825c9a870db1c580d03879e0da0ab2541697e2458e64891cf9d38"}
+    }
+  ]
+}
