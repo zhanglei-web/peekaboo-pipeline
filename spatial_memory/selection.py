@@ -10,9 +10,31 @@ from PIL import Image
 import requests
 
 from .io import sha256, write_json
+from online_annotation.contracts import object_schema
 
 
 MODEL = "Qwen3-VL-8B-Instruct"
+
+
+def merge_association_evidence(result):
+    """One spatial ID may have several frame explanations, but only one assessment."""
+    groups = {}
+    for association in result.get("associations", []):
+        if (not isinstance(association.get("candidate_id"), str)
+                or not isinstance(association.get("reason"), str) or not association["reason"]
+                or association.get("confidence") not in ("high", "medium", "low")):
+            raise ValueError("Associations require ID, reason and confidence")
+        groups.setdefault(association["candidate_id"], []).append(association)
+    merged, audit = [], []
+    rank = {"low": 0, "medium": 1, "high": 2}
+    for candidate_id, entries in groups.items():
+        reasons = list(dict.fromkeys(a["reason"] for a in entries))
+        merged.append({"candidate_id": candidate_id, "reason": "；".join(reasons),
+                       "confidence": min((a["confidence"] for a in entries), key=rank.get)})
+        if len(entries) > 1:
+            audit.append({"candidate_id": candidate_id, "original_entries": entries,
+                          "method": "combine_same_id_evidence_and_keep_lowest_confidence"})
+    return {**result, "associations": merged}, audit
 
 
 def validate_event(event):
@@ -72,7 +94,7 @@ def _jpeg_data(path, image_max_edge):
 
 
 def select(event, catalog, out_dir, base_url, *, model=MODEL, api_key=None, request=None,
-           image_max_edge=768):
+           image_max_edge=768, require_triplet=True, feedback=None):
     """Call an OpenAI-compatible local VLM; `request` permits offline integration tests."""
     validate_event(event)
     if isinstance(image_max_edge, bool) or not isinstance(image_max_edge, int) or image_max_edge <= 0:
@@ -89,17 +111,37 @@ def select(event, catalog, out_dir, base_url, *, model=MODEL, api_key=None, requ
         "你是视频事件证据标注器。按时间和动作解释每张实际显示的候选图像。"
         "同时选择三帧：Pre 显示操作前状态；PNR 显示动作展开、暴露或关键状态变化最充分且清晰的时刻；"
         "Post 显示操作结果或稳定状态。事件和接触簇起止帧是重要参考，不预设任何角色。"
-        "只能引用显示的 source_frame_id，且 Pre < PNR < Post。缺少可靠前态、过程或结果时 status=uncertain，"
-        "相应角色写 null，不编造。若疑似多个交互，在 reason 说明。"
+        "只能引用显示的 source_frame_id，且 Pre < PNR < Post。"
         "根据实际检查的空间而非仅被触碰的物体，列出关联的候选区域；不能确定时 associations 留空。"
+        "每个candidate_id只能出现一次；三帧关于同一区域的依据合并在该条reason中。"
         "只返回 JSON，字段 status(ok/uncertain), pre, pnr, post, reason, associations；"
         "associations 每项含 candidate_id, reason, confidence(high/medium/low)。\n"
         + json.dumps({"event_id": event["event_id"], "candidates": metadata,
                       "candidate_regions": regions}, ensure_ascii=False)
     )
+    if require_triplet:
+        prompt += ("\n本次需要可执行的最佳努力三帧：即使前态或结果不完整，也从已显示图像中选择最接近三个角色的三张，"
+                   "pre/pnr/post均填实际源帧号且严格递增；证据不足时status=uncertain并在reason说明，不能填null。"
+                   "三帧仍全部由你选择，不固定事件或接触簇起止帧的角色。")
+    else:
+        prompt += "\n缺失角色可填null并标记uncertain。"
+    if feedback:
+        prompt += "\n上次输出未满足引用/时间约束，请重新选择三帧：" + str(feedback)
+    frame_schema = {"type": "integer", "enum": [c["source_frame_id"] for c in event["candidates"]]}
+    if not require_triplet:
+        frame_schema = {"anyOf": [frame_schema, {"type": "null"}]}
+    candidate_ids = [r["candidate_id"] for r in catalog["regions"]]
+    association_schema = object_schema({
+        "candidate_id": {"type": "string", "enum": candidate_ids or ["no_candidate"]},
+        "reason": {"type": "string"},
+        "confidence": {"type": "string", "enum": ["high", "medium", "low"]}})
+    schema = object_schema({"status": {"type": "string", "enum": ["ok", "uncertain"]},
+        "pre": frame_schema, "pnr": frame_schema, "post": frame_schema,
+        "reason": {"type": "string"}, "associations": {"type": "array", "items": association_schema,
+                                                         "maxItems": len(candidate_ids)}})
     descriptor = {"model": model, "image_max_edge": image_max_edge, "event_id": event["event_id"],
                   "episode_id": event["episode_id"], "catalog_version": catalog["catalog_version"],
-                  "prompt": prompt, "images": [{"source_frame_id": c["source_frame_id"],
+                  "prompt": prompt, "schema": schema, "images": [{"source_frame_id": c["source_frame_id"],
                                                   "sha256": sha256(c["image"])} for c in event["candidates"]]}
     input_path = out_dir / "selection_input.json"
     if input_path.exists() and json.loads(input_path.read_text()) != descriptor:
@@ -112,7 +154,8 @@ def select(event, catalog, out_dir, base_url, *, model=MODEL, api_key=None, requ
     payload = {"model": model, "messages": [{"role": "user", "content": content}],
                "temperature": 0, "seed": 42, "max_tokens": 1800,
                "chat_template_kwargs": {"enable_thinking": False},
-               "response_format": {"type": "json_object"}}
+               "response_format": {"type": "json_schema", "json_schema": {
+                   "name": "event_triplet", "strict": True, "schema": schema}}}
     key = api_key if api_key is not None else os.environ.get("QWEN_API_KEY", "EMPTY")
     start = time.perf_counter()
     if request is None:
@@ -133,13 +176,21 @@ def select(event, catalog, out_dir, base_url, *, model=MODEL, api_key=None, requ
     if raw.get("model") != model or raw["choices"][0].get("finish_reason") != "stop":
         raise ValueError("Unexpected model or incomplete response")
     result = json.loads(raw["choices"][0]["message"]["content"])
+    result, association_audit = merge_association_evidence(result)
+    if association_audit:
+        write_json(out_dir / "association_merge_audit.json", association_audit)
     validate_selection(event, catalog, result)
+    if require_triplet:
+        ids = [result[role] for role in ("pre", "pnr", "post")]
+        if any(not isinstance(fid, int) or isinstance(fid, bool) for fid in ids) or not ids[0] < ids[1] < ids[2]:
+            raise ValueError("Best-effort selection must still choose three ordered actual frames")
     result.update({"event_id": event["event_id"], "episode_id": event["episode_id"],
                    "model": model, "catalog_version": catalog["catalog_version"],
                    "selected_frames": {role: next((c for c in event["candidates"]
                                                     if c["source_frame_id"] == result[role]), None)
                                        for role in ("pre", "pnr", "post")},
                    "model_seconds": time.perf_counter() - start,
+                   "association_evidence_merges": association_audit,
                    "usage": raw.get("usage")})
     write_json(out_dir / "selection.json", result)
     return result

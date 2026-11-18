@@ -2,11 +2,13 @@
 
 本仓库把当前代码整理为一条可检查的数据链：
 
+按用户最新要求，默认采用 **best_effort：每次检查必须输出数值**。优先计算几何覆盖；条件不足时降级为近似几何或 8B 连续视觉估计，并记录类型、依据和原因。主 `Q` 表示运行充分性估计，严格几何累计值单独保存在 `Q_geometric`。规则及全量运行方法见 [数值输出策略](docs/NUMERIC_SUFFICIENCY.md)。
+
 ```text
 录制前缀 → 第一阶段候选区域目录 → 空间记忆初态
 完整视频 → 事件区间、动作和接触证据 → 带时间戳的候选图像
 候选图像 + 目录 → Qwen3-VL-8B-Instruct 同时选择 Pre / PNR / Post 及候选区域关联
-最终三帧 + 固定参考几何 → 每个区域的几何 q → 按事件时间重放累计 Q
+最终三帧 → 几何优先、视觉估计补足的数值 q 与来源 → 按事件时间重放累计 Q
 ```
 
 `online_annotation/` 是当前第一阶段 B 版代码。`event_frontend/` 是当前 100DOH、TSM、视觉信号与 cycles 事件解码，以及对象、接触簇和图像变化候选代码。`spatial_memory/` 实现两阶段衔接、三帧选择、固定参考的几何覆盖与累计记忆。方法定义见 [第一阶段](docs/stage1_method.md)、[第二阶段](docs/stage2_method.md)、[几何评分](docs/geometry_definition.md)。
@@ -46,7 +48,7 @@ python -m spatial_memory initialize \
   --output runs/episode/initial_memory.json
 ```
 
-模型目录须包含现有本地 Qwen 服务使用的 `config.json` 和由其引用的凭据文件。可以用 `--base-url` 指向已启动服务。初态中的候选区域有身份与边界语义，`Q=null`；模型提出的框不是几何评分的分母。
+模型目录须包含本地 Qwen 服务的 `config.json` 和由其引用的凭据文件。可以用 `--base-url` 指向已启动服务。初态中的候选区域有身份与边界语义，运行 `Q=0` 表示尚未检查，`Q_geometric=null` 表示尚无几何测量；模型提出的框不是几何评分的分母。
 
 ## 第二阶段：事件到三帧
 
@@ -83,7 +85,7 @@ python -m spatial_memory select \
   --output runs/episode/event_001/selection
 ```
 
-`prepare-event` 总是包含事件起止帧及前后上下文。若对象接触簇已确定，可将 `contact_cluster_start_source_frame_id`、`contact_cluster_end_source_frame_id` 写入事件 spec；它们同样被保留为重要参考帧。`important_frames` 可加入动作转折、局部变化峰值或观察停顿帧，格式为 `{ "source_frame_id": 123, "tag": "change_peak" }`。如需生成对象／接触簇与变化候选，`event_frontend clip-event`、`recognize-objects`、`prepare-contact-cluster`、`rank-candidates` 提供当前前端实现。所有重要帧都只是候选，三种角色完全由 Qwen3-VL-8B-Instruct 从实际提交的图像中选择。模型若返回 `uncertain`，不提交几何评分。
+`prepare-event` 总是包含事件起止帧及前后上下文。若对象接触簇已确定，可将 `contact_cluster_start_source_frame_id`、`contact_cluster_end_source_frame_id` 写入事件 spec；它们同样被保留为重要参考帧。`important_frames` 可加入动作转折、局部变化峰值或观察停顿帧，格式为 `{ "source_frame_id": 123, "tag": "change_peak" }`。如需生成对象／接触簇与变化候选，`event_frontend clip-event`、`recognize-objects`、`prepare-contact-cluster`、`rank-candidates` 提供当前前端实现。所有重要帧都只是候选，三种角色完全由 Qwen3-VL-8B-Instruct 从实际提交的图像中选择。best_effort 要求模型选出三个实际引用；角色证据不足时保留 `uncertain`，继续输出带来源的视觉估计。
 
 选择请求默认将每张图的最大边缩为 768，以适配多图上下文预算，保留全部候选帧。可用 `--image-max-edge` 修改，该参数写入请求身份。HTTP 失败和原始模型响应会落盘；不能把上下文超限时遗漏图像的请求当成完整三帧选择。
 
@@ -109,7 +111,7 @@ python -m spatial_memory compile-geometry \
 
 局部物体占地作为单独的搜索单元和事件发现的物体分组保存，不把它的 q 填入整片台面或容器候选。来自多个文字区域的同一几何占地在事件内去重，并保留区域关联歧义。后续事件可通过 `--registry` 与当前记忆传入保存的参考；只有静态配准、空间重合及平面距离支持同一范围时才复用原分母。范围或内容变化时需新的累积区间，当前没有自动内容变化检测。
 
-有效参考已建立后，局部深度未知的点保留在分母、不进入分子；未知比例只作诊断，不单独丢弃连续评分。参考物体、支撑平面或配准不可建立时结果仍为不可计算。容器内部需要专门的参考几何，目前自动入口只实现外部局部支撑占地。
+有效参考已建立后，局部深度未知的点保留在分母、不进入分子；未知比例只作诊断，不单独丢弃连续评分。参考物体、支撑平面或配准不可建立时，保存严格诊断，再输出近似几何或视觉估计。容器内部尚无专门参考几何时也使用明确标记的视觉估计，其数值不称为实测几何覆盖率。
 
 ### 已有 NPZ 的组件入口
 
@@ -147,12 +149,16 @@ python -m spatial_memory replay \
   --output runs/episode/memory.json
 ```
 
-每个关联区域都要提供一条评估记录，无法计算时 `q=null` 且注明原因。`q` 是本次三帧固定参考点的**几何可见并集比例**；`Q=max(Q_previous,q)` 是同一稳定单元跨事件的历史最佳单次分数。等级标注与几何覆盖不能进入同一数值通道。未检查单元保持原状态；首次检查不可计算时仍未知。物体层等权平均已确认单元，大区层等权平均物体；未知项使主均值为 `null`，同时给出上下界。`--cutoff-s` 只读取当时已经提交的事件。修订事件须从原目录按顺序重放。
+每个关联区域都要提供一条评估记录。低层 `score` 入口保存严格几何诊断：无法计算时 `q=null` 且注明原因；自动 `compile-geometry` 的 best_effort 则继续产生近似值，保证最终 q 为数值。几何 q 是固定参考点的三帧可见并集比例；视觉 q 是声明范围上的相对充分性估计。主 `Q=max(Q_previous,q)` 保存最佳运行估计，另存 `Q_geometric`、`Q_estimated` 和当前值的 `Q_source`。物体层和大区层继续等权平均已确认单元／物体。`--cutoff-s` 只读取已提交的事件；修订从原目录按顺序重放。
 
-几何任务还须提供来自上游支撑面及跨帧审计的 `quality_audit`，并由 `prepare-geometry` 原样带入 job。只有审计明确通过且无失败原因时，诊断覆盖率才可写成有效 `q`；缺少审计、支撑面歧义、深度容差敏感或静态表面跨帧不一致时保留 `q=null`。示例中的 `accepted=true` 必须来自实际审计结果。该接口消费审计结果，本仓库尚未自动生成完整的支撑面歧义审计。
+严格几何任务使用支撑面及跨帧 `quality_audit`，由自动几何编译器生成或由 `prepare-geometry` 原样带入 job。审计通过的结果标为 valid；不通过的严格结果保留原因，best_effort 可继续使用标为 estimated 的近似值。示例中的 `accepted=true` 应来自实际审计；默认值 0 的来源也明确记录，不能充当几何测量。
 
 ## 验证范围
 
-`python -m unittest discover -s tests -v` 覆盖第一阶段引用、具名坐标修订、三帧候选、双目分辨率换算、静态深度检查、标定 IMU 方向、固定分母、`max` 更新与时间截止。2026-11-18 已实际运行 Qwen3-VL-8B-Instruct、Fast-FoundationStereo 和 FastSAM；手部检测、动作与事件区间使用已有真实缓存。该实测未给出独立视觉语义准确率，结果和失败均见 [8B 实测记录](docs/QWEN8B_VALIDATION.md)。
+2026-11-18 使用 Qwen3-VL-8B-Instruct 从三段原始录制完整运行：2,498 帧，18/18 个预测事件均完成三帧选择、数值充分性和累计记忆。检测历史缓存复用为 0，独立重放的全部单元、层级汇总和事件快照一致。19 项单元评分包括 2 项严格几何、1 项有质量警告的近似几何及 16 项视觉估计，默认值回退为 0 项。详见 [三段完整实测](docs/FULL_PIPELINE_NUMERIC_VALIDATION.md) 和 [机读摘要](docs/full_pipeline_numeric_summary.json)。
+
+25 项单元测试通过，覆盖第一阶段引用、坐标修订、三帧候选、同区域证据合并、双目换算、静态深度检查、标定 IMU、固定分母、数值降级、来源分离、max 更新与时间截止。可运行 `python scripts/verify_full_run.py /path/to/completed_run` 独立复核落盘结果。数值输出完成率不等于人工真值对照的视觉语义准确率。
+
+较早的严格几何组件测试使用已有手部检测、动作与事件缓存，记录见 [此前 8B 组件实测](docs/QWEN8B_VALIDATION.md)。
 
 2026-11-18 的真实输入接口测试、暂停与恢复后的结果见 [实测记录](docs/SMOKE_TEST_STATUS.md)。可复用脚本为 `scripts/smoke_real.py` 和 `scripts/smoke_geometry.py`；运行视频实测会调用模型服务。`smoke_real.py --stage1-root` 可复用已有有效目录，来源单独记录，避免选帧重试时重新调用第一阶段模型。
