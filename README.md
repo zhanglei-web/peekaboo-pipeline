@@ -40,6 +40,8 @@ pytest -q
 
 ## 完整文档
 
+- [六场景20录制固定测试：动作概率曲线、全部录制详情](spatial-memory/docs/multiscene-holdout-curves/README.md)
+
 - [历史高分批次事件／动作图：TSM＋规则＋Sol 选 N](spatial-memory/docs/historical-high-score/README.md)
 
 - [原始数据到最终 JSON 的完整 Pipeline](portable/docs/PIPELINE.md)
