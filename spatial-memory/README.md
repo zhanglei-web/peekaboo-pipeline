@@ -161,6 +161,8 @@ python -m spatial_memory replay \
 
 另已在相同 18 个事件与共享特征上实际运行原规则选帧，[规则 vs VLM 对照](docs/rule-vs-vlm/README.md) 包含全部帧号和时间轴。tIoU≥0.3 的匹配事件中，PNR 位于对应人工区间内为规则 6/11、VLM 8/11；tIoU≥0.5 时均为 5/8。规则有 8 组 N 与端点重合，VLM 的 N 在 18 组中均更早；这些均为时间诊断，不能当作语义准确率。
 
+历史开发/回归批次的 [event-action-overview 高分图](docs/historical-high-score/README.md) 已单独归档：三条录制、14 个预测事件，事件 F1 为 0.929@0.3、0.857@0.5、0.571@0.7。实际流程为 TSM＋规则切分、gpt-6.1-sol 只选 N、P/R 固定；该批与当前 8B 三段不是同一数据，不能按两批 F1 差异直接比较模型。
+
 25 项单元测试通过，覆盖第一阶段引用、坐标修订、三帧候选、同区域证据合并、双目换算、静态深度检查、标定 IMU、固定分母、数值降级、来源分离、max 更新与时间截止。可运行 `python scripts/verify_full_run.py /path/to/completed_run` 独立复核落盘结果。数值输出完成率不等于人工真值对照的视觉语义准确率。
 
 较早的严格几何组件测试使用已有手部检测、动作与事件缓存，记录见 [此前 8B 组件实测](docs/QWEN8B_VALIDATION.md)。
