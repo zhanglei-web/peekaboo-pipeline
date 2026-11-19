@@ -40,6 +40,8 @@ pytest -q
 
 ## 完整文档
 
+- [历史高分批次事件／动作图：TSM＋规则＋Sol 选 N](spatial-memory/docs/historical-high-score/README.md)
+
 - [原始数据到最终 JSON 的完整 Pipeline](portable/docs/PIPELINE.md)
 - [单条真实验证与修复记录](portable/docs/REAL_SAMPLE_VALIDATION.md)
 - [输入输出与坐标格式](portable/docs/DATA_FORMAT.md)
