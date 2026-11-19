@@ -1,0 +1,445 @@
+{
+  "source": "/home/user/zl/peekaboo-spatial-memory/docs/multiscene-holdout-curves/comparison.json",
+  "source_sha256": "49e511fe6cd4b0892ba8603d086d8264138101f64acc6fd9390a2ee15f20c42f",
+  "script_sha256": "5419e2aa6cd35768fa602516bae436615a5af973fe9267f7758e64217a156c51",
+  "selection": "curated qualitative strengths and limitations after evaluation",
+  "primary_threshold": 0.5,
+  "cohort_event_metrics": {
+    "0.3": {
+      "matched": 81,
+      "predictions": 114,
+      "references": 136,
+      "precision": 0.7105263157894737,
+      "recall": 0.5955882352941176,
+      "f1": 0.648,
+      "recording_bootstrap_95ci_f1": [
+        0.5652173913043478,
+        0.7272727272727273
+      ],
+      "matched_with_complete_triplet": 81,
+      "complete_triplet_per_reference": 0.5955882352941176
+    },
+    "0.5": {
+      "matched": 56,
+      "predictions": 114,
+      "references": 136,
+      "precision": 0.49122807017543857,
+      "recall": 0.4117647058823529,
+      "f1": 0.448,
+      "recording_bootstrap_95ci_f1": [
+        0.36036036036036034,
+        0.5307692307692308
+      ],
+      "matched_with_complete_triplet": 56,
+      "complete_triplet_per_reference": 0.4117647058823529
+    },
+    "0.7": {
+      "matched": 28,
+      "predictions": 114,
+      "references": 136,
+      "precision": 0.24561403508771928,
+      "recall": 0.20588235294117646,
+      "f1": 0.224,
+      "recording_bootstrap_95ci_f1": [
+        0.1643835616438356,
+        0.28125
+      ],
+      "matched_with_complete_triplet": 28,
+      "complete_triplet_per_reference": 0.20588235294117646
+    }
+  },
+  "cases": [
+    {
+      "case": {
+        "key": "184735",
+        "label": "A",
+        "kind": "优势",
+        "title": "区间定位较准，保留多次操作",
+        "focus": [
+          834,
+          969
+        ],
+        "note": "G8 / P8：tIoU = 0.934；全段 8 个真值中匹配 6 个。",
+        "pair": [
+          "P8",
+          "G8"
+        ]
+      },
+      "recording": "cs_0001_session_20261030_184735",
+      "scene": "S09",
+      "target": "记号笔",
+      "fusion": {
+        "TP": 6,
+        "FP": 2,
+        "FN": 2,
+        "precision": 0.75,
+        "recall": 0.75,
+        "F1": 0.75,
+        "pairs": [
+          {
+            "prediction": "P1",
+            "truth": "G1",
+            "tIoU": 0.6222222222222222
+          },
+          {
+            "prediction": "P2",
+            "truth": "G2",
+            "tIoU": 0.7051282051282052
+          },
+          {
+            "prediction": "P3",
+            "truth": "G3",
+            "tIoU": 0.6956521739130435
+          },
+          {
+            "prediction": "P6",
+            "truth": "G6",
+            "tIoU": 0.6020942408376964
+          },
+          {
+            "prediction": "P7",
+            "truth": "G7",
+            "tIoU": 0.6511627906976745
+          },
+          {
+            "prediction": "P8",
+            "truth": "G8",
+            "tIoU": 0.9338235294117647
+          }
+        ]
+      },
+      "visual": {
+        "TP": 4,
+        "FP": 1,
+        "FN": 4,
+        "precision": 0.8,
+        "recall": 0.5,
+        "F1": 0.6153846153846154,
+        "pairs": [
+          {
+            "prediction": "V1",
+            "truth": "G1",
+            "tIoU": 0.717948717948718
+          },
+          {
+            "prediction": "V2",
+            "truth": "G2",
+            "tIoU": 0.6111111111111112
+          },
+          {
+            "prediction": "V4",
+            "truth": "G7",
+            "tIoU": 0.7066666666666667
+          },
+          {
+            "prediction": "V5",
+            "truth": "G8",
+            "tIoU": 0.8089171974522293
+          }
+        ]
+      }
+    },
+    {
+      "case": {
+        "key": "191840",
+        "label": "B",
+        "kind": "优势",
+        "title": "减少碎片化，前三次操作逐一对应",
+        "focus": [
+          88,
+          347
+        ],
+        "note": "P1–P3 对应 G1–G3：tIoU = 0.691 / 0.675 / 0.724。",
+        "pairs": [
+          [
+            "P1",
+            "G1"
+          ],
+          [
+            "P2",
+            "G2"
+          ],
+          [
+            "P3",
+            "G3"
+          ]
+        ]
+      },
+      "recording": "cs_0001_session_20261030_191840",
+      "scene": "S07",
+      "target": "透明胶带",
+      "fusion": {
+        "TP": 3,
+        "FP": 1,
+        "FN": 2,
+        "precision": 0.75,
+        "recall": 0.6,
+        "F1": 0.6666666666666665,
+        "pairs": [
+          {
+            "prediction": "P1",
+            "truth": "G1",
+            "tIoU": 0.6909090909090909
+          },
+          {
+            "prediction": "P2",
+            "truth": "G2",
+            "tIoU": 0.675
+          },
+          {
+            "prediction": "P3",
+            "truth": "G3",
+            "tIoU": 0.7236842105263158
+          }
+        ]
+      },
+      "visual": {
+        "TP": 3,
+        "FP": 7,
+        "FN": 2,
+        "precision": 0.3,
+        "recall": 0.6,
+        "F1": 0.4,
+        "pairs": [
+          {
+            "prediction": "V1",
+            "truth": "G1",
+            "tIoU": 0.8539325842696629
+          },
+          {
+            "prediction": "V3",
+            "truth": "G2",
+            "tIoU": 0.8225806451612904
+          },
+          {
+            "prediction": "V7",
+            "truth": "G4",
+            "tIoU": 0.5853658536585366
+          }
+        ]
+      }
+    },
+    {
+      "case": {
+        "key": "185031",
+        "label": "C",
+        "kind": "优势",
+        "title": "连续操作可分离，多个边界与人工接近",
+        "focus": [
+          156,
+          607
+        ],
+        "note": "P3–P7 连续匹配 G2–G6；G5 / P6 的 tIoU = 0.817。",
+        "pairs": [
+          [
+            "P3",
+            "G2"
+          ],
+          [
+            "P4",
+            "G3"
+          ],
+          [
+            "P5",
+            "G4"
+          ],
+          [
+            "P6",
+            "G5"
+          ],
+          [
+            "P7",
+            "G6"
+          ]
+        ]
+      },
+      "recording": "cs_0001_session_20261030_185031",
+      "scene": "S01-1",
+      "target": "黄色门禁卡",
+      "fusion": {
+        "TP": 5,
+        "FP": 3,
+        "FN": 3,
+        "precision": 0.625,
+        "recall": 0.625,
+        "F1": 0.625,
+        "pairs": [
+          {
+            "prediction": "P3",
+            "truth": "G2",
+            "tIoU": 0.7361111111111112
+          },
+          {
+            "prediction": "P4",
+            "truth": "G3",
+            "tIoU": 0.7604166666666666
+          },
+          {
+            "prediction": "P5",
+            "truth": "G4",
+            "tIoU": 0.553030303030303
+          },
+          {
+            "prediction": "P6",
+            "truth": "G5",
+            "tIoU": 0.8169014084507042
+          },
+          {
+            "prediction": "P7",
+            "truth": "G6",
+            "tIoU": 0.69
+          }
+        ]
+      },
+      "visual": {
+        "TP": 3,
+        "FP": 5,
+        "FN": 5,
+        "precision": 0.375,
+        "recall": 0.375,
+        "F1": 0.375,
+        "pairs": [
+          {
+            "prediction": "V3",
+            "truth": "G2",
+            "tIoU": 0.5892857142857143
+          },
+          {
+            "prediction": "V5",
+            "truth": "G3",
+            "tIoU": 0.8
+          },
+          {
+            "prediction": "V8",
+            "truth": "G8",
+            "tIoU": 0.8602941176470589
+          }
+        ]
+      }
+    },
+    {
+      "case": {
+        "key": "184050",
+        "label": "D",
+        "kind": "局限",
+        "title": "欠切分：多个真实事件被合并",
+        "focus": [
+          512,
+          877
+        ],
+        "note": "P4 = 522–877，跨越 G5–G9；全段 9 个真值仅匹配 2 个。",
+        "merge_prediction": "P4",
+        "merge_truth": [
+          "G5",
+          "G6",
+          "G7",
+          "G8",
+          "G9"
+        ]
+      },
+      "recording": "cs_0001_session_20261030_184050",
+      "scene": "S08",
+      "target": "手机",
+      "fusion": {
+        "TP": 2,
+        "FP": 2,
+        "FN": 7,
+        "precision": 0.5,
+        "recall": 0.2222222222222222,
+        "F1": 0.30769230769230765,
+        "pairs": [
+          {
+            "prediction": "P2",
+            "truth": "G3",
+            "tIoU": 0.92
+          },
+          {
+            "prediction": "P3",
+            "truth": "G4",
+            "tIoU": 0.5128205128205128
+          }
+        ]
+      },
+      "visual": {
+        "TP": 2,
+        "FP": 4,
+        "FN": 7,
+        "precision": 0.3333333333333333,
+        "recall": 0.2222222222222222,
+        "F1": 0.26666666666666666,
+        "pairs": [
+          {
+            "prediction": "V1",
+            "truth": "G1",
+            "tIoU": 0.6730769230769231
+          },
+          {
+            "prediction": "V3",
+            "truth": "G4",
+            "tIoU": 0.9
+          }
+        ]
+      }
+    },
+    {
+      "case": {
+        "key": "185159",
+        "label": "E",
+        "kind": "局限",
+        "title": "过切分：一个真实事件被切碎",
+        "focus": [
+          330,
+          509
+        ],
+        "note": "G3 = 341–494，被 P3 / P4 分割；P4 在主门槛下未匹配。",
+        "split_truth": "G3",
+        "split_predictions": [
+          "P3",
+          "P4"
+        ]
+      },
+      "recording": "cs_0001_session_20261030_185159",
+      "scene": "S09",
+      "target": "铅笔",
+      "fusion": {
+        "TP": 4,
+        "FP": 4,
+        "FN": 2,
+        "precision": 0.5,
+        "recall": 0.6666666666666666,
+        "F1": 0.5714285714285715,
+        "pairs": [
+          {
+            "prediction": "P2",
+            "truth": "G2",
+            "tIoU": 0.5
+          },
+          {
+            "prediction": "P3",
+            "truth": "G3",
+            "tIoU": 0.5878787878787879
+          },
+          {
+            "prediction": "P5",
+            "truth": "G4",
+            "tIoU": 0.5454545454545454
+          },
+          {
+            "prediction": "P8",
+            "truth": "G6",
+            "tIoU": 0.8135593220338984
+          }
+        ]
+      },
+      "visual": {
+        "TP": 0,
+        "FP": 6,
+        "FN": 6,
+        "precision": 0.0,
+        "recall": 0.0,
+        "F1": 0.0,
+        "pairs": []
+      }
+    }
+  ]
+}
