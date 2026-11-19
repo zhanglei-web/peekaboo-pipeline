@@ -163,6 +163,8 @@ python -m spatial_memory replay \
 
 多场景固定测试见 [六场景20录制：动作概率曲线版](docs/multiscene-holdout-curves/README.md)，覆盖全部 20 条、136 个人工事件和 114 个预测事件，包含六场景总览与每条录制详情。原档主门槛 tIoU≥0.5 的 F1=0.448；宽松门槛 0.3 时 Precision=0.711、F1=0.648。该批 N 由空间变化规则选择，没有 VLM 选帧，不能与下面三条 Sol 开发/回归数据混为同一批。
 
+用于定性展示的 [三个优势与两个局限案例](docs/representative-cases/README.md) 单独整理为事件时间轴＋动作概率曲线：突出区间定位、减少碎片化、连续操作切分，并展示欠切分及过切分。所有案例保留全段指标和相同录制的仅视觉基线，精选图不替代20段总体结果。
+
 历史开发/回归批次的 [event-action-overview 高分图](docs/historical-high-score/README.md) 已单独归档：三条录制、14 个预测事件，事件 F1 为 0.929@0.3、0.857@0.5、0.571@0.7。实际流程为 TSM＋规则切分、gpt-6.1-sol 只选 N、P/R 固定；该批与当前 8B 三段不是同一数据，不能按两批 F1 差异直接比较模型。
 
 25 项单元测试通过，覆盖第一阶段引用、坐标修订、三帧候选、同区域证据合并、双目换算、静态深度检查、标定 IMU、固定分母、数值降级、来源分离、max 更新与时间截止。可运行 `python scripts/verify_full_run.py /path/to/completed_run` 独立复核落盘结果。数值输出完成率不等于人工真值对照的视觉语义准确率。
